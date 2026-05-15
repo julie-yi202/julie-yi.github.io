@@ -80,3 +80,23 @@ The default port costs are defined in the following way:
 <img width="1111" height="452" alt="Screenshot 2026-05-15 132025" src="https://github.com/user-attachments/assets/2a54923e-73a4-4f93-9789-10d256c3f8c0" />
 <img width="1102" height="464" alt="Screenshot 2026-05-15 132055" src="https://github.com/user-attachments/assets/35b1a900-7cd7-416c-8b44-2ac394cc3c36" />
 <img width="1112" height="448" alt="Screenshot 2026-05-15 132127" src="https://github.com/user-attachments/assets/bcfa5586-53ca-44c6-8593-4a81801b8e6c" />
+If you watch carefully, you will see the state cycling through the consecutive states. Gi0/0 has a poorer cost (19) and becomes Blocking. Gig0/1 is immediately elected as the root port and is in the listening state first: Then Gig0/1 changes to Learning: Finally, the topology converges and the port is in the forwarding state:
+The first part of each output describes the best path to the root and the total cost. The second part of the output lists the costs and port priorities on each interface. In this case, the total cost and the cost of Gi0/1 are the same, because DS2 is directly connected to the root bridge.
+
+# You have delved into details on how STP eliminates redundant links but your task is to optimize the network. What is the easiest way for using both parallel links between the distribution switches? A port channel.
+
+## On DS1 and DS2, configure a port channel with active LACP across the two parallel links.
+<img width="1133" height="227" alt="Screenshot 2026-05-15 133045" src="https://github.com/user-attachments/assets/04861f10-a822-45cf-a481-4dcc8a2b387b" />
+<img width="1104" height="233" alt="Screenshot 2026-05-15 133140" src="https://github.com/user-attachments/assets/c784cb1c-267d-4550-ad76-f3518019105f" />
+
+## On DS2, verify the port channel interface speed and the resulting STP cost.
+<img width="1101" height="527" alt="Screenshot 2026-05-15 133318" src="https://github.com/user-attachments/assets/095f3af0-6298-447c-bad8-57cace593cba" />
+The total speed of the port channel is 2 Mbps.
+<img width="1110" height="492" alt="Screenshot 2026-05-15 135248" src="https://github.com/user-attachments/assets/ed02f138-633f-428b-b8e3-bee4f0cf94b4" />
+
+The resulting STP cost of the 2 Mbps link is 3.
+
+## On AS2, verify the current Spanning Tree for VLAN 100.
+
+
+##
