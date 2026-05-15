@@ -37,3 +37,6 @@ PC1 (10.0.100.5) and PC2 (10.0.100.6) have been assigned to VLAN 100 and can com
 <img width="1093" height="484" alt="Screenshot 2026-05-15 124451" src="https://github.com/user-attachments/assets/51e8e27e-ca2b-4e16-8b2b-3012dd37ac92" />
 <img width="1097" height="502" alt="Screenshot 2026-05-15 124538" src="https://github.com/user-attachments/assets/7a32e732-3d91-4ba8-bd01-1d529267e0cc" />
 <img width="1122" height="502" alt="Screenshot 2026-05-15 124609" src="https://github.com/user-attachments/assets/7570c0fd-bd2b-4510-8aa2-f592c2ab7639" />
+In the Spanning Tree for VLAN 100, DS1 has a better priority (24676) than DS2 (28772) and is, therefore, elected as the root bridge.
+The access switches have the default priority 32868.
+On access switches, the interface connected to DS1 (Gi0/0) is the root port. The interface toward DS2 (Gi0/1) is the alternate port in a blocking state.
