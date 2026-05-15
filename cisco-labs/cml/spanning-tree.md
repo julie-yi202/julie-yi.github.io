@@ -32,3 +32,8 @@ PC1 (10.0.100.5) and PC2 (10.0.100.6) have been assigned to VLAN 100 and can com
 <img width="1102" height="142" alt="Screenshot 2026-05-15 123911" src="https://github.com/user-attachments/assets/5bb5883a-2de8-4366-8b82-bd1736530cdf" />
 <img width="1106" height="142" alt="Screenshot 2026-05-15 123930" src="https://github.com/user-attachments/assets/70ab99f8-7699-4c07-b93d-62c7db9d0cf5" />
 
+### Verify the spanning tree information for a VLAN in the first range, such as 100. Examine the topology on all four switches.
+<img width="1098" height="432" alt="Screenshot 2026-05-15 124359" src="https://github.com/user-attachments/assets/b58fd402-7ac7-41cf-98f4-b8d03ef77df5" />
+<img width="1093" height="484" alt="Screenshot 2026-05-15 124451" src="https://github.com/user-attachments/assets/51e8e27e-ca2b-4e16-8b2b-3012dd37ac92" />
+<img width="1097" height="502" alt="Screenshot 2026-05-15 124538" src="https://github.com/user-attachments/assets/7a32e732-3d91-4ba8-bd01-1d529267e0cc" />
+<img width="1122" height="502" alt="Screenshot 2026-05-15 124609" src="https://github.com/user-attachments/assets/7570c0fd-bd2b-4510-8aa2-f592c2ab7639" />
