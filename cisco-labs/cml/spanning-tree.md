@@ -54,3 +54,22 @@ On access switches, the interface connected to DS2 (Gi0/1) is the root port. The
 <img width="1093" height="502" alt="Screenshot 2026-05-15 130231" src="https://github.com/user-attachments/assets/ca58ec6a-2276-4a95-8a41-f9cca92d2a5a" />
 <img width="1101" height="479" alt="Screenshot 2026-05-15 130331" src="https://github.com/user-attachments/assets/16a3679d-e67c-4e37-8526-979e39b7bb7b" />
 Each distribution switch sends BPDUs for each VLAN that it is serving as the root bridge. The BPDUs are sent across the respective VLANs. In this example capture, DS1 is sending a BPDU for VLAN 39, and the BPDU is encapsulated in VLAN 39. This is an expected PVST operation.
+
+### On DS2, re-examine the spanning tree for VLAN 100. Why is Gi0/0 elected as the root port?
+<img width="1118" height="510" alt="Screenshot 2026-05-15 130908" src="https://github.com/user-attachments/assets/a495ab7e-28ce-4052-90c4-2be28cea4cdf" />
+Two ports are connected to the root bridge, Gi0/0 and Gi0/1. They have identical cost (4) and port priority (128).
+The root path cost is the sum of the port costs to the root bridge. It is inversely proportional to the bandwidth of the path. In this case, the cost across the two links is identical (4).
+Each port has a Spanning Tree port priority associated with it, with the default value of 128. Spanning Tree Port_ID is formed by adding the 4-bit port priority value (the default value of 128) to the 12-bit interface identifier. The total is 16 bits. If the costs are equal, the Port Priority number is used as the tie-breaker. In this case, the port priorities are equal (128), and the lowest interface ID identifies the best path to the root bridge. The reason G0/0 is elected as root port is that it has lowest interface ID.
+
+## Manipulate Spanning-Tree Topology
+Although you can manipulate the Spanning Tree cost and port priority using appropriate interface commands (spanning-tree cost and spanning-tree port-priority in the interface configuration mode), you will now focus on the interface speed and its impact on the spanning tree computation. In Cisco Modeling Labs, an IOSvL2 switch node is equipped with 1-Gbps interfaces. If you want to test the Spanning Tree calculation in a topology with various link speeds, you need to manipulate the interface speed.
+
+The default port costs are defined in the following way:
+
+10 Mbps Ethernet ports have a port cost of 100.
+
+100 Mbps Fast Ethernet ports have a port cost of 19.
+
+1 Gbps Ethernet ports have a port cost of 4.
+
+10 Gbps Ethernet ports have a port cost of 2.
