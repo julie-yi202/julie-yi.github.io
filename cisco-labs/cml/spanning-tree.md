@@ -73,3 +73,10 @@ The default port costs are defined in the following way:
 1 Gbps Ethernet ports have a port cost of 4.
 
 10 Gbps Ethernet ports have a port cost of 2.
+
+## On DS2, disable autonegotiation on Gi0/0 and lower the interface speed to 100 Mbps. Observe how the STP calculation cycles through the consecutive states:
+<img width="1097" height="437" alt="Screenshot 2026-05-15 131939" src="https://github.com/user-attachments/assets/28e242f8-5ede-4168-98f0-6b3f814dd0f2" />
+<img width="1118" height="482" alt="Screenshot 2026-05-15 131956" src="https://github.com/user-attachments/assets/19e0008d-37fc-40c5-9f06-22393ded2635" />
+<img width="1111" height="452" alt="Screenshot 2026-05-15 132025" src="https://github.com/user-attachments/assets/2a54923e-73a4-4f93-9789-10d256c3f8c0" />
+<img width="1102" height="464" alt="Screenshot 2026-05-15 132055" src="https://github.com/user-attachments/assets/35b1a900-7cd7-416c-8b44-2ac394cc3c36" />
+<img width="1112" height="448" alt="Screenshot 2026-05-15 132127" src="https://github.com/user-attachments/assets/bcfa5586-53ca-44c6-8593-4a81801b8e6c" />
