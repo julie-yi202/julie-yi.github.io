@@ -40,3 +40,16 @@ PC1 (10.0.100.5) and PC2 (10.0.100.6) have been assigned to VLAN 100 and can com
 In the Spanning Tree for VLAN 100, DS1 has a better priority (24676) than DS2 (28772) and is, therefore, elected as the root bridge.
 The access switches have the default priority 32868.
 On access switches, the interface connected to DS1 (Gi0/0) is the root port. The interface toward DS2 (Gi0/1) is the alternate port in a blocking state.
+
+### Verify the spanning tree information for a VLAN in the second range, such as 101.
+<img width="1118" height="523" alt="Screenshot 2026-05-15 125357" src="https://github.com/user-attachments/assets/8513322d-796d-47ca-9914-2706336c7cfa" />
+<img width="1111" height="510" alt="Screenshot 2026-05-15 125442" src="https://github.com/user-attachments/assets/ba7b2cfa-410f-4ead-b01d-8a542320024c" />
+<img width="1130" height="563" alt="Screenshot 2026-05-15 125511" src="https://github.com/user-attachments/assets/b838b9c1-44c9-47b3-9e50-5e96996c15ec" />
+<img width="1108" height="491" alt="Screenshot 2026-05-15 125539" src="https://github.com/user-attachments/assets/d2f13c4e-4c2b-4e91-9ef9-e8cfc74e082f" />
+In the Spanning Tree for VLAN 101, the roles of the distribution switches are reversed.
+As in VLAN 100, the access switches have the default priority 32868 in the SPT for VLAN 101.
+On access switches, the interface connected to DS2 (Gi0/1) is the root port. The interface toward DS1 (Gi0/0) is the alternate port in a blocking state.
+
+### Configure packet capture on the first DS1-DS2 link (Gi0/0-Gi0/0). Examine the STP BPDUs.
+<img width="1093" height="502" alt="Screenshot 2026-05-15 130231" src="https://github.com/user-attachments/assets/ca58ec6a-2276-4a95-8a41-f9cca92d2a5a" />
+<img width="1101" height="479" alt="Screenshot 2026-05-15 130331" src="https://github.com/user-attachments/assets/16a3679d-e67c-4e37-8526-979e39b7bb7b" />
