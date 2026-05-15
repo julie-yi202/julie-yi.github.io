@@ -25,5 +25,5 @@ The default mode is used on the switches: Rapid Per-VLAN STP. The selection of t
 
 ### On PC1, verify the IP addressing and test connectivity to PC2 (10.0.100.6).
 <img width="1100" height="415" alt="Screenshot 2026-05-15 122220" src="https://github.com/user-attachments/assets/f0933555-3d3b-4870-a88c-885e6c792dfa" />
-
+<img width="1099" height="508" alt="Screenshot 2026-05-15 122256" src="https://github.com/user-attachments/assets/acb7a2f1-dcfe-4166-8161-12b894f256d7" />
 
