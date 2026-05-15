@@ -53,3 +53,4 @@ On access switches, the interface connected to DS2 (Gi0/1) is the root port. The
 ### Configure packet capture on the first DS1-DS2 link (Gi0/0-Gi0/0). Examine the STP BPDUs.
 <img width="1093" height="502" alt="Screenshot 2026-05-15 130231" src="https://github.com/user-attachments/assets/ca58ec6a-2276-4a95-8a41-f9cca92d2a5a" />
 <img width="1101" height="479" alt="Screenshot 2026-05-15 130331" src="https://github.com/user-attachments/assets/16a3679d-e67c-4e37-8526-979e39b7bb7b" />
+Each distribution switch sends BPDUs for each VLAN that it is serving as the root bridge. The BPDUs are sent across the respective VLANs. In this example capture, DS1 is sending a BPDU for VLAN 39, and the BPDU is encapsulated in VLAN 39. This is an expected PVST operation.
