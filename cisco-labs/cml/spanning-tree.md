@@ -23,3 +23,7 @@ All devices have IP addresses in VLAN 100 with IP subnet 10.0.100.0/24: DS1 (10.
 <img width="1112" height="558" alt="Screenshot 2026-05-15 122026" src="https://github.com/user-attachments/assets/100c02ea-f6cf-4d22-8a9a-7fdbfe8f522f" />
 The default mode is used on the switches: Rapid Per-VLAN STP. The selection of the root bridge is currently based on the MAC addresses because no priorities have been configured. You will configure the root bridge selection priorities.
 
+### On PC1, verify the IP addressing and test connectivity to PC2 (10.0.100.6).
+<img width="1100" height="415" alt="Screenshot 2026-05-15 122220" src="https://github.com/user-attachments/assets/f0933555-3d3b-4870-a88c-885e6c792dfa" />
+
+
