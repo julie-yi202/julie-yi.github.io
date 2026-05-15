@@ -160,3 +160,4 @@ AS1 Gi0/3 has the designated role: AS2 Gi0/3 has also the designated role:
 
 ### Generate some traffic. From DS1, you may ping DS2 (10.0.100.2) several times; from PC1, ping PC2 (10.0.100.6).
 <img width="1102" height="220" alt="Screenshot 2026-05-15 144254" src="https://github.com/user-attachments/assets/044c53b0-be02-4d09-9a22-1e9d5140d94f" />
+After generating some traffic, you should observe abnormal behavior, such as loss of device control or excessive packet loss: Because of the loop created with the link between AS1 and AS2, the loop prevent the smooth network flow.
