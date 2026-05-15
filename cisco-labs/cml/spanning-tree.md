@@ -13,10 +13,10 @@ Access interfaces to PC1/PC2 are defined as access ports in VLAN 100.
 
 All devices have IP addresses in VLAN 100 with IP subnet 10.0.100.0/24: DS1 (10.0.100.1/24), DS2 (10.0.100.2/24), AS1 (10.0.100.3/24), AS2 (10.0.100.4/24), PC1 (10.0.100.5/24), PC2 (10.0.100.6/24).
 
-#Initial lab in CML
+# Initial lab in CML
 <img width="1113" height="477" alt="Screenshot 2026-05-15 120852" src="https://github.com/user-attachments/assets/f6074878-739d-47f3-a66a-9c0a3fa4eea6" />
 
 # Define VLAN range 1-200 on DS1, DS2, AS1, AS2
 <img width="1185" height="570" alt="Screenshot 2026-05-15 121854" src="https://github.com/user-attachments/assets/65885515-b4cc-4fd7-8679-29a1c3a7a42d" />
-# examine the spanning tree summary information.
+# Examine the spanning tree summary information.
 <img width="1112" height="558" alt="Screenshot 2026-05-15 122026" src="https://github.com/user-attachments/assets/100c02ea-f6cf-4d22-8a9a-7fdbfe8f522f" />
