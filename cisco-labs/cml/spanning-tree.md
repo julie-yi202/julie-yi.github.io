@@ -26,4 +26,9 @@ The default mode is used on the switches: Rapid Per-VLAN STP. The selection of t
 ### On PC1, verify the IP addressing and test connectivity to PC2 (10.0.100.6).
 <img width="1100" height="415" alt="Screenshot 2026-05-15 122220" src="https://github.com/user-attachments/assets/f0933555-3d3b-4870-a88c-885e6c792dfa" />
 <img width="1099" height="508" alt="Screenshot 2026-05-15 122256" src="https://github.com/user-attachments/assets/acb7a2f1-dcfe-4166-8161-12b894f256d7" />
+PC1 (10.0.100.5) and PC2 (10.0.100.6) have been assigned to VLAN 100 and can communicate with one another.
+
+### Next, you will divide the VLANs into two ranges: 1-100 and 101-200. For the first range, DS1 should be the primary root bridge and DS2 the secondary root bridge. Reverse the roles for the second range. You do not need to modify the priorities on the access switches.
+<img width="1102" height="142" alt="Screenshot 2026-05-15 123911" src="https://github.com/user-attachments/assets/5bb5883a-2de8-4366-8b82-bd1736530cdf" />
+<img width="1106" height="142" alt="Screenshot 2026-05-15 123930" src="https://github.com/user-attachments/assets/70ab99f8-7699-4c07-b93d-62c7db9d0cf5" />
 
