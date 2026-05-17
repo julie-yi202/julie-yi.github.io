@@ -4,4 +4,6 @@ Cisco Modeling Labs is practical for exploring network technologies and testing 
 ## Complete OSPFv3 Configuration for IPv4
 In this task, you will examine the configured OSPF topology and complete the configuration on R3. Focus on IPv4 only.
 
+### Make sure that your basic topology is loaded. Start the lab if needed.
+<img width="1003" height="580" alt="Screenshot 2026-05-16 224050" src="https://github.com/user-attachments/assets/e6763a67-4bc9-4e34-a979-830fce795837" />
 
