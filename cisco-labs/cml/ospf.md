@@ -126,8 +126,10 @@ With broken connectivity in the backbone area, you can verify that R2 is not act
 
 1. Look at which loopbacks show up as O IA
 On R1:
+
 O IA 10.0.10.0/24   via 10.0.11.1
 O IA 192.168.0.11   via 10.0.11.1
+
 The only remote router whose loopback appears as O IA is 192.168.0.11.
 
 Next‑hop is 10.0.11.1, which is in the same subnet as R1 → that’s R11(ABR1).
@@ -136,7 +138,6 @@ That tells you: R11 is the ABR for R1’s area (it’s the one bringing in inter
 
 On R3:
 
-text
 O IA 10.0.10.0/24    via 10.0.13.1
 O IA 10.0.12.0/24    via 10.0.13.1
 O IA 192.168.0.2/32  via 10.0.13.1
@@ -147,7 +148,6 @@ All those IA routes are coming through 10.0.13.1 (R2), but they belong to 192.16
 
 So R12(ABR2) is the ABR for R3’s area; R2 is just the next‑hop transit.
 2. What this implies about R2
-Notice:
 
 No router sees 192.168.0.2 (R2’s loopback) as “the” ABR identity for their area.
 
