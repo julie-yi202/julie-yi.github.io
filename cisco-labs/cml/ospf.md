@@ -30,9 +30,10 @@ The OSPFv3 process ID differs across the routers (ID 10 on the ABRs, ID 1 on R1,
 <img width="968" height="323" alt="Screenshot 2026-05-16 225816" src="https://github.com/user-attachments/assets/3143c896-833f-41c1-aab8-608e6f517f49" />
 <img width="981" height="293" alt="Screenshot 2026-05-16 225831" src="https://github.com/user-attachments/assets/1556561f-efd1-4216-adc7-a6b313c6a50b" />
 <img width="990" height="106" alt="Screenshot 2026-05-16 225847" src="https://github.com/user-attachments/assets/240f533b-b414-418a-ba3d-9a5169a04765" />
-
 Imagine that you are requested to configure R3 for OSPFv3 on R3 in Area 1. Is it feasible to have multiple instances of Area 1 in the topology? Note that Area 1 is already used between R1 and ABR1.
 
 The requested R3 settings are:
 Router ID set to Loopback 0 IPv4 address
 Area 1 configured on Loopback 0 and Gigabit Ethernet 0/0.
+### Configure OSPFv3 on R3. Add the Loopback and the active Gigabit Ethernet interface to Area 1.
+<img width="961" height="184" alt="Screenshot 2026-05-16 230657" src="https://github.com/user-attachments/assets/bf72cda2-e2f5-49fe-898d-56e169127c4d" />
