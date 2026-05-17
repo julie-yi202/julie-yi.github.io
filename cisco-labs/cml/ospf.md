@@ -79,6 +79,23 @@ It has interfaces in two or more areas, AND
 One of those areas is Area 0
 
 If a router touches multiple non‑backbone areas (like Area 1 and Area 2), it does NOT become an ABR.
+## Apply this to your R2
+Your R2 has:
 
+Gi0/1 → Area 1
+
+Gi0/0 → Area 2
+
+But no interface in Area 0.
+
+So even though it participates in two areas, it cannot be an ABR.
+
+This is why:
+
+R2 does not set the ABR bit in its Router‑LSA
+
+R2 does not originate any Type‑3 LSAs
+
+Other routers (192.168.0.11 and 192.168.0.12) are doing the ABR work
 
 
