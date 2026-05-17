@@ -62,7 +62,23 @@ The two adjacencies are operational.
 One way of verifying that R2 is not an ABR, despite its membership in Area 1 and 2 is to look for advertising routers in the interarea LSAs. R2 is not an advertising router for those LSAs, which means that it is not an ABR. An ABR is a router that has an interface in Area 0 and in at least one leaf area.
 
 Optionally, ping the loopbacks of other routers to check for any loops in the routing table. OSPF prevents the loops by enforcing the fixed hierarchy with the backbone area in the center and the leaf areas attached to the backbone.
+## Why an ABR must connect to Area 0
+OSPF’s backbone (Area 0) is the central hub for all inter‑area routing.
+OSPF requires that:
 
+All non‑backbone areas must have a path to Area 0
+
+All inter‑area LSAs (Type‑3) must be injected into Area 0 first
+
+Only routers connected to Area 0 are allowed to generate Type‑3 LSAs
+
+So a router becomes an ABR only if:
+
+It has interfaces in two or more areas, AND
+
+One of those areas is Area 0
+
+If a router touches multiple non‑backbone areas (like Area 1 and Area 2), it does NOT become an ABR.
 
 
 
