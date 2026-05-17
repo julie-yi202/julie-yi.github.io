@@ -98,4 +98,20 @@ R2 does not originate any Type‑3 LSAs
 
 Other routers (192.168.0.11 and 192.168.0.12) are doing the ABR work
 
+## Troubleshoot OSPFv3 
+In this task, you will introduce a configuration error and troubleshoot the problem by debugging OSPFv3 hellos. Focus on IPv4 only.
 
+### On ABR1, change the network type on GigabitEthernet0/0 to point-to-point.
+<img width="988" height="90" alt="Screenshot 2026-05-16 235109" src="https://github.com/user-attachments/assets/ef4d44dd-4db1-4909-8782-b29aba50262a" />
+
+### Start the packet capture on the ABR1-ABR2 link.
+<img width="996" height="315" alt="Screenshot 2026-05-16 235323" src="https://github.com/user-attachments/assets/3d0e699a-753b-4a46-bed0-bcd35a1d97c8" />
+
+### Examine the OSPF3 packets exchanged on the link. Can you see the problem?
+<img width="990" height="316" alt="Screenshot 2026-05-17 000116" src="https://github.com/user-attachments/assets/604cc642-9ab3-4e86-924c-6ca6267f2a4c" />
+ABR1 does not set the designated router and the backup designated router. This is typical for point-to-point networks.
+<img width="1011" height="301" alt="Screenshot 2026-05-17 000152" src="https://github.com/user-attachments/assets/426b3741-aa76-4b39-bdbb-380c1a414303" />
+ABR2 sets the designated router and backup designated router values to its ID and the ID of the peer, respectively. This is expected on broadcast networks. The mismatch prevents the adjacency from being established.
+Optionally, expand and examine the Options. For example, the address family (AF) bit is set. The AF bit is set for the AF extension of OSPFv3 and it must match between adjacent routers. An OSPFv2 router would not establish an adjacency with an OSPFv3 peer.
+<img width="997" height="277" alt="Screenshot 2026-05-17 000245" src="https://github.com/user-attachments/assets/c39209f7-156a-4ddf-a56d-0cb7b6791d05" />
+<img width="1008" height="325" alt="Screenshot 2026-05-17 000312" src="https://github.com/user-attachments/assets/471c042f-48b6-4ce1-89a5-44742b73ae3b" />
