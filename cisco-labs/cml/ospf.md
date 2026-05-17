@@ -167,6 +167,28 @@ R2’s loopback is just another IA prefix behind an ABR, not the ABR itself.
 
 Therefore, R2 is not an ABR.
 
+### On ABR1, enable OSPFv3 adjacency debugging and revert the network type to broadcast. Examine the debugging output.
+<img width="992" height="370" alt="Screenshot 2026-05-17 003744" src="https://github.com/user-attachments/assets/7200107e-f21a-41cb-b7a1-5ddbca13ad32" />
+<img width="995" height="165" alt="Screenshot 2026-05-17 003856" src="https://github.com/user-attachments/assets/070779d3-934d-4f6f-9b22-f03e000901dc" />
+When the network type matches across both OSPF peers, the OSPF routers go through the following seven states while building a neighbor relationship: Down state, Attempt/Init state, Two ways state, Exstart state, Exchange state, Loading state, and Full state.
+
+## Optimize OSPF
+While still focusing on IPv4, you are requested to limit the amount of the routing information in area 2 to a minimum. What option can you choose?
+
+### On ABR2, configure area 2 to be totally stubby.
+<img width="994" height="229" alt="Screenshot 2026-05-17 004208" src="https://github.com/user-attachments/assets/d30d12d8-f9ea-475b-9daf-cb469038292b" />
+A stub area does not exchange advertisements of external routes, reducing the size of the database. A totally stubby area is a stub area in which interarea prefix LSAs are not sent. A default interarea prefix LSA (0.0.0.0/0) is originated into the stub area by an Area Border Router (ABR).
+
+### Check the adjacency for ABR2-R2. Use the packet capture to compare the options exchanged in the hello packets.
+<img width="984" height="510" alt="Screenshot 2026-05-17 004709" src="https://github.com/user-attachments/assets/0c5282d2-811b-4157-a341-23638932354d" />
+ABR2 sends hellos with the external (E) bit cleared. This setting indicates that external (redistributed) routes are not flooded within this area.
+<img width="998" height="517" alt="Screenshot 2026-05-17 004736" src="https://github.com/user-attachments/assets/5f0fee2d-dd87-462e-8602-d27eb06c0fe0" />
+R2 sends hellos with the external (E) bit set, signifying the willingness to flood external routes. When the E bit differs across the peers, the adjacency will fail.
+
+### Adjust the R2 configuration to re-establish the adjacency and inject only the default interarea prefix LSA (0.0.0.0/0) into the leaf area. Which two options can you choose?
+You can configure the leaf area as stub (area 2 stub) or total stub (area 2 stub no-summary). The first option is shown here:
+<img width="991" height="117" alt="Screenshot 2026-05-17 005045" src="https://github.com/user-attachments/assets/84882f69-7783-44b7-bfcf-a90aa91432bf" />
+The totally stubby area is a Cisco proprietary extension that prevents the interarea prefix LSAs from being advertised into a leaf area. You need to configure it only on the ABR.Configuration on the leaf routers is optional as the option is negotiated with the hello packets. 
 
 
 
