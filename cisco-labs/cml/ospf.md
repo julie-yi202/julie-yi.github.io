@@ -37,3 +37,32 @@ Router ID set to Loopback 0 IPv4 address
 Area 1 configured on Loopback 0 and Gigabit Ethernet 0/0.
 ### Configure OSPFv3 on R3. Add the Loopback and the active Gigabit Ethernet interface to Area 1.
 <img width="961" height="184" alt="Screenshot 2026-05-16 230657" src="https://github.com/user-attachments/assets/bf72cda2-e2f5-49fe-898d-56e169127c4d" />
+
+### Verify the connectivity on R3. You can ping the preconfigured hostnames, especially R1, which also belongs to Area 1.
+<img width="960" height="77" alt="Screenshot 2026-05-16 230908" src="https://github.com/user-attachments/assets/79c6c8ec-ccf2-484e-9015-ac267862b7a5" />
+<img width="975" height="247" alt="Screenshot 2026-05-16 230929" src="https://github.com/user-attachments/assets/43d5e5ba-0695-4943-9d78-3b62d125c9f2" />
+<img width="965" height="108" alt="Screenshot 2026-05-16 230950" src="https://github.com/user-attachments/assets/97986afc-21c5-4af8-8be8-c46da7cdbddd" />
+Although OSPF defines that the backbone area (0) acts as the central area to which all leaf areas are connected, multiple occurrences of the same leaf area ID are possible. Next, you will examine the database for any conflicts related to the duplicate area ID 1. You can perform the verification on any ABR.
+
+### On ABR1, optionally, examine the OSPF database, focusing on the loopback IP of R3. Check if the original area ID is carried in the interarea prefix LSAs.
+<img width="968" height="370" alt="Screenshot 2026-05-16 231624" src="https://github.com/user-attachments/assets/48df284b-ce20-4cb1-a419-ac2df9b6d941" />
+<img width="963" height="368" alt="Screenshot 2026-05-16 231645" src="https://github.com/user-attachments/assets/8e2def71-c18a-4eef-8b13-ce99ed593a62" />
+The interarea prefix LSA occurs twice in the ABR database, in the backbone, and in the leaf database.
+<img width="975" height="372" alt="Screenshot 2026-05-16 231710" src="https://github.com/user-attachments/assets/debf7718-1ff6-477e-885a-ec6f831ffc96" />
+The network is advertised into Area 0 by ABR2 and into the left Area 1 by ABR1. The double occurrence of the area ID does not cause any conflicts because the originating area ID is not carried in the updates.
+
+### On R2, configure OSPFv3 Area 1 on Gig0/1, attached to R1. Do you expect R2 to become an ABR?
+<img width="988" height="121" alt="Screenshot 2026-05-16 232346" src="https://github.com/user-attachments/assets/6eb5e699-af23-409b-9b69-332d6857d5a1" />
+
+### Verify the role of R2. Note that two areas, 1 and 2, are attached to it. Focus on IPv4 only.
+<img width="891" height="346" alt="Screenshot 2026-05-16 232727" src="https://github.com/user-attachments/assets/85cfaf41-ebce-4f8a-b83e-a454c04c254b" />
+<img width="874" height="370" alt="Screenshot 2026-05-16 232744" src="https://github.com/user-attachments/assets/e9dab716-c085-4edd-bfb6-01d8ec402c0f" />
+The two adjacencies are operational.
+<img width="908" height="265" alt="Screenshot 2026-05-16 232800" src="https://github.com/user-attachments/assets/86f18391-bf8f-4165-a94b-dfab1280535f" />
+One way of verifying that R2 is not an ABR, despite its membership in Area 1 and 2 is to look for advertising routers in the interarea LSAs. R2 is not an advertising router for those LSAs, which means that it is not an ABR. An ABR is a router that has an interface in Area 0 and in at least one leaf area.
+
+Optionally, ping the loopbacks of other routers to check for any loops in the routing table. OSPF prevents the loops by enforcing the fixed hierarchy with the backbone area in the center and the leaf areas attached to the backbone.
+
+
+
+
