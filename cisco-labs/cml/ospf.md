@@ -190,5 +190,19 @@ You can configure the leaf area as stub (area 2 stub) or total stub (area 2 stub
 <img width="991" height="117" alt="Screenshot 2026-05-17 005045" src="https://github.com/user-attachments/assets/84882f69-7783-44b7-bfcf-a90aa91432bf" />
 The totally stubby area is a Cisco proprietary extension that prevents the interarea prefix LSAs from being advertised into a leaf area. You need to configure it only on the ABR.Configuration on the leaf routers is optional as the option is negotiated with the hello packets. 
 
+## Enable OSPFv3 for IPv6
+### On ABR1, set the IPv6 address on Loopback 0 to fd00::11/128 and assign the interface to OSPFv3 process 10 area 0.
+### On ABR1, enable IPv6 on Gigabit0/0 and assign it to OSPFv3 process 10 area 0. Gi0/0 points toward ABR2.
+### On ABR1, enable address-family IPv6 unicast within the OSPFv3 process.
+<img width="1018" height="243" alt="Screenshot 2026-05-17 005815" src="https://github.com/user-attachments/assets/78b52c03-533f-404b-a115-6b905c50a20e" />
+### On ABR2, set the IPv6 address on Loopback 0 to fd00::12/128 and assign the interface to OSPFv3 process 10 area 0.
+### On ABR2, enable IPv6 on Gigabit0/0 and assign it to OSPFv3 process 10 area 0. Gi0/0 points toward ABR1.
+### On ABR2, enable address-family IPv6 unicast within the OSPFv3 process.
+<img width="1014" height="309" alt="Screenshot 2026-05-17 010100" src="https://github.com/user-attachments/assets/b5d7af75-1cd7-4d36-8554-8a8053f3f8a6" />
+
+### Verify the IPv6 routing table on ABR1 and ABR2.
+<img width="985" height="230" alt="Screenshot 2026-05-17 010144" src="https://github.com/user-attachments/assets/130f5e38-06ae-46d8-8b38-d02ddad886f0" />
+<img width="984" height="216" alt="Screenshot 2026-05-17 010253" src="https://github.com/user-attachments/assets/e46f3d8f-74ac-4422-9fc0-6b0931f07a32" />
+IPv6 routing table on ABR1 includes the IPv6 loopback address of ABR2. This is a quick verification that the routing protocol exchanges the routes correctly. 
 
 
