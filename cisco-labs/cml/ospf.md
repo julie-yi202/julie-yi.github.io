@@ -120,12 +120,12 @@ ABR1
 ABR2
 
 With broken connectivity in the backbone area, you can verify that R2 is not acting as an ABR by checking routing tables on R1 and R3. They are not able to reach each other.
+
 <img width="759" height="168" alt="Screenshot 2026-05-17 002005" src="https://github.com/user-attachments/assets/050a9691-78f8-4f7c-9fdc-f5d861e2376b" />
 <img width="767" height="189" alt="Screenshot 2026-05-17 002023" src="https://github.com/user-attachments/assets/be5d5264-da8c-4060-b476-e909f6b42a6e" />
+
 1. Look at which loopbacks show up as O IA
 On R1:
-
-text
 O IA 10.0.10.0/24   via 10.0.11.1
 O IA 192.168.0.11   via 10.0.11.1
 The only remote router whose loopback appears as O IA is 192.168.0.11.
