@@ -128,6 +128,7 @@ With broken connectivity in the backbone area, you can verify that R2 is not act
 On R1:
 
 O IA 10.0.10.0/24   via 10.0.11.1
+
 O IA 192.168.0.11   via 10.0.11.1
 
 The only remote router whose loopback appears as O IA is 192.168.0.11.
@@ -139,9 +140,13 @@ That tells you: R11 is the ABR for R1’s area (it’s the one bringing in inter
 On R3:
 
 O IA 10.0.10.0/24    via 10.0.13.1
+
 O IA 10.0.12.0/24    via 10.0.13.1
+
 O IA 192.168.0.2/32  via 10.0.13.1
+
 O IA 192.168.0.12/32 via 10.0.13.1
+
 The remote loopback that clearly belongs to an ABR is 192.168.0.12/32.
 
 All those IA routes are coming through 10.0.13.1 (R2), but they belong to 192.168.0.12, not 192.168.0.2.
