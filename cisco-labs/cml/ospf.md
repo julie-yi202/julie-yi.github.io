@@ -118,3 +118,59 @@ Optionally, expand and examine the Options. For example, the address family (AF)
 ABR1
 <img width="997" height="277" alt="Screenshot 2026-05-17 000245" src="https://github.com/user-attachments/assets/c39209f7-156a-4ddf-a56d-0cb7b6791d05" />
 ABR2
+
+With broken connectivity in the backbone area, you can verify that R2 is not acting as an ABR by checking routing tables on R1 and R3. They are not able to reach each other.
+<img width="759" height="168" alt="Screenshot 2026-05-17 002005" src="https://github.com/user-attachments/assets/050a9691-78f8-4f7c-9fdc-f5d861e2376b" />
+<img width="767" height="189" alt="Screenshot 2026-05-17 002023" src="https://github.com/user-attachments/assets/be5d5264-da8c-4060-b476-e909f6b42a6e" />
+1. Look at which loopbacks show up as O IA
+On R1:
+
+text
+O IA 10.0.10.0/24   via 10.0.11.1
+O IA 192.168.0.11   via 10.0.11.1
+The only remote router whose loopback appears as O IA is 192.168.0.11.
+
+Next‑hop is 10.0.11.1, which is in the same subnet as R1 → that’s R11(ABR1).
+
+That tells you: R11 is the ABR for R1’s area (it’s the one bringing in inter‑area routes).
+
+On R3:
+
+text
+O IA 10.0.10.0/24    via 10.0.13.1
+O IA 10.0.12.0/24    via 10.0.13.1
+O IA 192.168.0.2/32  via 10.0.13.1
+O IA 192.168.0.12/32 via 10.0.13.1
+The remote loopback that clearly belongs to an ABR is 192.168.0.12/32.
+
+All those IA routes are coming through 10.0.13.1 (R2), but they belong to 192.168.0.12, not 192.168.0.2.
+
+So R12(ABR2) is the ABR for R3’s area; R2 is just the next‑hop transit.
+2. What this implies about R2
+Notice:
+
+No router sees 192.168.0.2 (R2’s loopback) as “the” ABR identity for their area.
+
+On R3, 192.168.0.2/32 itself is O IA, meaning:
+
+R2’s loopback lives in another area, and
+
+It is being brought in as inter‑area by some other ABR (ABR2), not by R2.
+
+If R2 were an ABR:
+
+You’d expect its own loopback to be the “ABR identity” seen as IA from other areas (like 192.168.0.11 and 192.168.0.12 are).
+
+Instead, the ABR identities you see are 192.168.0.11 and 192.168.0.12, not 192.168.0.2.
+
+So, from these routing tables you can reason:
+
+R11(ABR1) and R12(ABR2) are the ABRs (their loopbacks show up as IA on other routers).
+
+R2’s loopback is just another IA prefix behind an ABR, not the ABR itself.
+
+Therefore, R2 is not an ABR.
+
+
+
+
