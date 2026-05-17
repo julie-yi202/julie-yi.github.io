@@ -113,5 +113,8 @@ ABR1 does not set the designated router and the backup designated router. This i
 <img width="1011" height="301" alt="Screenshot 2026-05-17 000152" src="https://github.com/user-attachments/assets/426b3741-aa76-4b39-bdbb-380c1a414303" />
 ABR2 sets the designated router and backup designated router values to its ID and the ID of the peer, respectively. This is expected on broadcast networks. The mismatch prevents the adjacency from being established.
 Optionally, expand and examine the Options. For example, the address family (AF) bit is set. The AF bit is set for the AF extension of OSPFv3 and it must match between adjacent routers. An OSPFv2 router would not establish an adjacency with an OSPFv3 peer.
-<img width="997" height="277" alt="Screenshot 2026-05-17 000245" src="https://github.com/user-attachments/assets/c39209f7-156a-4ddf-a56d-0cb7b6791d05" />
+
 <img width="1008" height="325" alt="Screenshot 2026-05-17 000312" src="https://github.com/user-attachments/assets/471c042f-48b6-4ce1-89a5-44742b73ae3b" />
+ABR1
+<img width="997" height="277" alt="Screenshot 2026-05-17 000245" src="https://github.com/user-attachments/assets/c39209f7-156a-4ddf-a56d-0cb7b6791d05" />
+ABR2
