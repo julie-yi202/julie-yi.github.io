@@ -13,7 +13,6 @@
 ### Add a default route via 192.168.1.1, then verify it was applied.
 <img width="962" height="77" alt="Screenshot 2026-05-18 000957" src="https://github.com/user-attachments/assets/677559b9-0e13-43ba-8d45-596a04cc17dd" />
 
-### Open the Firewall console and enter the privileged mode using the password cisco. View the routing table and test IP connectivity to the Front-end server (
-192.168.1.6) and Branch-endpoint 198.51.100.3.
+### Open the Firewall console and enter the privileged mode using the password cisco. View the routing table and test IP connectivity to the Front-end server (192.168.1.6) and Branch-endpoint 198.51.100.3.
 <img width="994" height="281" alt="Screenshot 2026-05-18 001230" src="https://github.com/user-attachments/assets/1034a8cf-89ad-4d59-85f4-8d6ff3f37554" />
 <img width="973" height="203" alt="Screenshot 2026-05-18 001318" src="https://github.com/user-attachments/assets/70fbc93e-e791-43cd-8f46-47ee75e44bae" />
