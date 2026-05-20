@@ -22,3 +22,6 @@ IPsec transform set, which defines the encryption and authentication protocols a
 
 The interface to which the crypto map is applied. When traffic goes out toward the Internet-router, the access-list is matched to identify which packets must be protected.
 
+### On the Branch-router, examine the routing table and ping the VPN peer (the firewall outside the interface):
+<img width="959" height="464" alt="Screenshot 2026-05-20 140132" src="https://github.com/user-attachments/assets/1ce22c4c-1bce-4257-9657-cad0cdff4a2c" />
+The routing table must provide reachability information for the VPN peer address and also for the remote site subnet, in this case 192.168.0.0/24. In this scenario, the default route provides both.
