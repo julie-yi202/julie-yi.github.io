@@ -27,3 +27,9 @@ The interface to which the crypto map is applied. When traffic goes out toward t
 <img width="959" height="464" alt="Screenshot 2026-05-20 140132" src="https://github.com/user-attachments/assets/1ce22c4c-1bce-4257-9657-cad0cdff4a2c" />
 
 The routing table must provide reachability information for the VPN peer address and also for the remote site subnet, in this case 192.168.0.0/24. In this scenario, the default route provides both.
+
+### Examine the crypto map and routing configuration on the Firewall.
+<img width="962" height="452" alt="Screenshot 2026-05-20 140508" src="https://github.com/user-attachments/assets/4935460b-70ff-4c5e-8efe-9c1edf19dbdf" />
+
+The configuration in the crypto map on the Firewall mirrors the crypto map on the Branch-router, although the configuration syntax is different.
+The default route provides the reachability information to the VPN peer and remote subnet.
