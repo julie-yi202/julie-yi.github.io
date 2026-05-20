@@ -82,3 +82,58 @@ The IKEv2 SA is established. You can see the protection parameters for the messa
 
 The inbound and outbound ESP SAs are established.
 
+## Compare IPsec Configurations on Cisco IOS and ASAv
+In this task, you will examine the configuration on both VPN peers. Optionally, you can also verify the settings using various show commands.
+### On the Branch-router, examine the IKEv2 proposal.
+<img width="962" height="92" alt="Screenshot 2026-05-20 150424" src="https://github.com/user-attachments/assets/84243208-9463-424a-b239-6446a6a28d64" />
+
+An IKEv2 proposal is a collection of transforms used in the negotiation of IKE SAs as part of the IKE_SA_INIT exchange. The transform types used in the negotiation include the encryption algorithm, integrity algorithm, pseudo-random function (PRF) algorithm, and Diffie-Hellman (DH) group. You must configure at least one encryption algorithm, one integrity algorithm, and one DH group for the proposal to be complete. The PRF algorithm is the same as the integrity algorithm, and therefore, it is not configured separately. Multiple transforms can be configured and proposed by the initiator for encryption, integrity, and group, of which one transform is selected by the responder. When multiple transforms are configured for a transform type, the order of priority is from left to right.
+
+Apart from the configured custom proposal, a default IKE2 proposal comes out-of-the-box and can be examined below:
+<img width="955" height="212" alt="Screenshot 2026-05-20 150534" src="https://github.com/user-attachments/assets/a9225998-1b19-4735-88fe-2316d3cb23f5" />
+
+<img width="966" height="98" alt="Screenshot 2026-05-20 150637" src="https://github.com/user-attachments/assets/6b9d5538-aa1a-452a-b7eb-cd0ad5f05416" />
+
+An IKEv2 policy contains proposals that are used to negotiate the encryption, integrity, PRF algorithms, and DH group in an SA_INIT exchange. It can have match statements, which are used as selection criteria to select a policy during negotiation.
+
+Apart from the configured policy, the default IKE2 policy is shown below:
+<img width="955" height="212" alt="Screenshot 2026-05-20 150723" src="https://github.com/user-attachments/assets/f26bd69f-cb67-4180-9f11-c748e433b096" />
+### On the Firewall, examine the IKEv2 policy.
+<img width="959" height="169" alt="Screenshot 2026-05-20 151030" src="https://github.com/user-attachments/assets/8df2de6a-c44c-42d8-bf94-81153c5a9241" />
+
+On the ASAv, an IKEv2 policy is equivalent to the IKEv2 proposal and policy on Cisco IOS. You can view it using the following command:
+### On the Branch-router, examine the IKEv2 profile.
+<img width="981" height="157" alt="Screenshot 2026-05-20 151243" src="https://github.com/user-attachments/assets/ce66f9c4-e16a-4466-ab46-9fed83253792" />
+
+An IKEv2 profile is a repository of the nonnegotiable parameters of the IKE SA, such as local or remote identities and authentication methods and the services that are available to the authenticated peers that match the profile. An IKEv2 profile must be attached to either a crypto map or IPsec profile on both the IKEv2 initiator and responder.
+
+You can examine the IKEv2 profile using the following command:
+<img width="948" height="452" alt="Screenshot 2026-05-20 151349" src="https://github.com/user-attachments/assets/1140367b-0b28-4395-b1dc-c90a4fbc750a" />
+
+### On the Firewall, examine the tunnel group.
+<img width="968" height="85" alt="Screenshot 2026-05-20 151736" src="https://github.com/user-attachments/assets/6f4052cc-0a1f-470e-b301-9355e19cf92d" />
+
+The configuration commands differ between Cisco IOS routers and ASA, but both platforms support similar IPsec and IKEv2 settings.
+### On the Branch-router, examine the IPsec transform-set.
+<img width="970" height="87" alt="Screenshot 2026-05-20 151949" src="https://github.com/user-attachments/assets/f5da4f48-2ef4-4c36-a839-d45af46215ee" />
+
+The IPsec transform set defines the protection parameters for Phase 2, to be applied to interesting traffic to be protected. You can view all transform-sets using the following command:
+<img width="951" height="156" alt="Screenshot 2026-05-20 152032" src="https://github.com/user-attachments/assets/444433f5-d060-4dd7-ba89-ed3e06c45814" />
+
+A transform-set default is preconfigured for IPsec transport mode.
+### On the Firewall, examine the IPsec transform-set.
+<img width="966" height="50" alt="Screenshot 2026-05-20 152247" src="https://github.com/user-attachments/assets/da1ff15f-627d-46a0-8a73-7cd1eab81e4a" />
+
+### On the Branch-router, examine the crypto map and the interesting traffic ACL.
+<img width="964" height="377" alt="Screenshot 2026-05-20 152531" src="https://github.com/user-attachments/assets/66eeeaaf-0b47-45ed-a924-f69106a571c0" />
+<img width="967" height="48" alt="Screenshot 2026-05-20 152552" src="https://github.com/user-attachments/assets/8341159b-212b-422c-b124-e6e947db1172" />
+
+The crypto map gathers the IKEv2 and IPsec parameters and attaches the crypto functionality to an interface.
+### Verify the crypto map and the interesting traffic ACL on the Firewall.
+<img width="959" height="85" alt="Screenshot 2026-05-20 152857" src="https://github.com/user-attachments/assets/842c412b-dc2c-4d8b-8554-1463fc9062ac" />
+<img width="962" height="31" alt="Screenshot 2026-05-20 152806" src="https://github.com/user-attachments/assets/c49c8fd6-47ab-46f3-992c-0e391b6c4127" />
+
+## Troubleshoot IPsec Operation
+In this task, you will change the IKEv2 proposal on the Branch-router, to make it different from the Firewall, and debug the IKEv2 exchange.
+### On the Branch-router, change the Diffie-Hellman group in the IKEv2 proposal to group 5.
+<img width="975" height="84" alt="Screenshot 2026-05-20 153333" src="https://github.com/user-attachments/assets/3696852d-2ecf-4fb8-8b96-d64321bb93f0" />
