@@ -7,4 +7,18 @@ In this task, you can complete several verification steps that are helpful for t
 
 ### Open the consoles of the VPN devices, Branch-router, Firewall, and Internet-router. Go to the privileged mode.
 ### On the Branch-router, examine the crypto map.
+<img width="961" height="383" alt="Screenshot 2026-05-20 135413" src="https://github.com/user-attachments/assets/6116afdd-0106-49cb-991c-274666dd20cb" />
+The most important settings in a crypto map include:
+
+The peer, which identifies the remote tunnel headend. In this case, it is the Firewall's outside interface IP address.
+
+IKEv2 profile, which defines the local and remote identities and IKEv2 authentication method.
+
+Interesting traffic, which is defined with an extended ACL. In this case, all traffic from the Branch network 172.16.0.0/24 to the remote subnet 192.168.0.0/24 will be encrypted.
+
+Tunnel negotiation parameters, such as perfect forward secrecy (PFS) and Diffie-Hellman (DH) group.
+
+IPsec transform set, which defines the encryption and authentication protocols applied to the protected traffic.
+
+The interface to which the crypto map is applied. When traffic goes out toward the Internet-router, the access-list is matched to identify which packets must be protected.
 
