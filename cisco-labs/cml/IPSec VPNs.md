@@ -45,4 +45,23 @@ The Internet-router knows only its directly connected routes, providing connecti
 There are no IKEv2 SAs because no interesting traffic has been exchanged and the IKEv2 negotiation has not been triggered. The Internet Key Exchange (IKE) is used to set up a secure and authenticated communication channel between two VPN peers. This is known as Phase 1. The main role of IKE is to negotiate IPsec security associations, allowing the traffic to be protected. The negotiation of the IPsec SAs is known as Phase 2.
 
 ### On the Branch-router, check the IPsec security associations before sending traffic through the tunnel.
+<img width="465" height="365" alt="Screenshot 2026-05-20 142754" src="https://github.com/user-attachments/assets/70e241c6-7bf7-44ed-b070-6a40e4d97d10" />
+
+You can see the interesting traffic definition but the packet counters should be "0." There are no outbound or inbound SAs. The IPsec SAs have not yet been negotiated but Cisco IOS routers display the interesting traffic description as it is already known. One set of counters describes the outgoing traffic: encapsulated with the tunnel header, encrypted, and authenticated (computed digest message). The next set of counters describes the incoming traffic (decapsulated, decrypted, and with verified message digest). The remaining counters refer to the compression.
+
+### Check the IKEv2 and IPsec SAs on the Firewall.
+<img width="972" height="113" alt="Screenshot 2026-05-20 143135" src="https://github.com/user-attachments/assets/fd8a792e-6675-455b-b603-0ceb763c15a4" />
+
+The Firewall does not display any IPsec security associations.
+
+### Open the consoles of Branch-endpoint and Inside-endpoint. Log in as cisco/cisco. On the Branch-endpoint, check the IP addressing and routing information and ping the remote endpoint 192.168.0.1. Keep the ping running to monitor the packet counters on the IPsec SAs.
+<img width="969" height="201" alt="Screenshot 2026-05-20 143711" src="https://github.com/user-attachments/assets/0d159bff-a46f-411a-8e76-992203fce106" />
+
+<img width="953" height="114" alt="Screenshot 2026-05-20 143742" src="https://github.com/user-attachments/assets/a6466683-f7e1-42e3-9a09-df6a118e160d" />
+
+The default gateway, 172.16.0.254, is the Branch-router.
+<img width="953" height="192" alt="Screenshot 2026-05-20 143856" src="https://github.com/user-attachments/assets/97c39201-77ed-4870-8f28-476ae8803121" />
+
+The traffic is flowing through the tunnel, otherwise it would be dropped by the Internet-router, which does not know the remote networks.
+
 
