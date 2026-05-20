@@ -73,3 +73,12 @@ The IKEv2 SA is established. You can think of it as a secure channel to negotiat
 <img width="958" height="222" alt="Screenshot 2026-05-20 145228" src="https://github.com/user-attachments/assets/aebfdcc6-fd02-4904-9fc8-430c3e68d706" />
 
 The inbound and outbound Encapsulating Security Payload (ESP) SAs are established. In contrast to the Authentication Header (AH) (not used in this scenario), ESP provides authentication and encryption.
+### Verify the IKEv2 and IPsec SAs on the Firewall.
+<img width="968" height="241" alt="Screenshot 2026-05-20 145521" src="https://github.com/user-attachments/assets/98d72293-e914-4248-a36e-9ac6deb8365c" />
+
+The IKEv2 SA is established. You can see the protection parameters for the message exchange.
+<img width="960" height="465" alt="Screenshot 2026-05-20 145718" src="https://github.com/user-attachments/assets/00fce5bd-978c-4163-a425-2afba499d2f7" />
+<img width="958" height="315" alt="Screenshot 2026-05-20 145737" src="https://github.com/user-attachments/assets/544c5015-f32f-471c-a1eb-73ec14e6e7f2" />
+
+The inbound and outbound ESP SAs are established.
+
