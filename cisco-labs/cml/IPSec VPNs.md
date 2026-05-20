@@ -137,3 +137,36 @@ The crypto map gathers the IKEv2 and IPsec parameters and attaches the crypto fu
 In this task, you will change the IKEv2 proposal on the Branch-router, to make it different from the Firewall, and debug the IKEv2 exchange.
 ### On the Branch-router, change the Diffie-Hellman group in the IKEv2 proposal to group 5.
 <img width="975" height="84" alt="Screenshot 2026-05-20 153333" src="https://github.com/user-attachments/assets/3696852d-2ecf-4fb8-8b96-d64321bb93f0" />
+
+### Check if the ping on the Branch-endpoint is still running and verify the IKE2 and IPsec SAs. Can you explain the situation?
+
+Answer
+The traffic is still running because the IPsec SAs are still established. The IKEv2 SA is still using the previous settings.
+### Clear the IKEv2 and IPsec SAs on a tunnel endpoint.
+<img width="967" height="95" alt="Screenshot 2026-05-20 153848" src="https://github.com/user-attachments/assets/d2e2e9e1-b7cd-4d4a-916d-1ce34d1937fa" />
+
+When preparing for IPsec debugging, be careful when sending debugging information to the console because it may overwhelm the system. Instead, send the debugging information to the buffer or a terminal line to save the CPU. In this task, you will examine the debugging information over terminal connections.
+### Verify if the ping continues.
+<img width="954" height="231" alt="Screenshot 2026-05-20 154025" src="https://github.com/user-attachments/assets/b9c2d354-b237-4e1a-8cd4-4aa45ca4a820" />
+
+You should see that VPN connectivity is interrupted.
+### Open the console to the Internet-router, log in as cisco/cisco. Connect via SSH to the branch-router with username cisco and password cisco. Enter the privileged mode and run the terminal monitor command.
+<img width="956" height="442" alt="Screenshot 2026-05-20 154306" src="https://github.com/user-attachments/assets/c55d6741-a4e7-4d9d-afcd-3a027ed9b2ac" />
+
+The benefit of debugging via the terminal session is that if there is a logging overload, you will be able to stop debugging through the console.
+### In the terminal SSH session to the Branch-router, run the debug crypto ikev2 command. Analyze the output. Stop debugging when you capture sufficient information.
+<img width="953" height="502" alt="Screenshot 2026-05-20 154635" src="https://github.com/user-attachments/assets/e3d847f8-9374-4c2b-87cf-ff6ff7e35d72" />
+<img width="953" height="474" alt="Screenshot 2026-05-20 154653" src="https://github.com/user-attachments/assets/bae48f2b-2228-4e54-8b41-aea00e0fc3c2" />
+<img width="942" height="232" alt="Screenshot 2026-05-20 154712" src="https://github.com/user-attachments/assets/3a941a5a-6ae8-463e-b51c-242be27437f5" />
+
+The debugging output says that the Branch-router sent an IKEv2 request and received a response. The response included the notification NO_PROPOSAL_CHOSEN. This is because the peers cannot agree upon a common IKEv2 protection set.
+
+Next, you will fix the IKEv2 mismatch.
+### On the Branch-router, revert the Diffie-Hellman group in the IKEv2 proposal to 14 to allow the tunnel to be re-established.
+<img width="966" height="172" alt="Screenshot 2026-05-20 155353" src="https://github.com/user-attachments/assets/07a303f6-7ca3-4589-ab38-b8adbf18fc42" />
+
+### Optionally, perform any other debugging of your own choice. This optional step completes the lab exercise.
+From the Inside-endpoint, you can open an SSH session to the Firewall (192.168.0.254). Use the password cisco to log on and to enter the privileged mode.
+<img width="950" height="257" alt="Screenshot 2026-05-20 155759" src="https://github.com/user-attachments/assets/cc045e23-6593-42da-b289-d6194e357104" />
+
+You can ssh into Firewall successfully.
