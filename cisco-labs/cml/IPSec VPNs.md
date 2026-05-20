@@ -64,4 +64,11 @@ The default gateway, 172.16.0.254, is the Branch-router.
 
 The traffic is flowing through the tunnel, otherwise it would be dropped by the Internet-router, which does not know the remote networks.
 
+### Verify the IKEv2 SAs on the Branch-router.
+<img width="965" height="201" alt="Screenshot 2026-05-20 144334" src="https://github.com/user-attachments/assets/488f0ef6-4582-47ca-9a41-52d1f39852b5" />
 
+The IKEv2 SA is established. You can think of it as a secure channel to negotiate the IPsec SAs (Phase 2).
+### Verify the IPsec SAs on the Branch-router.
+<img width="969" height="414" alt="Screenshot 2026-05-20 144858" src="https://github.com/user-attachments/assets/9f864a7e-d216-41ce-9919-895540528939" />
+
+The inbound and outbound Encapsulating Security Payload (ESP) SAs are established. In contrast to the Authentication Header (AH) (not used in this scenario), ESP provides authentication and encryption.
