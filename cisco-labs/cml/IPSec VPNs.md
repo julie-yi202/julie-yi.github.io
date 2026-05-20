@@ -8,6 +8,7 @@ In this task, you can complete several verification steps that are helpful for t
 ### Open the consoles of the VPN devices, Branch-router, Firewall, and Internet-router. Go to the privileged mode.
 ### On the Branch-router, examine the crypto map.
 <img width="961" height="383" alt="Screenshot 2026-05-20 135413" src="https://github.com/user-attachments/assets/6116afdd-0106-49cb-991c-274666dd20cb" />
+
 The most important settings in a crypto map include:
 
 The peer, which identifies the remote tunnel headend. In this case, it is the Firewall's outside interface IP address.
@@ -24,4 +25,5 @@ The interface to which the crypto map is applied. When traffic goes out toward t
 
 ### On the Branch-router, examine the routing table and ping the VPN peer (the firewall outside the interface):
 <img width="959" height="464" alt="Screenshot 2026-05-20 140132" src="https://github.com/user-attachments/assets/1ce22c4c-1bce-4257-9657-cad0cdff4a2c" />
+
 The routing table must provide reachability information for the VPN peer address and also for the remote site subnet, in this case 192.168.0.0/24. In this scenario, the default route provides both.
