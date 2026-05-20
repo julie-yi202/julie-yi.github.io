@@ -39,3 +39,10 @@ The default route provides the reachability information to the VPN peer and remo
 
 The Internet-router knows only its directly connected routes, providing connectivity between the VPN peers. The remote subnets, 172.16.0.0/24 and 192.168.0.0/24, are missing. Packets destined to these subnets would be dropped. You will see the traffic flowing through the VPN tunnel because the interesting traffic is encapsulated in an ESP header. The outer IP addresses of the tunneled traffic will be set to the VPN peer IP addresses.
 
+### On the Branch-router, check the IKEv2 security associations (SAs) before sending traffic through the tunnel.
+<img width="962" height="122" alt="Screenshot 2026-05-20 141100" src="https://github.com/user-attachments/assets/cdb8d251-79bc-4862-a24c-e416b10b143d" />
+
+There are no IKEv2 SAs because no interesting traffic has been exchanged and the IKEv2 negotiation has not been triggered. The Internet Key Exchange (IKE) is used to set up a secure and authenticated communication channel between two VPN peers. This is known as Phase 1. The main role of IKE is to negotiate IPsec security associations, allowing the traffic to be protected. The negotiation of the IPsec SAs is known as Phase 2.
+
+### On the Branch-router, check the IPsec security associations before sending traffic through the tunnel.
+
