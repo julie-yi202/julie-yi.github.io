@@ -70,5 +70,6 @@ The traffic is flowing through the tunnel, otherwise it would be dropped by the 
 The IKEv2 SA is established. You can think of it as a secure channel to negotiate the IPsec SAs (Phase 2).
 ### Verify the IPsec SAs on the Branch-router.
 <img width="973" height="483" alt="Screenshot 2026-05-20 145059" src="https://github.com/user-attachments/assets/1ea07cf4-4ef4-4433-b148-2227d45060a9" />
+<img width="958" height="222" alt="Screenshot 2026-05-20 145228" src="https://github.com/user-attachments/assets/aebfdcc6-fd02-4904-9fc8-430c3e68d706" />
 
 The inbound and outbound Encapsulating Security Payload (ESP) SAs are established. In contrast to the Authentication Header (AH) (not used in this scenario), ESP provides authentication and encryption.
