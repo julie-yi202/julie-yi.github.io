@@ -34,4 +34,8 @@ The routing table must provide reachability information for the VPN peer address
 The configuration in the crypto map on the Firewall mirrors the crypto map on the Branch-router, although the configuration syntax is different.
 The default route provides the reachability information to the VPN peer and remote subnet.
 
+### view the routing table on the Internet-router.
+<img width="959" height="382" alt="Screenshot 2026-05-20 140853" src="https://github.com/user-attachments/assets/cd614e82-121a-4613-98a5-7d4f6cbb0a80" />
+
+The Internet-router knows only its directly connected routes, providing connectivity between the VPN peers. The remote subnets, 172.16.0.0/24 and 192.168.0.0/24, are missing. Packets destined to these subnets would be dropped. You will see the traffic flowing through the VPN tunnel because the interesting traffic is encapsulated in an ESP header. The outer IP addresses of the tunneled traffic will be set to the VPN peer IP addresses.
 
