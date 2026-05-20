@@ -33,3 +33,5 @@ The routing table must provide reachability information for the VPN peer address
 
 The configuration in the crypto map on the Firewall mirrors the crypto map on the Branch-router, although the configuration syntax is different.
 The default route provides the reachability information to the VPN peer and remote subnet.
+
+
