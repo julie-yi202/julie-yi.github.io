@@ -143,3 +143,45 @@ Mimikatz (opens in new tab)is a well-known tool used for extracting passwords, h
 <img width="871" height="851" alt="Screenshot 2026-05-20 230926" src="https://github.com/user-attachments/assets/b58c1630-5ded-4e61-866e-fc12cbc8cb93" />
 
 This is part of the credentials that harvested from the mimikatz.
+
+## Windows Credential Manager
+Credential Manager is a Windows feature that stores logon-sensitive information for websites, applications, and networks. It contains login credentials such as usernames, passwords, and internet addresses. There are four credential categories:
+
+Web credentials contain authentication details stored in Internet browsers or other applications.
+Windows credentials contain Windows authentication details, such as NTLM or Kerberos.
+Generic credentials contain basic authentication details, such as clear-text usernames and passwords.
+Certificate-based credentials: These are authentication details based on certificates.
+
+Note that authentication details are stored on the user's folder and are not shared among Windows user accounts. However, they are cached in memory.
+### Accessing Credential Manager
+<img width="801" height="523" alt="Screenshot 2026-05-20 232149" src="https://github.com/user-attachments/assets/b791b45f-c104-4e13-8e23-e75ae6c889dc" />
+
+Listing the Available Credentials from the Credentials Manager
+<img width="861" height="204" alt="Screenshot 2026-05-20 231745" src="https://github.com/user-attachments/assets/edaaf85d-8d8a-483f-a687-1199e95fe672" />
+
+By default, Windows has two vaults, one for Web and the other one for Windows machine credentials. The above output confirms that we have the two default vaults.
+Checking if there Are any Stored Credentials in the "Web Credentials."
+<img width="887" height="168" alt="Screenshot 2026-05-20 231816" src="https://github.com/user-attachments/assets/801d85d8-5fc1-486f-9ef2-25ba338e4ad3" />
+
+Listing Credentials Details for "Web Credentials"
+<img width="886" height="201" alt="Screenshot 2026-05-20 231900" src="https://github.com/user-attachments/assets/bbc05840-f795-40d6-9ad5-a17b7122f85d" />
+
+### Credential Dumping
+
+The VaultCmd is not able to show the password, but we can rely on other PowerShell Scripts such as Get-WebCredentials.ps1(opens in new tab), which is already included in the attached VM.
+<img width="869" height="223" alt="Screenshot 2026-05-20 232027" src="https://github.com/user-attachments/assets/d9a4d08e-f824-44e6-a705-fe87ca9b3769" />
+
+### RunAs
+An alternative method of taking advantage of stored credentials is by using RunAs. RunAs is a command-line built-in tool that allows running Windows applications or tools under different users' permissions. The RunAs tool has various command arguments that could be used in the Windows system. The /savecred argument allows you to save the credentials of the user in Windows Credentials Manager (under the Windows Credentials section). So, the next time we execute as the same user, runas will not ask for a password.
+
+Enumerating for Stored Windows Credentials
+<img width="887" height="259" alt="Screenshot 2026-05-20 233616" src="https://github.com/user-attachments/assets/7efa42f6-4015-4c3a-a0d6-00dce20044d3" />
+
+Run CMD.exe As a User with the /savecred argument
+<img width="881" height="57" alt="Screenshot 2026-05-20 233903" src="https://github.com/user-attachments/assets/faca6e41-2713-413a-9745-5432b19a3f7f" />
+
+### Mimikatz
+
+Mimikatz is a tool that can dump clear-text passwords stored in the Credential Manager from memory. The steps are similar to those shown in the previous section (Memory dump), but we can specify to show the credentials manager section only this time.
+<img width="886" height="800" alt="Screenshot 2026-05-20 234241" src="https://github.com/user-attachments/assets/d98136ea-9e87-4804-8fe9-d1a975f0a62b" />
+<img width="887" height="307" alt="Screenshot 2026-05-20 234410" src="https://github.com/user-attachments/assets/dda49992-853b-47a0-a337-508f09532746" />
