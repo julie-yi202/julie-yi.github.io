@@ -114,3 +114,8 @@ Save SAM and SYSTEM files from the registry
 Decrypting SAM Database using Impacket SecretsDump Script Locally
 <img width="840" height="251" alt="Screenshot 2026-05-20 223420" src="https://github.com/user-attachments/assets/e327ac6b-fbfe-469f-bdf1-97c2a85b2d08" />
 
+Note that we used the SAM and System files that we extracted from Windows Registry. The -sam argument is to specify the path for the dumped sam file from the Windows machine. The -system argument is for a path for the system file. We used the LOCAL argument at the end of the command to decrypt the Local SAM file as this tool handles other types of decryption. 
+
+Note if we compare the output against the NTLM hashes we got from Metasploit's Hashdump, the result is different. The reason is the other accounts belong to Active Directory, and their information is not stored in the System file we have dumped. To Decrypt them, we need to dump the SECURITY file from the Windows file, which contains the required files to decrypt Active Directory accounts.
+
+Once we obtain NTLM hashes, we can try to crack them using Hashcat if they are guessable, or we can use different techniques to impersonate users using the hashes.
