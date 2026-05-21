@@ -31,7 +31,7 @@ Clear-text files
 
 Database files
 
-Memory
+Memory Dump
 
 Password managers 
 
@@ -40,6 +40,7 @@ Password managers
                     Third-party: KeePass, 1Password, LastPass
 
 Enterprise Vaults 
+
                     Clear-text credentials
                   
                     Cached passwords
@@ -47,6 +48,7 @@ Enterprise Vaults
                     AD Tickets
 
 Active Directory 
+
                    Users' description: Administrators set a password in the description for new employees and leave it there, which makes the account vulnerable to                          unauthorized access. 
 
                    Group Policy SYSVOL: Leaked encryption keys let attackers access administrator accounts. Check Task 8 for more information about the vulnerable version                   of SYSVOL.
