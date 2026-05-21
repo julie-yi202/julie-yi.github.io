@@ -101,5 +101,11 @@ As mentioned previously, the SAM database is encrypted either with RC4 (opens in
 Now let's copy both files (sam and system) from the shadow copy volume we generated to the desktop as follows,
 <img width="883" height="208" alt="Screenshot 2026-05-20 221616" src="https://github.com/user-attachments/assets/4f698c80-dc4c-4b5f-8892-955fb7e40cb5" />
 
+Now we have both required files, transfer them to the AttackBox with your favourite method (SCP should work). 
+I used smbclient because scp and certutil didn't work due to the unknow Linux box password.
+<img width="889" height="75" alt="Screenshot 2026-05-20 222316" src="https://github.com/user-attachments/assets/66bf633e-a174-44d9-a580-2c1b626e5f49" />
+<img width="779" height="374" alt="Screenshot 2026-05-20 222335" src="https://github.com/user-attachments/assets/a7e5ab47-85ac-4d7f-a918-54c58e990f36" />
+
+
 
 ### Registry Hives
