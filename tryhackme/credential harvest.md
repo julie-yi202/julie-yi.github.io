@@ -23,9 +23,15 @@ In this room, the focus will be on harvesting credentials from an internal persp
 Credentials are stored insecurely in various locations in systems:
 
 Clear-text files
+
 Database files
+
 Memory
+
 Password managers
+
 Enterprise Vaults
+
 Active Directory
+
 Network Sniffing
