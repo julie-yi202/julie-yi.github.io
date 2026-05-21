@@ -221,6 +221,7 @@ Now, if we check the c:\temp directory, we see two folders: Active Directory and
 <img width="890" height="207" alt="Screenshot 2026-05-21 010233" src="https://github.com/user-attachments/assets/c23a5056-2339-4a1e-84b2-e8de79e8fa41" />
 
 <img width="867" height="740" alt="Screenshot 2026-05-21 010031" src="https://github.com/user-attachments/assets/2b63f8c7-3429-4470-b782-064bf683fa4d" />
+
 ### Remote Dumping (With Credentials)
 In the previous section, we discussed how to get hashes from memory with no credentials in hand. In this task, we will be showing how to dump a system and domain controller hashes remotely, which requires credentials, such as passwords or NTLM hashes. We also need credentials for users with administrative access to a domain controller or special permissions as discussed in the DC Sync section.
 ### DC Sync
