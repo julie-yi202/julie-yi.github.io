@@ -189,7 +189,6 @@ Mimikatz is a tool that can dump clear-text passwords stored in the Credential M
 ## Domain Controller
 This task discusses the required steps to dump Domain Controller Hashes locally and remotely.
 ### NTDS Domain Controller
-
 New Technologies Directory Services (NTDS) is a database containing all Active Directory data, including objects, attributes, credentials, etc. The NTDS.DTS data consists of three tables as follows:
 
 Schema table: it contains types of objects and their relationships.
@@ -222,3 +221,24 @@ Now, if we check the c:\temp directory, we see two folders: Active Directory and
 <img width="890" height="207" alt="Screenshot 2026-05-21 010233" src="https://github.com/user-attachments/assets/c23a5056-2339-4a1e-84b2-e8de79e8fa41" />
 
 <img width="867" height="740" alt="Screenshot 2026-05-21 010031" src="https://github.com/user-attachments/assets/2b63f8c7-3429-4470-b782-064bf683fa4d" />
+### Remote Dumping (With Credentials)
+In the previous section, we discussed how to get hashes from memory with no credentials in hand. In this task, we will be showing how to dump a system and domain controller hashes remotely, which requires credentials, such as passwords or NTLM hashes. We also need credentials for users with administrative access to a domain controller or special permissions as discussed in the DC Sync section.
+### DC Sync
+
+The DC Sync is a popular attack to perform within an Active Directory environment to dump credentials remotely. This attack works when an account (special account with necessary permissions) or AD admin account is compromised that has the following AD permissions:
+
+Replicating Directory Changes
+Replicating Directory Changes All
+Replicating Directory Changes in Filtered Set
+
+Performing the DC Sync Attack
+<img width="875" height="807" alt="Screenshot 2026-05-21 011759" src="https://github.com/user-attachments/assets/65b7cb38-9e06-4141-b566-0b2356dc4975" />
+
+TheDC Sync Attack to DumpNTLM Hashes
+<img width="882" height="391" alt="Screenshot 2026-05-21 011912" src="https://github.com/user-attachments/assets/8d6fe470-35e9-40c5-82b3-63ded1befd7c" />
+
+Cracking the Hashes
+<img width="880" height="776" alt="Screenshot 2026-05-21 012447" src="https://github.com/user-attachments/assets/fb6bbdb7-c64f-4c5a-9323-85a6d66078aa" />
+<img width="884" height="676" alt="Screenshot 2026-05-21 012503" src="https://github.com/user-attachments/assets/a5a4ab07-45af-4b32-860a-0a2e7fb70e08" />
+
+## Local Administrator Password Solution (LAPS)
