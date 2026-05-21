@@ -111,4 +111,5 @@ Parameters explained:
 We can verify that the silver ticket is working by running the dir command against THMSERVER1:
 <img width="916" height="498" alt="Screenshot 2026-05-14 003921" src="https://github.com/user-attachments/assets/58600455-7e43-4a80-b25e-87c2e88dc49c" />
 
+### Persistence Through Certificates
 
