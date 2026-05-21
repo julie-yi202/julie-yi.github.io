@@ -1,4 +1,4 @@
-# 🧪 Vlan Lab
+# 🧪 Cisco Lab
 
 ## 📝 Description
 Write a short description of what this lab teaches.
