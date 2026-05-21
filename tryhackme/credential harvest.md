@@ -185,3 +185,40 @@ Run CMD.exe As a User with the /savecred argument
 Mimikatz is a tool that can dump clear-text passwords stored in the Credential Manager from memory. The steps are similar to those shown in the previous section (Memory dump), but we can specify to show the credentials manager section only this time.
 <img width="886" height="800" alt="Screenshot 2026-05-20 234241" src="https://github.com/user-attachments/assets/d98136ea-9e87-4804-8fe9-d1a975f0a62b" />
 <img width="887" height="307" alt="Screenshot 2026-05-20 234410" src="https://github.com/user-attachments/assets/dda49992-853b-47a0-a337-508f09532746" />
+
+## Domain Controller
+This task discusses the required steps to dump Domain Controller Hashes locally and remotely.
+### NTDS Domain Controller
+
+New Technologies Directory Services (NTDS) is a database containing all Active Directory data, including objects, attributes, credentials, etc. The NTDS.DTS data consists of three tables as follows:
+
+Schema table: it contains types of objects and their relationships.
+Link table: it contains the object's attributes and their values.
+Data type: It contains users and groups.
+NTDS is located in C:\Windows\NTDS by default, and it is encrypted to prevent data extraction from a target machine. Accessing the NTDS.dit file from the machine running is disallowed since the file is used by Active Directory and is locked. However, there are various ways to gain access to it. This task will discuss how to get a copy of the NTDS file using the ntdsutil and Diskshadow tool and finally how to dump the file's content. It is important to note that decrypting the NTDS file requires a system Boot Key to attempt to decrypt LSA Isolated credentials, which is stored in the SECURITY file system. Therefore, we must also dump the security file containing all required files to decrypt. 
+### Ntdsutil
+
+Ntdsutil is a Windows utility to used manage and maintain Active Directory configurations. It can be used in various scenarios such as 
+
+Restore deleted objects in Active Directory.
+Perform maintenance for the AD database.
+Active Directory snapshot management.
+Set Directory Services Restore Mode (DSRM) administrator passwords.
+### Local Dumping (No Credentials)
+
+This is usually done if you have no credentials available but have administrator access to the domain controller. Therefore, we will be relying on Windows utilities to dump the NTDS file and crack them offline. As a requirement, first, we assume we have administrator access to a domain controller. 
+
+To successfully dump the content of the NTDS file we need the following files:
+
+C:\Windows\NTDS\ntds.dit
+C:\Windows\System32\config\SYSTEM
+C:\Windows\System32\config\SECURITY
+The following is a one-liner PowerShell command to dump the NTDS file using the Ntdsutil tool in the C:\temp directory.
+<img width="880" height="491" alt="Screenshot 2026-05-21 010445" src="https://github.com/user-attachments/assets/88a58e0f-86a6-4a23-9843-e4b442614ae9" />
+
+Now, if we check the c:\temp directory, we see two folders: Active Directory and registry, which contain the three files we need. Transfer them to the AttackBox and run the secretsdump.py script to extract the hashes from the dumped memory file.
+<img width="870" height="403" alt="Screenshot 2026-05-21 010307" src="https://github.com/user-attachments/assets/cc80fa95-1bb9-4861-8b18-4960272148d0" />
+<img width="896" height="332" alt="Screenshot 2026-05-21 010155" src="https://github.com/user-attachments/assets/02696190-9300-425d-8876-3abdd0b5d4ff" />
+<img width="890" height="207" alt="Screenshot 2026-05-21 010233" src="https://github.com/user-attachments/assets/c23a5056-2339-4a1e-84b2-e8de79e8fa41" />
+
+<img width="867" height="740" alt="Screenshot 2026-05-21 010031" src="https://github.com/user-attachments/assets/2b63f8c7-3429-4470-b782-064bf683fa4d" />
