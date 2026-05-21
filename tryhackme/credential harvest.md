@@ -106,6 +106,11 @@ I used smbclient because scp and certutil didn't work due to the unknow Linux bo
 <img width="889" height="75" alt="Screenshot 2026-05-20 222316" src="https://github.com/user-attachments/assets/66bf633e-a174-44d9-a580-2c1b626e5f49" />
 <img width="779" height="374" alt="Screenshot 2026-05-20 222335" src="https://github.com/user-attachments/assets/a7e5ab47-85ac-4d7f-a918-54c58e990f36" />
 
-
-
 ### Registry Hives
+Another possible method for dumping the SAM database content is through the Windows Registry. Windows registry also stores a copy of some of the SAM database contents to be used by Windows services. Luckily, we can save the value of the Windows registry using the reg.exe tool. As previously mentioned, we need two files to decrypt the SAM database's content. Ensure you run the command prompt with Administrator privileges.
+Save SAM and SYSTEM files from the registry
+<img width="889" height="347" alt="Screenshot 2026-05-20 222922" src="https://github.com/user-attachments/assets/31de8e11-9b72-4d14-afd2-d51e165b2ff0" />
+
+Decrypting SAM Database using Impacket SecretsDump Script Locally
+<img width="840" height="251" alt="Screenshot 2026-05-20 223420" src="https://github.com/user-attachments/assets/e327ac6b-fbfe-469f-bdf1-97c2a85b2d08" />
+
