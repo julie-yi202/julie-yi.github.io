@@ -80,4 +80,26 @@ krbtgt:502:aad3b435b51404eeaad3b435b51404ee:ec44ddf5ae100b898e9edab74811430d:::
 CREDS-HARVESTIN$:1008:aad3b435b51404eeaad3b435b51404ee:443e64439a4b7fe780db47fc06a3342d:::
 
 ### Volume Shadow Copy Service (VSS)
+The other approach uses the Microsoft Volume shadow copy service, which helps perform a volume backup while applications read/write on volumes. 
+More specifically, we will be using wmic to create a shadow volume copy. This has to be done through the command prompt with administrator privileges as follows,
+
+1. Run the standard cmd.exe prompt with administrator privileges.
+2. Execute the wmic command to create a copy shadow of C: drive
+3. Verify the creation from step 2 is available.
+4. Copy the SAM database from the volume we created in step 2
+
+Creating a Shadow Copy of Volume C with WMIC
+<img width="830" height="205" alt="Screenshot 2026-05-20 221155" src="https://github.com/user-attachments/assets/08073096-dbb5-4bd1-a4b8-7ddfbdafa94e" />
+
+Listing the Available Shadow Volumes
+<img width="832" height="285" alt="Screenshot 2026-05-20 221248" src="https://github.com/user-attachments/assets/486d8890-d0dc-49e0-86bf-33d4049d12dd" />
+
+The output shows that we have successfully created a shadow copy volume of (C:) with the following path: \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy1. 
+
+As mentioned previously, the SAM database is encrypted either with RC4 (opens in new tab)or AES (opens in new tab)encryption algorithms. In order to decrypt it, we need a decryption key which is also stored in the files system in c:\Windows\System32\Config\system. 
+
+Now let's copy both files (sam and system) from the shadow copy volume we generated to the desktop as follows,
+<img width="883" height="208" alt="Screenshot 2026-05-20 221616" src="https://github.com/user-attachments/assets/4f698c80-dc4c-4b5f-8892-955fb7e40cb5" />
+
+
 ### Registry Hives
