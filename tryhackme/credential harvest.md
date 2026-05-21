@@ -119,3 +119,27 @@ Note that we used the SAM and System files that we extracted from Windows Regist
 Note if we compare the output against the NTLM hashes we got from Metasploit's Hashdump, the result is different. The reason is the other accounts belong to Active Directory, and their information is not stored in the System file we have dumped. To Decrypt them, we need to dump the SECURITY file from the Windows file, which contains the required files to decrypt Active Directory accounts.
 
 Once we obtain NTLM hashes, we can try to crack them using Hashcat if they are guessable, or we can use different techniques to impersonate users using the hashes.
+
+## Local Security Authority Subsystem Service (LSASS)
+Local Security Authority Server Service (LSASS) is a Windows process that handles the operating system security policy and enforces it on a system. It verifies logged in accounts and ensures passwords, hashes, and Kerberos tickets. Windows system stores credentials in the LSASS process to enable users to access network resources, such as file shares, SharePoint sites, and other network services, without entering credentials every time a user connects.
+
+### Graphic User Interface (GUI)
+
+To dump any running Windows process using the GUI, open the Task Manager, and from the Details tab, find the required process, right-click on it, and select "Create dump file".
+<img width="877" height="648" alt="Screenshot 2026-05-20 224612" src="https://github.com/user-attachments/assets/41f56b65-a404-4c70-a14f-c3843ab74d6f" />
+
+Once the dumping process is finished, a pop-up message will show containing the path of the dumped file. Now copy the file and transfer it to the AttackBox to extract NTLM hashes offline.
+Copying the LSASS Dumped file
+<img width="899" height="129" alt="Screenshot 2026-05-20 224940" src="https://github.com/user-attachments/assets/b8f5d179-1eec-4500-8f52-3ab547474ff4" />
+
+### Sysinternals Suite
+
+An alternative way to dump a process if a GUI is not available to us is by using ProcDump. ProcDump is a Sysinternals process dump utility that runs from the command prompt. 
+
+### MimiKatz
+
+Mimikatz (opens in new tab)is a well-known tool used for extracting passwords, hashes, PINs, and Kerberos tickets from memory using various techniques. Mimikatz is a post-exploitation tool that enables other useful attacks, such as pass-the-hash, pass-the-ticket, or building Golden Kerberos tickets. Mimikatz deals with operating system memory to access information. Thus, it requires administrator and system privileges in order to dump memory and extract credentials.
+<img width="889" height="842" alt="Screenshot 2026-05-20 230344" src="https://github.com/user-attachments/assets/b9daf1ff-beb9-4e8d-aad0-5bdb3f97dd9a" />
+<img width="871" height="851" alt="Screenshot 2026-05-20 230926" src="https://github.com/user-attachments/assets/b58c1630-5ded-4e61-866e-fc12cbc8cb93" />
+
+This is part of the credentials that harvested from the mimikatz.
