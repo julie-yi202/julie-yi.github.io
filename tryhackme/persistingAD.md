@@ -43,4 +43,8 @@ This is great and all, but we want to DC sync every single account. To do this, 
 
 <img width="1248" height="65" alt="Screenshot 2026-05-21 183048" src="https://github.com/user-attachments/assets/ad6b558a-7d7f-48bd-ad5e-dba661301a29" />
 
+### Persistence Through Tickets
+Before getting into golden and silver tickets, we first just need to do a quick recap on Kerberos authentication. The diagram below shows the normal flow for Kerberos authentication:
+The user makes an AS-REQ to the Key Distribution Centre (KDC) on the DC that includes a timestamp encrypted with the user's NTLM hash. Essentially, this is the request for a Ticket Granting Ticket (TGT). The DC checks the information and sends the TGT to the user. This TGT is signed with the KRBTGT account's password hash that is only stored on the DC. The user can now send this TGT to the DC to request a Ticket Granting Service (TGS) for the resource that the user wants to access. If the TGT checks out, the DC responds to the TGS that is encrypted with the NTLM hash of the service that the user is requesting access for. The user then presents this TGS to the service for access, which can verify the TGS since it knows its own hash and can grant the user access.
+<img width="1030" height="574" alt="Screenshot 2026-05-21 183927" src="https://github.com/user-attachments/assets/c79333f3-6842-4241-9fd6-37517d58b7ea" />
 
