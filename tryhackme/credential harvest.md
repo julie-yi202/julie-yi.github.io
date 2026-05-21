@@ -34,6 +34,7 @@ Database files
 Memory
 
 Password managers 
+
                     Built-in password managers (Windows)
                     
                     Third-party: KeePass, 1Password, LastPass
