@@ -61,3 +61,10 @@ Network Sniffing
 
 ## Local Windows Credentials
 In general, Windows operating system provides two types of user accounts: Local and Domain. Local users' details are stored locally within the Windows file system, while domain users' details are stored in the centralized Active Directory. This task discusses credentials for local user accounts and demonstrates how they can be obtained.
+### Keystrokes
+### Security Account Manager (SAM)
+The SAM is a Microsoft Windows database that contains local account information such as usernames and passwords. The SAM database stores these details in an encrypted format to make them harder to be retrieved. Moreover, it can not be read and accessed by any users while the Windows operating system is running. However, there are various ways and attacks to dump the content of the SAM database. 
+
+### Metasploit's Hash Dump
+### Volume Shadow Copy Service (VSS)
+### Registry Hives
