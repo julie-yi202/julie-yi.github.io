@@ -23,6 +23,7 @@ In this room, the focus will be on harvesting credentials from an internal persp
 Credentials are stored insecurely in various locations in systems:
 
 Clear-text files
+
 <img width="874" height="932" alt="Screenshot 2026-05-20 213143" src="https://github.com/user-attachments/assets/5550be20-6698-40a4-bc32-b3c04da7a1ae" />
 <img width="870" height="509" alt="Screenshot 2026-05-20 213244" src="https://github.com/user-attachments/assets/6fc9826f-255f-4f90-bc27-743d1f8f5c67" />
 <img width="905" height="366" alt="Screenshot 2026-05-20 213412" src="https://github.com/user-attachments/assets/74c89d6f-8916-4758-96f9-f927ab820872" />
