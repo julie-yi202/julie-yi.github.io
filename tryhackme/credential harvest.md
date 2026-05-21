@@ -33,10 +33,18 @@ Database files
 
 Memory
 
-Password managers
+Password managers - Built-in password managers (Windows)
+                    Third-party: KeePass, 1Password, LastPass
 
-Enterprise Vaults
+Enterprise Vaults - Clear-text credentials
+                    Cached passwords
+                    AD Tickets
 
-Active Directory
+Active Directory - Users' description: Administrators set a password in the description for new employees and leave it there, which makes the account vulnerable to unauthorized access. 
+                   Group Policy SYSVOL: Leaked encryption keys let attackers access administrator accounts. Check Task 8 for more information about the vulnerable version                   of SYSVOL.
+                   NTDS: Contains AD users' credentials, making it a target for attackers.
+                   AD Attacks: Misconfiguration makes AD vulnerable to various attacks, which we will discuss in Task 9.
 
 Network Sniffing
+
+## 
