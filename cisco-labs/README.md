@@ -1,7 +1,7 @@
 # 🧪 Cisco Lab
 
 ## 📝 Description
-Write a short description of what this lab teaches.
+This lab demonstrates hands‑on Cisco networking fundamentals, including OSPF configuration, VLAN segmentation, routing logic, and subnetting. Each module includes tasks, diagrams, and verification steps to simulate real-world network engineering workflows.
 
 ## 🛠️ Tasks
 - Task 1
