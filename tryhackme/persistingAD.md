@@ -35,7 +35,7 @@ DCSync All
 We will be using Mimikatz to harvest credentials. SSH into THMWRK1 using the DA account and load Mimikatz:
 <img width="1224" height="342" alt="Screenshot 2026-05-21 182809" src="https://github.com/user-attachments/assets/08db63d1-be89-47e6-a93a-616f8ab9fc0d" />
 
-ou will see quite a bit of output, including the current NTLM hash of your account. You can verify that the NTLM hash is correct by using a website such as this(opens in new tab) to transform your password into an NTLM hash.
+you will see quite a bit of output, including the current NTLM hash of your account. You can verify that the NTLM hash is correct by using a website such as this(opens in new tab) to transform your password into an NTLM hash.
 <img width="1240" height="755" alt="Screenshot 2026-05-21 182918" src="https://github.com/user-attachments/assets/223ab9bb-6c56-4ae6-a0b9-8d3094d0503e" />
 
 This is great and all, but we want to DC sync every single account. To do this, we will have to enable logging on Mimikatz:
