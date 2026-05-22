@@ -145,21 +145,40 @@ Now that we have the private key and root CA certificate, we can use the Spector
 Parameters explained:
 
 CaCertPath - The path to our exported CA certificate.
+
 CaCertPassword - The password used to encrypt the certificate. By default, Mimikatz assigns the password of mimikatz.
+
 Subject - The subject or common name of the certificate. This does not really matter in the context of what we will be using the certificate for.
+
 SubjectAltName - This is the User Principal Name (UPN) of the account we want to impersonate with this certificate. It has to be a legitimate user.
+
 NewCertPath - The path to where ForgeCert will store the generated certificate.
+
 NewCertPassword - Since the certificate will require the private key exported for authentication purposes, we must set a new password used to encrypt it.
+
 We can use Rubeus to request a TGT using the certificate to verify that the certificate is trusted. We will use the following command:
 <img width="899" height="752" alt="Screenshot 2026-05-14 020402" src="https://github.com/user-attachments/assets/ab7fda50-b775-4b45-a19f-48c684f67ead" />
+
+<img width="923" height="485" alt="Screenshot 2026-05-14 020425" src="https://github.com/user-attachments/assets/1fb86686-d81c-4526-b72c-2b52eee909f1" />
+
 
 Let's break down the parameters:
 
 /user - This specifies the user that we will impersonate and has to match the UPN for the certificate we generated
+
 /enctype -This specifies the encryption type for the ticket. Setting this is important for evasion, since the default encryption algorithm is weak, which would result in an overpass-the-hash alert
+
 /certificate - Path to the certificate we have generated
+
 /password - The password for our certificate file
+
 /outfile - The file where our TGT will be output to
+
 /domain - The FQDN of the domain we are currently attacking
+
 /dc - The IP of the domain controller which we are requesting the TGT from. Usually, it is best to select a DC that has a CA service running
+
 Once we execute the command, we should receive our TGT:
+Now we can use Mimikatz to load the TGT and authenticate to THMDC:
+<img width="904" height="503" alt="Screenshot 2026-05-14 020446" src="https://github.com/user-attachments/assets/9e38406d-53c0-4ffe-bfc1-5def884b185f" />
+
