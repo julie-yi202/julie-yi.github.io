@@ -124,12 +124,15 @@ Use SSH to authenticate to THMDC.za.tryhackme.loc using the Administrator creden
 <img width="893" height="631" alt="Screenshot 2026-05-14 005021" src="https://github.com/user-attachments/assets/324d2542-993e-4a8a-b415-fbdade08a56b" />
 
 <img width="916" height="747" alt="Screenshot 2026-05-14 005052" src="https://github.com/user-attachments/assets/8b1199d9-27ca-44bf-bd67-1a03a9bdb7f8" />
+
 <img width="899" height="742" alt="Screenshot 2026-05-14 005141" src="https://github.com/user-attachments/assets/680ba2af-1f18-4231-af7f-05dd81d04df2" />
 
 We can see that there is a CA certificate on the DC. We can also note that some of these certificates were set not to allow us to export the key. Without this private key, we would not be able to generate new certificates. Luckily, Mimikatz allows us to patch memory to make these keys exportable:
+
 <img width="894" height="766" alt="Screenshot 2026-05-14 005333" src="https://github.com/user-attachments/assets/e777ba7c-1e34-4194-9d78-c489e59d9175" />
 
 With these services patched, we can use Mimikatz to export the certificates:
+
 <img width="894" height="766" alt="Screenshot 2026-05-14 005333" src="https://github.com/user-attachments/assets/603ff577-436e-4f71-af8e-0ad01f50265f" />
 <img width="886" height="767" alt="Screenshot 2026-05-14 005401" src="https://github.com/user-attachments/assets/30aab937-2b58-4ca8-88a7-a76abb7bc904" />
 
@@ -137,6 +140,7 @@ The exported certificates will be stored in both PFX and DER format to disk:
 <img width="892" height="454" alt="Screenshot 2026-05-14 015933" src="https://github.com/user-attachments/assets/4b2cba45-6930-401a-8f29-32673d1809f0" />
 
 The za-THMDC-CA.pfx certificate is the one we are particularly interested in. In order to export the private key, a password must be used to encrypt the certificate. By default, Mimikatz assigns the password of mimikatz. Download or copy this certificate to your AttackBox using SCP, and then copy it to your low-privileged user's home directory on THMWRK1. You can also perform the rest of the steps on your own non-domain-joined Windows machine if you prefer.
+
 <img width="903" height="727" alt="Screenshot 2026-05-14 020246" src="https://github.com/user-attachments/assets/0973e688-c741-44c1-9f3f-d8799ff416ef" />
 
 I used certutil to transfer pfx file from THMDC to THMWRK1
