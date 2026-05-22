@@ -233,3 +233,4 @@ After these steps have been performed, let's SSH into THMWRK1 with our low-privi
 <img width="1301" height="368" alt="Screenshot 2026-05-18 235728" src="https://github.com/user-attachments/assets/0e0a809a-5dca-4d0e-90de-7c852779112d" />
 
 Now, the user-mandy.anderson SID history which I got it from Domain Admins group is added
+
