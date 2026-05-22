@@ -1,5 +1,9 @@
 # Persisting Active Directory
 Learn about common Active Directory persistence techniques that can be used post-compromise to ensure the blue team will not be able to kick you out during a red team exercise.
+
+<img width="1337" height="552" alt="Screenshot 2026-05-21 190014" src="https://github.com/user-attachments/assets/220d0294-90fa-4b99-933f-d72d147915c5" />
+
+
 ## I used my own kali machine.
 <img width="943" height="593" alt="Screenshot 2026-05-14 003118" src="https://github.com/user-attachments/assets/888cdf75-8953-421d-9386-41479b797a40" />
 
@@ -214,3 +218,13 @@ Since the SIDs are added to the user's token, privileges would be respected even
 Forging History
 
 Get an SSH session on THMDC using the Administrator credentials for this next part. Before we forge SID history, let's just first get some information regarding the SIDs. Firstly, let's make sure that our low-privilege user does not currently have any information in their SID history:
+
+<img width="1504" height="617" alt="Screenshot 2026-05-18 231823" src="https://github.com/user-attachments/assets/6165a235-a195-4251-adee-e7888243648c" />
+
+This confirms that our user-mandy.anderson does not currently have any SID History set. Let's get the SID of the Domain Admins group since this is the group we want to add to our SID History:
+
+<img width="873" height="289" alt="Screenshot 2026-05-18 232105" src="https://github.com/user-attachments/assets/7c0f8eda-e8d3-4fab-b5a2-39b2bf93b121" />
+
+We could use something like Mimikatz to add SID history. However, the latest version of Mimikatz has a flaw that does not allow it to patch LSASS to update SID history. Hence we need to use something else. In this case, we will use the DSInternals(opens in new tab) tools to directly patch the ntds.dit file, the AD database where all information is stored:
+
+
