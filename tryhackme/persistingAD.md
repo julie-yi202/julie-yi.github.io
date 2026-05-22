@@ -228,5 +228,8 @@ This confirms that our user-mandy.anderson does not currently have any SID Histo
 We could use something like Mimikatz to add SID history. However, the latest version of Mimikatz has a flaw that does not allow it to patch LSASS to update SID history. Hence we need to use something else. In this case, we will use the DSInternals(opens in new tab) tools to directly patch the ntds.dit file, the AD database where all information is stored:
 <img width="1239" height="105" alt="Screenshot 2026-05-22 001657" src="https://github.com/user-attachments/assets/a0119ec8-62fb-4f34-86e7-2f18da6ce36f" />
 
+The NTDS database is locked when the NTDS service is running. In order to patch our SID history, we must first stop the service. You must restart the NTDS service after the patch, otherwise, authentication for the entire network will not work anymore.
+After these steps have been performed, let's SSH into THMWRK1 with our low-privileged credentials and verify that the SID history was added and that we now have Domain Admin privileges:
+<img width="1301" height="368" alt="Screenshot 2026-05-18 235728" src="https://github.com/user-attachments/assets/0e0a809a-5dca-4d0e-90de-7c852779112d" />
 
 
