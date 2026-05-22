@@ -112,4 +112,54 @@ We can verify that the silver ticket is working by running the dir command again
 <img width="916" height="498" alt="Screenshot 2026-05-14 003921" src="https://github.com/user-attachments/assets/58600455-7e43-4a80-b25e-87c2e88dc49c" />
 
 ### Persistence Through Certificates
+The Return of AD CS
 
+In the Exploiting AD room, we leveraged certificates to become Domain Admins. However, certificates can also be used for persistence. All we need is a valid certificate that can be used for Client Authentication. This will allow us to use the certificate to request a TGT. The beauty of this? We can continue requesting TGTs no matter how many rotations they do on the account we are attacking. The only way we can be kicked out is if they revoke the certificate we generated or if it expires. Meaning we probably have persistent access by default for roughly the next 5 years.
+Depending on our access, we can take it another step further. We could simply steal the private key of the root CA's certificate to generate our own certificates whenever we feel like it. Even worse, since these certificates were never issued by the CA, the blue team has no ability to revoke them. This would be even worse for the blue team since it would mean a rotation of the CA, meaning all issued certificates would have to be revoked by the blue team to kick us out. Imagine you've just spent the last two days performing a domain takeback by rotating the credentials of every single privileges account, resetting all the golden and silver tickets, just to realise the attackers persisted by becoming your CA. Yikes!
+
+Extracting the Private Key
+
+The private key of the CA is stored on the CA server itself. If the private key is not protected through hardware-based protection methods such as an Hardware Security Module (HSM), which is often the case for organisations that just use Active Directory Certificate Services (AD CS) for internal purposes, it is protected by the machine Data Protection API (DPAPI). This means we can use tools such as Mimikatz and SharpDPAPI to extract the CA certificate and thus the private key from the CA
+Use SSH to authenticate to THMDC.za.tryhackme.loc using the Administrator credentials, create a unique directory for your user, move to it, and load Mimikatz:
+<img width="893" height="631" alt="Screenshot 2026-05-14 005021" src="https://github.com/user-attachments/assets/324d2542-993e-4a8a-b415-fbdade08a56b" />
+
+<img width="916" height="747" alt="Screenshot 2026-05-14 005052" src="https://github.com/user-attachments/assets/8b1199d9-27ca-44bf-bd67-1a03a9bdb7f8" />
+<img width="899" height="742" alt="Screenshot 2026-05-14 005141" src="https://github.com/user-attachments/assets/680ba2af-1f18-4231-af7f-05dd81d04df2" />
+
+We can see that there is a CA certificate on the DC. We can also note that some of these certificates were set not to allow us to export the key. Without this private key, we would not be able to generate new certificates. Luckily, Mimikatz allows us to patch memory to make these keys exportable:
+<img width="894" height="766" alt="Screenshot 2026-05-14 005333" src="https://github.com/user-attachments/assets/e777ba7c-1e34-4194-9d78-c489e59d9175" />
+
+With these services patched, we can use Mimikatz to export the certificates:
+<img width="894" height="766" alt="Screenshot 2026-05-14 005333" src="https://github.com/user-attachments/assets/603ff577-436e-4f71-af8e-0ad01f50265f" />
+<img width="886" height="767" alt="Screenshot 2026-05-14 005401" src="https://github.com/user-attachments/assets/30aab937-2b58-4ca8-88a7-a76abb7bc904" />
+
+The exported certificates will be stored in both PFX and DER format to disk:
+<img width="892" height="454" alt="Screenshot 2026-05-14 015933" src="https://github.com/user-attachments/assets/4b2cba45-6930-401a-8f29-32673d1809f0" />
+
+The za-THMDC-CA.pfx certificate is the one we are particularly interested in. In order to export the private key, a password must be used to encrypt the certificate. By default, Mimikatz assigns the password of mimikatz. Download or copy this certificate to your AttackBox using SCP, and then copy it to your low-privileged user's home directory on THMWRK1. You can also perform the rest of the steps on your own non-domain-joined Windows machine if you prefer.
+
+Generating our own Certificates
+Now that we have the private key and root CA certificate, we can use the SpectorOps ForgeCert(opens in new tab) tool to forge a Client Authenticate certificate for any user we want. The ForgeCert and Rubeus binaries are stored in the C:\Tools\ directory on THMWRK1. Let's use ForgeCert to generate a new certificate:
+<img width="925" height="410" alt="Screenshot 2026-05-14 020344" src="https://github.com/user-attachments/assets/716e725b-0775-44cf-b94d-5bded5370f3e" />
+
+Parameters explained:
+
+CaCertPath - The path to our exported CA certificate.
+CaCertPassword - The password used to encrypt the certificate. By default, Mimikatz assigns the password of mimikatz.
+Subject - The subject or common name of the certificate. This does not really matter in the context of what we will be using the certificate for.
+SubjectAltName - This is the User Principal Name (UPN) of the account we want to impersonate with this certificate. It has to be a legitimate user.
+NewCertPath - The path to where ForgeCert will store the generated certificate.
+NewCertPassword - Since the certificate will require the private key exported for authentication purposes, we must set a new password used to encrypt it.
+We can use Rubeus to request a TGT using the certificate to verify that the certificate is trusted. We will use the following command:
+<img width="899" height="752" alt="Screenshot 2026-05-14 020402" src="https://github.com/user-attachments/assets/ab7fda50-b775-4b45-a19f-48c684f67ead" />
+
+Let's break down the parameters:
+
+/user - This specifies the user that we will impersonate and has to match the UPN for the certificate we generated
+/enctype -This specifies the encryption type for the ticket. Setting this is important for evasion, since the default encryption algorithm is weak, which would result in an overpass-the-hash alert
+/certificate - Path to the certificate we have generated
+/password - The password for our certificate file
+/outfile - The file where our TGT will be output to
+/domain - The FQDN of the domain we are currently attacking
+/dc - The IP of the domain controller which we are requesting the TGT from. Usually, it is best to select a DC that has a CA service running
+Once we execute the command, we should receive our TGT:
