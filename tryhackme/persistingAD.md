@@ -226,5 +226,7 @@ This confirms that our user-mandy.anderson does not currently have any SID Histo
 <img width="873" height="289" alt="Screenshot 2026-05-18 232105" src="https://github.com/user-attachments/assets/7c0f8eda-e8d3-4fab-b5a2-39b2bf93b121" />
 
 We could use something like Mimikatz to add SID history. However, the latest version of Mimikatz has a flaw that does not allow it to patch LSASS to update SID history. Hence we need to use something else. In this case, we will use the DSInternals(opens in new tab) tools to directly patch the ntds.dit file, the AD database where all information is stored:
+<img width="1239" height="105" alt="Screenshot 2026-05-22 001657" src="https://github.com/user-attachments/assets/a0119ec8-62fb-4f34-86e7-2f18da6ce36f" />
+
 
 
