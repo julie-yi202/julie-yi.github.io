@@ -140,12 +140,11 @@ The za-THMDC-CA.pfx certificate is the one we are particularly interested in. In
 <img width="903" height="727" alt="Screenshot 2026-05-14 020246" src="https://github.com/user-attachments/assets/0973e688-c741-44c1-9f3f-d8799ff416ef" />
 
 I used certutil to transfer pfx file from THMDC to THMWRK1
+<img width="898" height="409" alt="Screenshot 2026-05-14 020317" src="https://github.com/user-attachments/assets/0f54ec18-5e36-4b4e-92ab-16f8e6ee2f6c" />
 
 Generating our own Certificates
 Now that we have the private key and root CA certificate, we can use the SpectorOps ForgeCert(opens in new tab) tool to forge a Client Authenticate certificate for any user we want. The ForgeCert and Rubeus binaries are stored in the C:\Tools\ directory on THMWRK1. Let's use ForgeCert to generate a new certificate:
 <img width="925" height="410" alt="Screenshot 2026-05-14 020344" src="https://github.com/user-attachments/assets/716e725b-0775-44cf-b94d-5bded5370f3e" />
-
-<img width="898" height="409" alt="Screenshot 2026-05-14 020317" src="https://github.com/user-attachments/assets/0f54ec18-5e36-4b4e-92ab-16f8e6ee2f6c" />
 
 The file is transfered to THMWRK1 as za-THMDC-CA.pfx
 Parameters explained:
