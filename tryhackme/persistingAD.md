@@ -234,3 +234,8 @@ After these steps have been performed, let's SSH into THMWRK1 with our low-privi
 
 Now, the user-mandy.anderson SID history which I got it from Domain Admins group is added
 
+<img width="891" height="386" alt="Screenshot 2026-05-19 001254" src="https://github.com/user-attachments/assets/c720ab37-ae45-4e05-8e78-e8e7a79a1be9" />
+
+The user-mandy.anderson can see the THMDC directory as Domain Admins Group
+
+### Persistence Through Group Membership
