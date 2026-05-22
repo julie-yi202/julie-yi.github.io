@@ -232,4 +232,4 @@ The NTDS database is locked when the NTDS service is running. In order to patch 
 After these steps have been performed, let's SSH into THMWRK1 with our low-privileged credentials and verify that the SID history was added and that we now have Domain Admin privileges:
 <img width="1301" height="368" alt="Screenshot 2026-05-18 235728" src="https://github.com/user-attachments/assets/0e0a809a-5dca-4d0e-90de-7c852779112d" />
 
-
+Now, the user-mandy.anderson SID history which I got it from Domain Admins group is added
