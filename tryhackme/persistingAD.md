@@ -137,6 +137,9 @@ The exported certificates will be stored in both PFX and DER format to disk:
 <img width="892" height="454" alt="Screenshot 2026-05-14 015933" src="https://github.com/user-attachments/assets/4b2cba45-6930-401a-8f29-32673d1809f0" />
 
 The za-THMDC-CA.pfx certificate is the one we are particularly interested in. In order to export the private key, a password must be used to encrypt the certificate. By default, Mimikatz assigns the password of mimikatz. Download or copy this certificate to your AttackBox using SCP, and then copy it to your low-privileged user's home directory on THMWRK1. You can also perform the rest of the steps on your own non-domain-joined Windows machine if you prefer.
+<img width="903" height="727" alt="Screenshot 2026-05-14 020246" src="https://github.com/user-attachments/assets/0973e688-c741-44c1-9f3f-d8799ff416ef" />
+
+I used certutil to transfer pfx file from THMDC to THMWRK1
 
 Generating our own Certificates
 Now that we have the private key and root CA certificate, we can use the SpectorOps ForgeCert(opens in new tab) tool to forge a Client Authenticate certificate for any user we want. The ForgeCert and Rubeus binaries are stored in the C:\Tools\ directory on THMWRK1. Let's use ForgeCert to generate a new certificate:
