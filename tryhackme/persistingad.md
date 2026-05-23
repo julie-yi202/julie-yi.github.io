@@ -239,3 +239,33 @@ Now, the user-mandy.anderson SID history which I got it from Domain Admins group
 The user-mandy.anderson can see the THMDC directory as Domain Admins Group
 
 ### Persistence Through Group Membership
+The IT Support group can be used to gain privileges such as force changing user passwords. Although, in most cases, we won't be able to reset the passwords of privileged users, having the ability to reset even low-privileged users can allow us to spread to workstations.
+Groups that provide local administrator rights are often not monitored as closely as protected groups. With local administrator rights to the correct hosts through group membership of a network support group, we may have good persistence that can be used to compromise the domain again.
+It is not always about direct privileges. Sometimes groups with indirect privileges, such as ownership over Group Policy Objects (GPOs), can be just as good for persistence.
+Nested Groups
+
+In most organisations, there are a significant amount of recursive groups. A recursive group is a group that is a member of another group. We can think of this as group nesting. Group nesting is used to create a more organised structure in AD. Take the IT Support group, for example. IT Support is very generic. So perhaps there are subgroups like Helpdesk, Access Card Managers, and Network Managers underneath this group. We can add all of these groups as members to the IT Support group, which gives all users in these subgroups the permissions and privileges associated with the IT Support group, but we can then assign more granular permissions and privileges for each of the subgroups.
+
+While group nesting helps to organise AD, it does reduce the visibility of effective access. Take our IT Support example again. If we query AD for membership of the IT Support group, it would respond with a count of three. However, this count is not really true since it is three groups. To get an idea for effective access, we would now have to enumerate those subgroups as well. But those subgroups can also have subgroups. So the question becomes: "How many layers deep should we enumerate to get the real effective access number?"
+
+This also becomes a monitoring problem. Let's say, for instance, we have an alert that fires off when a new member is added to the Domain Admins group. That is a good alert to have, but it won't fire off if a user is added to a subgroup within the Domain Admins group. This is a very common problem since AD is managed by the AD team, and alerting and monitoring are managed by the InfoSec team. All we need is a little bit of miscommunication, and the alert is no longer valid since subgroups are used.
+
+As an attacker, we can leverage this reduced visibility to perform persistence. Instead of targeting the privileged groups that would provide us with access to the environment, we focus our attention on the subgroups instead. Rather than adding ourselves to a privileged group that would raise an alert, we add ourselves to a subgroup that is not being monitored.
+Nesting Our Persistence
+
+Let's simulate this type of persistence. In order to allow other users also to perform the technique, make sure to prepend your username to all the groups that you create. In order to simulate the persistence, we will create some of our own groups. Let's start by creating a new base group that we will hide in the People->IT Organisational Unit (OU):
+Let's now create another group in the People->Sales OU and add our previous group as a member:
+We can do this a couple more times, every time adding the previous group as a member:
+With the last group, let's now add that group to the Domain Admins group:
+Lastly, let's add our low-privileged AD user to the first group we created:
+
+<img width="893" height="472" alt="Screenshot 2026-05-19 001237" src="https://github.com/user-attachments/assets/701eb8e2-7a16-4ed2-aed4-a2c169a45fba" />
+
+Instantly, your low-privileged user should now have privileged access to THMDC. Let's verify this by using our SSH terminal on THMWRK1:
+
+<img width="891" height="386" alt="Screenshot 2026-05-19 001254" src="https://github.com/user-attachments/assets/b1be33d9-f1cb-4c50-a29d-a5245a5fa198" />
+
+Let's also verify that even though we created multiple groups, the Domain Admins group only has one new member:
+<img width="908" height="840" alt="Screenshot 2026-05-19 001324" src="https://github.com/user-attachments/assets/d7099420-7444-488a-b96f-4b6ec8a3542d" />
+
+
