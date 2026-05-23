@@ -268,4 +268,45 @@ Instantly, your low-privileged user should now have privileged access to THMDC. 
 Let's also verify that even though we created multiple groups, the Domain Admins group only has one new member:
 <img width="908" height="840" alt="Screenshot 2026-05-19 001324" src="https://github.com/user-attachments/assets/d7099420-7444-488a-b96f-4b6ec8a3542d" />
 
+### Persistence Through ACLs
+Persisting through AD Group Templates
+
+While we can just add an account we control to every single privileged group we can find, the blue team would still be able to perform cleanup and remove our membership. In order to ensure a bit better persistence and make the blue team scratch their heads, we should rather inject into the templates that generate the default groups. By injecting into these templates, even if they remove our membership, we just need to wait until the template refreshes, and we will once again be granted membership.
+
+One such template is the AdminSDHolder container. This container exists in every AD domain, and its Access Control List (ACL) is used as a template to copy permissions to all protected groups. Protected groups include privileged groups such as Domain Admins, Administrators, Enterprise Admins, and Schema Admins. If you are looking for the full list of groups, you can find them here(opens in new tab).
+
+A process called SDProp takes the ACL of the AdminSDHolder container and applies it to all protected groups every 60 minutes. We can thus write an ACE that will grant us full permissions on all protected groups. If the blue team is not aware that this type of persistence is being used, it will be quite frustrating. Every time they remove the inappropriate permission on the protected object or group, it reappears within the hour. Since this reconstruction occurs through normal AD processes, it would also not show any alert to the blue team, making it harder to pinpoint the source of the persistence.
+Persisting with AdminSDHolder
+
+In order to deploy our persistence to the AdminSDHolder, we will use Microsoft Management Console (MMC). To avoid kicking users out of their RDP sessions, it will be best to RDP into THMWRK1 using your low privileged credentials, use the runas command to inject the Administrator credentials, and then execute MMC from this new terminal:
+runas /netonly /user:thmchilddc.tryhackme.loc\Administrator cmd.exe
+<img width="841" height="383" alt="Screenshot 2026-05-19 025432" src="https://github.com/user-attachments/assets/59acc8a7-dce7-499d-a734-5c71c2766780" />
+
+Once you have an MMC window, add the Users and Groups Snap-in (File->Add Snap-In->Active Directory Users and Computers). Make sure to enable Advanced Features (View->Advanced Features). We can find the AdminSDHolder group under Domain->System:
+
+<img width="778" height="554" alt="Screenshot 2026-05-19 025502" src="https://github.com/user-attachments/assets/57a70e44-7130-4178-b71c-57a7eb8388e6" />
+
+<img width="429" height="477" alt="Screenshot 2026-05-19 025533" src="https://github.com/user-attachments/assets/a44c1d98-3e4b-4436-bb6f-827b067838bf" />
+
+Let's add our low-privileged user and grant Full Control:
+
+Click Add.
+Search for your low-privileged username and click Check Names.
+Click OK.
+Click Allow on Full Control.
+Click Apply.
+Click OK.
+It should look something like this:
+<img width="445" height="510" alt="Screenshot 2026-05-19 025549" src="https://github.com/user-attachments/assets/d09f8d5b-2de6-47a2-9813-a929ecea462c" />
+
+<img width="728" height="320" alt="Screenshot 2026-05-19 025611" src="https://github.com/user-attachments/assets/141d6f0a-096e-4b5d-b530-8ca43fa5a186" />
+
+Once done, give it a minute and then review the security permissions of a Protected Group such as the Domain Admins group (you can use the search command to find this group)
+
+<img width="442" height="479" alt="Screenshot 2026-05-19 025743" src="https://github.com/user-attachments/assets/04cb439a-77f2-4034-b7ea-eaf65067c562" />
+
+As can be seen, our low privilege user has full control over the group. You can verify that this will continue to propagate by removing your user from the security permissions and rerunning the PowerShell script. Your user will be added again. Interestingly, although we have permissions to modify the group, it does not automatically add us to the group:
+
+However, using our new permissions, we can add ourselves to this group:
+
 
