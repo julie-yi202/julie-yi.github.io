@@ -280,6 +280,7 @@ Persisting with AdminSDHolder
 
 In order to deploy our persistence to the AdminSDHolder, we will use Microsoft Management Console (MMC). To avoid kicking users out of their RDP sessions, it will be best to RDP into THMWRK1 using your low privileged credentials, use the runas command to inject the Administrator credentials, and then execute MMC from this new terminal:
 runas /netonly /user:thmchilddc.tryhackme.loc\Administrator cmd.exe
+
 <img width="841" height="383" alt="Screenshot 2026-05-19 025432" src="https://github.com/user-attachments/assets/59acc8a7-dce7-499d-a734-5c71c2766780" />
 
 Once you have an MMC window, add the Users and Groups Snap-in (File->Add Snap-In->Active Directory Users and Computers). Make sure to enable Advanced Features (View->Advanced Features). We can find the AdminSDHolder group under Domain->System:
@@ -291,12 +292,18 @@ Once you have an MMC window, add the Users and Groups Snap-in (File->Add Snap-In
 Let's add our low-privileged user and grant Full Control:
 
 Click Add.
+
 Search for your low-privileged username and click Check Names.
+
 Click OK.
+
 Click Allow on Full Control.
+
 Click Apply.
+
 Click OK.
 It should look something like this:
+
 <img width="445" height="510" alt="Screenshot 2026-05-19 025549" src="https://github.com/user-attachments/assets/d09f8d5b-2de6-47a2-9813-a929ecea462c" />
 
 <img width="728" height="320" alt="Screenshot 2026-05-19 025611" src="https://github.com/user-attachments/assets/141d6f0a-096e-4b5d-b530-8ca43fa5a186" />
