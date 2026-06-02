@@ -135,3 +135,6 @@ There are different sets of Python packages installed in different places! This 
 Python scripts that are executed by Splunk Enterprise will be run using Python v3.9.25, which is packaged along with the Splunk Enterprise installation files.
 
 Any external packages that you use in your script will need to be included with the Python v3.9.25 installation, packaged with Splunk Enterprise.
+
+## Working With REST API
+
