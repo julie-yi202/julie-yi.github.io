@@ -122,3 +122,12 @@ Any installed Splunk applications are stored in this directory. It is also where
 
 Custom scripted inputs can also be placed in a unique subdirectory under this directory, whenever you create a new custom application (/opt/splunk/etc/apps/<your_app>). Normally, you would want to use this approach if your scripted input requires additional configuration (.conf) files.
 
+<img width="1153" height="95" alt="Screenshot 2026-06-02 152601" src="https://github.com/user-attachments/assets/23e8d343-7d89-43c7-a069-0b40c5cd9125" />
+
+Your Ubuntu Linux 22.04 server has Python v3.10.12 installed globally, and it is located at /usr/bin/python3. What if Splunk Enterprise is using that same installation of Python as well?
+
+<img width="1142" height="94" alt="Screenshot 2026-06-02 154921" src="https://github.com/user-attachments/assets/dc8f7472-319f-474a-9d92-858093186d0d" />
+
+<img width="1165" height="67" alt="Screenshot 2026-06-02 154608" src="https://github.com/user-attachments/assets/2d26dd6c-d325-4231-b47f-355ab1c1f6a6" />
+
+
