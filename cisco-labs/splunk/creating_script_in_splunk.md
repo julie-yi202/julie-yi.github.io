@@ -130,4 +130,8 @@ Your Ubuntu Linux 22.04 server has Python v3.10.12 installed globally, and it is
 
 <img width="1165" height="67" alt="Screenshot 2026-06-02 154608" src="https://github.com/user-attachments/assets/2d26dd6c-d325-4231-b47f-355ab1c1f6a6" />
 
+There are different sets of Python packages installed in different places! This is very important to keep in mind, for two reasons:
 
+Python scripts that are executed by Splunk Enterprise will be run using Python v3.9.25, which is packaged along with the Splunk Enterprise installation files.
+
+Any external packages that you use in your script will need to be included with the Python v3.9.25 installation, packaged with Splunk Enterprise.
