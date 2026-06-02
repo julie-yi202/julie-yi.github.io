@@ -60,3 +60,65 @@ Search Processing Language (SPL): SPL is a query language, made of a series of s
 
 As mentioned earlier, this tutorial will show you how to create a custom scripted input in Splunk Enterprise so that you can gather data from a remote system and transform it (if necessary) into an appropriate format that Splunk Enterprise can parse into event data. The possibilities are nearly limitless here; anything that you can script, using a shell language (like Bash or PowerShell) or the Python programming language, can become a data input.
 
+Scripted inputs operate on a timed interval basis; you create a script that obtains and outputs event or metric data, and then you schedule it to run at a specified interval or as a scheduled cron task. The script file or files that you create will be stored on the Splunk Enterprise server (or on a distributed forwarder if you choose that method) in either the $SPLUNK_HOME/bin/scripts or $SPLUNK_HOME/etc/apps/<app_name>/bin directory.
+
+Note: The location of the Splunk Enterprise installation directory (stored in the $SPLUNK_HOME environment variable) depends on the operating system on which it is installed. In this tutorial, we're demonstrating Splunk Enterprise installed on an Ubuntu Linux 22.04 server, where the default installation directory is /opt/splunk.
+
+When you create a scripted input, you will be prompted for a few bits of information:
+
+The location of the script file; it must already be uploaded to the Splunk Enterprise server
+
+The script name; a drop-down picker will automatically populate with scripts found
+
+The script command; in the case of Python, this is just the name and location of the script
+
+The time interval to run the script on; you can choose In Seconds or Cron Schedule
+
+<img width="781" height="516" alt="Screenshot 2026-06-02 151632" src="https://github.com/user-attachments/assets/4ea87566-4d8a-4e34-a70d-fab04f959938" />
+
+In the next step of the wizard, you'll be prompted to configure the following items:
+
+A source type for your input data; you can choose an existing source type or create a new one.
+
+An app context; in other words, where should Splunk Enterprise store any configuration data for your scripted input?
+
+A host field value; which host is this data coming from?
+
+An index database in which to store the event data; you can choose an existing index or create a new one.
+
+<img width="618" height="515" alt="Screenshot 2026-06-02 151647" src="https://github.com/user-attachments/assets/f9d75a41-a57b-4bbe-9b00-79b9f835a785" />
+
+## Understanding The Splunk Enterprise Install Environment
+
+Splunk Enterprise Directory
+
+Let's take a closer look at the installation directory of Splunk Enterprise on an Ubuntu Linux v22.04 server (which is located in the /opt/splunk directory):
+
+<img width="1165" height="335" alt="Screenshot 2026-06-02 152144" src="https://github.com/user-attachments/assets/104b572a-5967-4233-b54a-9164c7190b0e" />
+
+There are a few things going on in there, but here are the important directories that you should be familiar with:
+
+/opt/splunk/bin
+
+This directory contains the executable files and scripts that Splunk uses to run. The most important executable file in this directory is /opt/splunk/bin/splunk; this is the platform's entry point and your primary CLI tool.
+
+Some uses of the splunk executable are:
+
+/opt/splunk/bin/splunk start|stop|restart: Used to start, stop, or restart the Splunk service
+
+/opt/splunk/bin/splunk cmd <command>: Used to execute CLI commands (or run scripts) as the Splunk service
+
+/opt/splunk/bin/splunk help: Provides help documentation on how to use this CLI command
+
+Custom scripted inputs can be placed in the /opt/splunk/bin/scripts directory.
+
+/opt/splunk/var/log/splunk
+
+The Splunk log files live in this directory. The primary log file is /opt/splunk/var/log/splunk/splunk.log, which is where you'll want to look first when troubleshooting most problems. Splunk apps can also create their own independent log files in this directory.
+
+/opt/splunk/etc/apps
+
+Any installed Splunk applications are stored in this directory. It is also where any custom applications that you build should be located.
+
+Custom scripted inputs can also be placed in a unique subdirectory under this directory, whenever you create a new custom application (/opt/splunk/etc/apps/<your_app>). Normally, you would want to use this approach if your scripted input requires additional configuration (.conf) files.
+
