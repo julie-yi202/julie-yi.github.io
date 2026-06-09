@@ -206,3 +206,9 @@ When you combine all this together with a few other parameters that are detailed
 
 <img width="1093" height="239" alt="Screenshot 2026-06-09 160957" src="https://github.com/user-attachments/assets/912f7c93-c14d-4490-80ae-312d29546a0f" />
 
+Now that you have your authentication token from Catalyst Center, which is valid for 1 hour, you can use it to send additional API requests to the system. All subsequent API requests to the Catalyst Center API will need to include this token in a special custom header named x-auth-token, and you can remove the Authorization header completely. For example:
+
+<img width="1086" height="522" alt="Screenshot 2026-06-09 161704" src="https://github.com/user-attachments/assets/47ce8623-b7fc-4d55-833b-8c18d2faffae" />
+
+We have truncated the output from that API response because it's huge, but look at what was accomplished with a very small amount of Python code. We authenticated to the Catalyst Center API, received a short-lived authorization token, and requested a list of all the sites that exist in this Catalyst Center deployment ... all with just 13 lines of code!
+
