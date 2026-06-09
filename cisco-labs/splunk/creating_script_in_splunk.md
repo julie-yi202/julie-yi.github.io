@@ -138,3 +138,13 @@ Any external packages that you use in your script will need to be included with 
 
 ## Working With REST API
 
+While a deep dive on REST API functionality is beyond the scope of this tutorial, here are some of the basics.
+
+REST is an architectural style that provides standards for how computer systems should communicate with each other and share information over the internet (or any IP computer network). It was designed to be scalable so that it could be used effectively on a network as large as the internet. REST communications are designed to be "stateless,” meaning that there are no long-lived open communication sessions between clients and servers. A request goes out, a response is sent back, and the connection closes.
+
+An API is an intermediary software system that allows computer programs to talk to each other. Often, an API acts as a translator between two computer programs that don't speak the same language -- like a web browser and a Structured Query Language (SQL) database. An API server exposes various endpoints that API clients can communicate with; each endpoint provides a basic service or handles a specific type of request.
+
+So REST is an architectural concept, and APIs are software programs ... but neither provides a protocol for communication across a network. How do clients and servers talk to each other? The answer is the HTTP protocol. REST-based API servers and their clients communicate with each other using HTTP messages (more often than not, using the encrypted HTTPS protocol).
+
+<img width="850" height="450" alt="Screenshot 2026-06-09 140324" src="https://github.com/user-attachments/assets/12fc4fe9-2067-4b06-8152-e9856dd7628f" />
+
