@@ -212,3 +212,31 @@ Now that you have your authentication token from Catalyst Center, which is valid
 
 We have truncated the output from that API response because it's huge, but look at what was accomplished with a very small amount of Python code. We authenticated to the Catalyst Center API, received a short-lived authorization token, and requested a list of all the sites that exist in this Catalyst Center deployment ... all with just 13 lines of code!
 
+## Collecting Compliance Status from Catalyst Center
+In the previous topic, we authenticated to the Catalyst Center API, obtained a temporary JWT for authorization, and made our first informational request API call. So we're experts now, right? Actually, there really isn't much more to a simple Python script that communicates with an API interface! We may not be experts, but we're well on our way to completing this project.
+
+Let's continue by figuring out what is the information that we want to pull from Catalyst Center and insert into a Splunk index. We will want some kind of event data that changes periodically, which will require us to keep checking in on it. A good, simple example to start with is compliance status for devices in the Catalyst Center inventory, and for that, let’s use the Get Compliance Detail API endpoint.
+
+### Get Compliance Detail API
+
+The URL for this API endpoint on any Catalyst Center appliance is https://<catc_ip_or_dns>/dna/intent/api/v1/compliance/detail, and the HTTP method it uses is GET. There are a few optional query parameters that you can use with this API endpoint as well (allowing you to filter the returned results):
+
+complianceType
+
+complianceStatus
+
+deviceUuid
+
+offset
+
+limit
+
+Query parameters are added to the end of the URL, following a question mark, and multiple parameters can be strung together with ampersands (&). For example:
+
+https://sandboxdnac2.cisco.com/dna/intent/api/v1/compliance/detail?complianceType=NON_COMPLIANT&limit=50
+
+You also need to include the necessary HTTP headers in your request:
+
+Content-Type: application/json
+
+x-auth-token: <our_token_from_authentication>
