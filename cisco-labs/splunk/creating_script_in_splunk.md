@@ -144,7 +144,65 @@ REST is an architectural style that provides standards for how computer systems 
 
 An API is an intermediary software system that allows computer programs to talk to each other. Often, an API acts as a translator between two computer programs that don't speak the same language -- like a web browser and a Structured Query Language (SQL) database. An API server exposes various endpoints that API clients can communicate with; each endpoint provides a basic service or handles a specific type of request.
 
+### CRUD Method
+
 So REST is an architectural concept, and APIs are software programs ... but neither provides a protocol for communication across a network. How do clients and servers talk to each other? The answer is the HTTP protocol. REST-based API servers and their clients communicate with each other using HTTP messages (more often than not, using the encrypted HTTPS protocol).
 
 <img width="850" height="450" alt="Screenshot 2026-06-09 140324" src="https://github.com/user-attachments/assets/12fc4fe9-2067-4b06-8152-e9856dd7628f" />
+
+### HTTP Headers and Payloads
+
+<img width="1102" height="317" alt="Screenshot 2026-06-09 140626" src="https://github.com/user-attachments/assets/859aa5cf-0663-4ee6-b40b-c69d68b17915" />
+
+The payload of an HTTP message would be like the content of the letter in our metaphorical envelope. The information that is contained in the HTTP header tells you which format that you should expect the content of the letter to be in; it could be plaintext, JavaScript Object Notation (JSON), or XML structured data, or it could even be an encoded file. When working with REST APIs, the most common payload data format will be JSON, which is composed of nested sets of arrays (called lists in Python) and key-value pairs (called dictionaries in Python).
+
+For example, here’s the data that is returned by sending a GET request to https://httpbin.org/json:
+
+<img width="1213" height="596" alt="Screenshot 2026-06-09 140937" src="https://github.com/user-attachments/assets/890b946f-6bbd-4e65-94c3-f603a7bfa121" />
+
+Although we're looking at this JSON data payload in a nice, human-readable format with lots of whitespace, new lines, and indentation, it is important to remember that the actual raw payload data in an HTTP message will be just a string of unformatted text, such as this:
+
+{\n  "slideshow": {\n    "author": "Yours Truly", \n    "date": "date of publication", \n    "slides": [\n      {\n        "title": "Wake up to WonderWidgets!", \n        "type": "all"\n      }, \n      {\n        "items": [\n          "Why <em>WonderWidgets</em> are great", \n          "Who <em>buys</em> WonderWidgets"\n        ], \n        "title": "Overview", \n        "type": "all"\n      }\n    ], \n    "title": "Sample Slide Show"\n  }\n}\n
+
+By inspecting the Content-Type header of the response message, you can determine in which format this string of text was created. You can then use whichever tools are at your disposal to render that string of text in a more readable format. For instance:
+
+<img width="1212" height="805" alt="Screenshot 2026-06-09 141142" src="https://github.com/user-attachments/assets/6da3f5d4-4f58-4bfc-87c0-afbfe5254cf7" />
+
+## Getting Started with API
+When writing your scripted input for Splunk Enterprise, you can choose any data source from which you'd like to gather information. For this tutorial, we are using the "Catalyst Center Always-On v2.3.3.6" sandbox lab that is available from the Cisco DevNet Sandbox.
+Cisco Catalyst Center (Formerly known as Cisco Digital Network Architecture (DNA) Center) is a centralized management application for the network. Cisco Catalyst Center provides a single pane of management to design, provision, enable policy, and assure network services with full visibility of user and device identity, operating systems and applications across the entire network fabric.
+
+### Cisco Catalyst Center allows you to manage the enterprise network over a centralized dashboard and deploy networks in minutes, not days, using intuitive work flows. The Cisco Catalyst Center Sandbox provides the developer the ability to design, develop and test utilizing the Cisco Catalyst Center development platform with a sample Sandbox Lab Topology.
+
+This sandbox consists of a virtualized Controller and a real hardware sample network topology containing network elements and hosts that developers can utilize so they can develop, debug and test their sample Cisco Catalyst Center application.
+
+In this sandbox, developers can:
+
+Interact with the Cisco Catalyst Center API calls using a variety of REST clients such as POSTMAN or CURL.
+Develop and test applications for Cisco Catalyst Center.
+
+Note: In the following examples, we'll be using the Python Requests package to send HTTP messages to an API. Requests is an open-source Python package that does not come with a standard Python installation, so you must download it from the internet (although it is provided with an installation of Splunk Enterprise). You can use the pip package manager that comes with Python to download and install the package. Simply run the command pip install requests.
+
+The Catalyst Center API uses the HTTP basic authentication method to verify the identity of the user, and the resulting JSON Web Token (JWT) that you receive is used in all subsequent API transactions. HTTP basic authentication works like this:
+
+An HTTP message is created, using the POST method.
+
+The Authorization header is added to this HTTP message.
+
+The user provides a username and password for a user account that has permission to access the API.
+
+The username and password are joined together in a single string, separated by a colon -- for example, devnetuser:Cisco123!.
+
+The resulting username:password string is then encoded using Base64.
+
+Note: Base64 is not an encryption method; it is simply an "obfuscation" encoding scheme, which is easily reversible. Base64 does not protect your username and password. Instead, rely on the TLS encryption that is provided by HTTPS to protect the contents of your HTTP message.
+
+<img width="793" height="229" alt="Screenshot 2026-06-09 155711" src="https://github.com/user-attachments/assets/c75cf4a1-7ba0-455d-9143-b636305c2b85" />
+
+
+Finally, the Base64 encoded username and password string are combined with a keyword, indicating the type of authentication method being used, and the resulting value is placed in the Authorization header: Authorization: Basic ZGV2bmV0dXNlcjpDaXNjbzEyMyE=.
+
+When you combine all this together with a few other parameters that are detailed in the Authentication API documentation, and then send your HTTP message to the Catalyst Center API, you should receive a token in return:
+
+<img width="1093" height="239" alt="Screenshot 2026-06-09 160957" src="https://github.com/user-attachments/assets/912f7c93-c14d-4490-80ae-312d29546a0f" />
 
