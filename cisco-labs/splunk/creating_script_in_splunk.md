@@ -233,7 +233,7 @@ limit
 
 Query parameters are added to the end of the URL, following a question mark, and multiple parameters can be strung together with ampersands (&). For example:
 
-"https://IP address of Catalyst Center/dna/intent/api/v1/compliance/detail?complianceType=NON_COMPLIANT&limit=50"
+"https://IP_address_of_Catalyst_Center/dna/intent/api/v1/compliance/detail?complianceType=NON_COMPLIANT&limit=50"
 
 You also need to include the necessary HTTP headers in your request:
 
