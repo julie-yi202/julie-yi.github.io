@@ -247,3 +247,52 @@ x-auth-token: <our_token_from_authentication>
 
 <img width="998" height="277" alt="Screenshot 2026-06-10 013618" src="https://github.com/user-attachments/assets/4d6f34c1-cd8b-4c35-9b3f-5d307cc20cdd" />
 
+### Enrichinbg the data
+
+The output that we get from the "Get Compliance Details" API is excellent—almost exactly what we need. However, there's one minor hang-up: The device universally unique identifier (UUID) isn't as helpful as the device hostname, for instance. While we could easily take this JSON response data and add it to our Splunk index, anyone who is looking at the data afterward would need to perform an additional lookup to match the UUID to the device hostname or management IP address.
+
+So, how can we solve this problem? One method would be to make an additional API call to Catalyst Center to perform a lookup of the device's details, based on each UUID. Although this approach would work, it could result in a lot of additional API calls to make. Suppose that you had 500 compliance status items from the previous API call; you'd need to make as many as 500 additional API calls to get the hostname for each one.
+
+There is a better way, though, which we'll describe in more detail in the upcoming topics. Because UUIDs don't change, and your Catalyst Center inventory will change very infrequently, you can actually make a single API call to obtain all the device details and then store that information in a local file, which you can use for lookups later on.
+
+The API endpoint that we'll use for performing this device lookup is Get Device List (https://<catc_ip_or_dns>/dna/intent/api/v1/network-device), using the GET method. We'll need to include our required HTTP headers again:
+
+<img width="1213" height="243" alt="Screenshot 2026-06-10 014928" src="https://github.com/user-attachments/assets/333306e1-f965-43a5-b41a-7c1fddbcaab0" />
+
+<img width="1222" height="638" alt="Screenshot 2026-06-10 014956" src="https://github.com/user-attachments/assets/c6a4e889-d6aa-4b52-ae2b-8deed1fc74fb" />
+
+<img width="1223" height="665" alt="Screenshot 2026-06-10 015020" src="https://github.com/user-attachments/assets/7547385b-9576-4165-b694-c0dc741fac63" />
+
+<img width="1220" height="684" alt="Screenshot 2026-06-10 015053" src="https://github.com/user-attachments/assets/e1eedfd0-4b30-4744-9c32-577b0b10c301" />
+
+<img width="1225" height="683" alt="Screenshot 2026-06-10 015114" src="https://github.com/user-attachments/assets/f641ac0d-0167-4ed2-a52e-83675d7ca039" />
+
+<img width="1221" height="679" alt="Screenshot 2026-06-10 015139" src="https://github.com/user-attachments/assets/75c56f15-c029-402d-a534-7a8ab6848ef9" />
+
+<img width="1217" height="677" alt="Screenshot 2026-06-10 015205" src="https://github.com/user-attachments/assets/5a6fbbe5-f52e-4817-bcdd-4f44443f16e9" />
+
+<img width="1213" height="269" alt="Screenshot 2026-06-10 015227" src="https://github.com/user-attachments/assets/09beda4b-0be1-4a12-a58e-fa299570ac53" />
+
+With this additional device information, you can create a local JSON file that contains just the bits that you need. We'll use Python dictionaries (aka key-value pairs) to store this information because dictionary lookups are much faster and more efficient than looping through a Python list (aka array). We'll get into more detail about how to do this in the upcoming topics, but here is an example of the JSON file format that you'll want to create:
+
+## Creating the Inventory Lookup Python Script
+
+### Built-in Packages:
+
+os: Contains functions for interacting with the operating system where the script is running.
+
+sys: Contains functions that can perform system-level actions on the operating system where the script is running.
+
+json: Can read and write JSON-formatted data
+
+### External Packages:
+
+requests: Provides an easy-to-use interface for sending and receiving HTTP messages
+
+<img width="1038" height="290" alt="Screenshot 2026-06-10 020457" src="https://github.com/user-attachments/assets/f57fe2cd-8f10-40ba-97fc-e84679def77f" />
+
+### Authentication Function
+Our first function should perform an authentication action with the Catalyst Center authentication API, and it should return the JWT, which is valid for 1 hour.
+
+Typically, you would prompt the script's user for the username and password or read it from an environment variable in order to avoid storing those sensitive credentials on disk or exposing them to other system processes. Unfortunately, the design of Splunk Enterprise makes it rather difficult to do that; Splunk does provide a credential encryption system, but it requires significant effort to implement. To keep our scripted input project simple, we'll store the Catalyst Center API credentials inside our Python script, and we'll obfuscate (hide) them using Base64 encoding.
+
