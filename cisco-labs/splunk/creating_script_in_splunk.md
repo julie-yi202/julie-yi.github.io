@@ -233,10 +233,17 @@ limit
 
 Query parameters are added to the end of the URL, following a question mark, and multiple parameters can be strung together with ampersands (&). For example:
 
-https://sandboxdnac2.cisco.com/dna/intent/api/v1/compliance/detail?complianceType=NON_COMPLIANT&limit=50
+"https://sandboxdnac2.cisco.com/dna/intent/api/v1/compliance/detail?complianceType=NON_COMPLIANT&limit=50"
 
 You also need to include the necessary HTTP headers in your request:
 
 Content-Type: application/json
 
 x-auth-token: <our_token_from_authentication>
+
+<img width="1022" height="283" alt="Screenshot 2026-06-10 013511" src="https://github.com/user-attachments/assets/71d30a66-f760-4622-a334-1d3f6e3125b8" />
+
+<img width="1025" height="639" alt="Screenshot 2026-06-10 013535" src="https://github.com/user-attachments/assets/b088b362-e014-4235-8549-28b141cf1b65" />
+
+<img width="998" height="277" alt="Screenshot 2026-06-10 013618" src="https://github.com/user-attachments/assets/4d6f34c1-cd8b-4c35-9b3f-5d307cc20cdd" />
+
