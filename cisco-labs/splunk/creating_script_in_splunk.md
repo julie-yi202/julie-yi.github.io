@@ -560,6 +560,8 @@ If all the settings on the next page look correct, click the Submit button at th
 
 After submitting the configuration settings, if everything works properly, you should see a new inventory JSON file in the newly created lookups subdirectory:
 
+<img width="1189" height="388" alt="Screenshot 2026-06-17 143958" src="https://github.com/user-attachments/assets/01fb0350-8fd6-4ee2-b4eb-595392abbc53" />
+
 ### Schedule the Compliance Status Check
 The next step is nearly identical to the previous step, where we configured the data input that creates our inventory lookup file. Here, we will be configuring the data input for checking the compliance status in Catalyst Center.
 
@@ -586,6 +588,22 @@ Input Interval: This drop-down menu allows you to choose a recurring schedule, e
 Interval: If you chose In Seconds above, this field will remain a text box where you can enter time in seconds. For our example, we'll enter 900 in this field (for 15 minutes).
 
 When you're finished, click the Next button at the top of the page.
+
+On the next page of this workflow, you'll need to specify additional settings for your data input:
+
+Source type: Choose the Select button, then click the drop-down menu below it. Scroll down to Structured, and look for the cisco:catc:compliance:json source type that we created earlier.
+
+App context: Click the drop-down menu, and select the custom app that we've created: Catalyst Center Compliance Status (catc_compliance_status).
+
+Host: This text field will already be populated with the name of our Splunk Enterprise server. However, we really want the source "host" to reflect the actual remote system where this data is coming from. So, we'll change this field to match either the IP address or DNS FQDN of our Catalyst Center server: sandboxdnac2.cisco.com.
+
+Index: Click the drop-down menu, and select the new index that we created previously: catc_compliance_status.
+
+When you're finished, click the Review button at the top of the page.
+
+<img width="1187" height="710" alt="Screenshot 2026-06-17 144315" src="https://github.com/user-attachments/assets/f92c6417-3969-48d6-bc8c-6f9110b5b28b" />
+
+If all the settings on the next page look correct, click the Submit button at the top of the page.
 
 <img width="1198" height="723" alt="Screenshot 2026-06-17 143826" src="https://github.com/user-attachments/assets/759d0214-5431-441d-be2a-af9ed37e6914" />
 
