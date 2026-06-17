@@ -372,3 +372,86 @@ We will also add a simple but very useful if statement that serves one very impo
 
 That magic line of code is if  __ name __  ==  '__ main __':
 
+## Creating Compliance Python Script
+### Built-In Packages
+datetime: Contains functions for reading the current system time and displaying it in various formats
+
+<img width="1209" height="568" alt="Screenshot 2026-06-16 230925" src="https://github.com/user-attachments/assets/b1cbce78-1e6e-4c21-a604-54e290c5878f" />
+
+Note: Remember to change the string value for the variable basic_auth_base64 in this script. You will need to generate the Base64 encoded string for the Catalyst Center API credentials that you will be using and store it in this variable.
+
+Note: Here, we are using something called a "try/except block" in our script. The try/except block allows you to attempt something that you suspect may cause an error (which would make the script crash); if an error does occur, you can handle it gracefully without crashing the script. In this case, we're attempting to read the device lookup file, and if it doesn't exist, we will simply create an empty dictionary, which will allow the script to continue.
+
+### Authentication Function
+This function is identical to the one that we created in the previous topic, and it will return a temporary JWT that we can use for authentication for the next hour:
+
+<img width="1200" height="260" alt="Screenshot 2026-06-16 230947" src="https://github.com/user-attachments/assets/bf576896-9560-4cb3-810b-dca659d0fe52" />
+
+### Get Compliance status Function
+The next function should make the API call to Catalyst Center to obtain the all the compliance status details for devices in its inventory. We will add the same logic to this function, which handles situations where the response is larger than 500 items. The returned data will look similar to this:
+
+<img width="1185" height="577" alt="Screenshot 2026-06-16 231906" src="https://github.com/user-attachments/assets/3370734e-eb59-4f3a-88fc-580a0b13a38e" />
+
+Notice that each compliance status item has a key named lastUpdateTime. That field is very useful because it tells you the timestamp of when this compliance status was last updated (represented in Unix time). If the compliance status hasn't changed since the last time it was checked, then there's no point in updating it or logging a new event in the Splunk index.
+
+<img width="1299" height="440" alt="Screenshot 2026-06-16 231243" src="https://github.com/user-attachments/assets/222be935-e63d-4f02-b2ff-5a7789415d6f" />
+
+### Get and Create Checkpoint Function
+In addition to creating the device inventory JSON file in the lookups directory, we're also going to create a compliance checkpoints JSON file, and this function will read in that file for later comparison. Why would we do that?
+
+When Splunk Enterprise receives events and parses them for insertion into an index (database), it never actually checks to see if there's a duplicate record already in place. You could easily end up filling your index with lots of duplicate events if you don't include some logic to weed them out. In the case of compliance status, each compliance type is checked on a regular basis by Catalyst Center, and if the status has changed since the last check, it will update the lastUpdateTime key with the latest timestamp. (Reminder: That timestamp is in Unix time.)
+
+We will use that lastUpdateTime value to create a "checkpoint" for our script. Every time that the script runs, it will compare each compliance status to the timestamp saved in our checkpoint file. If the times match, then the script will pass over that item and not print out a new event for Splunk to index.
+
+<img width="1311" height="197" alt="Screenshot 2026-06-16 231302" src="https://github.com/user-attachments/assets/31368f0b-d8c3-47b9-be3e-9ca6f26cea42" />
+
+<img width="1297" height="157" alt="Screenshot 2026-06-16 231339" src="https://github.com/user-attachments/assets/3475c77e-0485-4d6e-8aeb-dd462146f22f" />
+
+That checkpoint file will look similar to this:
+
+<img width="1198" height="397" alt="Screenshot 2026-06-16 232256" src="https://github.com/user-attachments/assets/2d70200b-aa65-40f3-9198-cdd77a7b37a3" />
+
+### Write Event Function
+The next function is our largest yet -- and the most important function in this script. The write_events() function loops through all the compliance status data that we received from Catalyst Center. For each individual compliance status, the function performs three tasks:
+
+1. Check whether the device that is being reported on exists in our local inventory file.
+
+2. Check whether this compliance status exists in our local checkpoint file, and if it does, check if the lastUpdateTime timestamps match.
+
+3. If the timestamps do not match, or the device doesn't exist in either the inventory or checkpoint file, then build a Splunk event message and print it to the standard output (STDOUT) interface.
+
+<img width="1301" height="625" alt="Screenshot 2026-06-16 231406" src="https://github.com/user-attachments/assets/12e4bca0-8aff-448b-b1b6-9cb5ea174bf4" />
+
+<img width="1294" height="233" alt="Screenshot 2026-06-16 231440" src="https://github.com/user-attachments/assets/6a42d266-d3c8-47f5-b0ae-51762eb46b13" />
+
+### Main Function and Automatic Execution Statement
+Finally, just like in the previous topic and script, we will create the same main function that acts like a supervisor for all the other functions. It will execute them in a specific order and pass the necessary information between them.
+
+We will include the special if statement that triggers the script to automatically run whenever it is executed directly from the Python interpreter:
+
+<img width="1295" height="216" alt="Screenshot 2026-06-16 231459" src="https://github.com/user-attachments/assets/b5161931-fc5f-4a6a-9770-17dd3bad7cb2" />
+
+## Creating New Splunk App
+### Create the Directory
+Let’s move on to the next phase of our Splunk scripted input: creating a custom application. You might recall earlier in the tutorial that we said scripted inputs could be stored in one of two locations in Splunk:
+
+$SPLUNK_HOME/bin/scripts
+
+$SPLUNK_HOME/etc/apps/<your_app_name>
+
+A simple scripted input would work just fine in the $SPLUNK_HOME/bin/scripts directory, but in our specific example, we're adding some enhanced features that will require us to create a custom application directory. Even so, there's really nothing special required to do that:
+
+Log in to the web user interface of your Splunk Enterprise server.
+
+Click the Apps menu in the upper-left corner of the web page.
+
+Select Manage Apps from the menu.
+
+Click the Create App button in the upper-right corner of the web page.
+
+<img width="1194" height="726" alt="Screenshot 2026-06-17 000551" src="https://github.com/user-attachments/assets/910599d8-6197-4613-8f94-575751a70e56" />
+
+In this case, I copied the two files into the /opt/splunk/etc/apps/catc_compliance_status/bin directory instead of creating the tar file.
+
+<img width="1198" height="544" alt="Screenshot 2026-06-17 000822" src="https://github.com/user-attachments/assets/202a5968-1558-46a3-8a20-a24874f40e74" />
+
