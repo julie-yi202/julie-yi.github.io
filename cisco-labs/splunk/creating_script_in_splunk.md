@@ -456,3 +456,6 @@ In this case, I copied the two files into the /opt/splunk/bin/scripts directory 
 <img width="1051" height="340" alt="Screenshot 2026-06-17 133402" src="https://github.com/user-attachments/assets/5a0fd126-e681-4345-8079-4bff3b0b9555" />
 
 ### Create a Custom Source Type
+
+<img width="1159" height="723" alt="Screenshot 2026-06-17 133933" src="https://github.com/user-attachments/assets/f590ba76-0d49-4537-ad03-c404a4a524c3" />
+
