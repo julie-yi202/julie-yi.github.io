@@ -514,3 +514,49 @@ App: Choose the name of your custom app from the drop-down list.
 
 <img width="368" height="675" alt="Screenshot 2026-06-17 134439" src="https://github.com/user-attachments/assets/e078a63b-fe55-4f10-97b3-ac63843d8dd6" />
 
+## Creating the Data Inputs
+Our final setup task is to create the data inputs, which will specify which Catalyst Center server to connect to in order to obtain compliance status data and begin logging events in Splunk Enterprise. It will also allow you to schedule how often your scripts should run to gather that data.
+
+### Schedule the Inventory Lookup
+Our first data input will need to run the create_device_lookup.py Python script so that we can generate our local inventory lookup file. You could run this manually if your Catalyst Center inventory rarely changes; however, it would be more efficient to schedule it to run periodically on its own. We'll do that by configuring it just like a real scripted data input, even though the script will not actually generate any events for Splunk. (There may be a more appropriate way to do this, but for the purposes of this tutorial, this approach works just fine.)
+
+To create a new data input, follow these steps:
+
+From the Splunk Enterprise web user interface, click the Settings menu near the upper-right corner of the page.
+
+Under the Data section of the menu, click Data inputs.
+
+Under the Type column, locate Scripts, then click the + Add new button to the right under the Actions column.
+
+Once again, you'll be provided with a web form to fill out. Make sure to configure the following options:
+
+Script Path:: Click the drop-down menu, and locate the custom app directory that we created previously: $SPLUNK_HOME/etc/apps/catc_compliance_status/bin.
+
+Script Name: This drop-down menu will automatically populate with any script files that are found in the Script Path directory. Choose the create_device_lookup.py script.
+
+Command: This field will automatically populate with the path and script name chosen above. However, you need to add a command-line argument after the script filename. You must specify the IP address or the Domain Name System (DNS) fully qualified domain name (FQDN) of the Catalyst Center server. For example: $SPLUNK_HOME/etc/apps/catc_compliance_status/bin/create_device_lookup.py sandboxdnac2.cisco.com
+
+Input Interval: This drop-down menu allows you to choose a recurring schedule, expressed in seconds, or a cron schedule, which allows you more flexible time and calendar scheduling. For our example, we'll choose In Seconds. Interval: If you chose In Seconds above, this field will remain a text box where you can enter time in seconds. For our example, we'll enter 3600 in this field (for 1 hour).
+
+When you're finished, click the Next button at the top of the page.
+
+Note: You must ensure that you have edited both Python scripts and provided accurate API credentials in Base64 encoded format (for example, basic_auth_base64 = "ZGV2bmV0dXNlcjpDaXNjbzEyMyE="). Otherwise, the script will fail when it runs.
+
+On the next page of this workflow, you'll need to specify additional settings for your data input:
+
+Source type: Choose the Select button, then click the drop-down menu below it. Scroll down to Structured, and look for the cisco:catc:compliance:json source type that we created earlier.
+
+App context: Click the drop-down menu, and select the custom app that we've created: Catalyst Center Compliance Status (catc_compliance_status).
+
+Host: This text field will already be populated with the name of our Splunk Enterprise server. However, we really want the source "host" to reflect the actual remote system where this data is coming from. So, we'll change this field to match either the IP address or DNS FQDN of our Catalyst Center server: sandboxdnac2.cisco.com.
+
+Index:: Click the drop-down menu, and select the new index that we created previously; this is why it's important to give your index a relevant and meaningful name: catc_compliance_status. See the image below.
+
+When you're finished, click the Review button at the top of the page.
+
+If all the settings on the next page look correct, click the Submit button at the top of the page.
+
+<img width="1194" height="711" alt="Screenshot 2026-06-17 142116" src="https://github.com/user-attachments/assets/a9471218-6559-40ce-b1be-9a44208414cd" />
+
+After submitting the configuration settings, if everything works properly, you should see a new inventory JSON file in the newly created lookups subdirectory:
+
