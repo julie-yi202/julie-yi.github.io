@@ -611,3 +611,18 @@ After submitting the configuration settings (again, if everything works properly
 
 <img width="1230" height="467" alt="Screenshot 2026-06-17 144436" src="https://github.com/user-attachments/assets/8589063a-3b5d-461f-afb7-496a3317dc47" />
 
+### Searching For Event Data
+We've made it this far, and everything seems to be working! The fact that we have an inventory file and a checkpoints file tells us that our Python scripts must have executed properly, with no errors.
+
+Next, let's run our first search in Splunk to take a look at the compliance status events that we've generated. To do that, follow these steps:
+
+1. Click the Apps menu in the upper-left corner of the page.
+
+2. Select the Catalyst Center Compliance Status app from the drop-down menu.
+
+3. You should land on the Search tab of your app by default, but if not, you can click the Search tab; you should see a search bar.
+
+4. Enter the following search query: index="catc_compliance_status" sourcetype="cisco:catc:compliance:json". To the right of the search bar, you should see a drop-down menu with a time range selection. The default value should be Last 24 hours, which will work fine for your first search.
+
+5. Click the green magnifying glass button to the right of the time range selector.
+
