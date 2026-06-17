@@ -451,8 +451,8 @@ Click the Create App button in the upper-right corner of the web page.
 
 <img width="1194" height="726" alt="Screenshot 2026-06-17 000551" src="https://github.com/user-attachments/assets/910599d8-6197-4613-8f94-575751a70e56" />
 
-In this case, I copied the two files into the /opt/splunk/etc/apps/catc_compliance_status/bin directory instead of creating the tar file.
+In this case, I copied the two files into the /opt/splunk/bin/scripts directory instead of creating the tar file.
 
-<img width="1198" height="544" alt="Screenshot 2026-06-17 000822" src="https://github.com/user-attachments/assets/202a5968-1558-46a3-8a20-a24874f40e74" />
+<img width="1051" height="340" alt="Screenshot 2026-06-17 133402" src="https://github.com/user-attachments/assets/5a0fd126-e681-4345-8079-4bff3b0b9555" />
 
 ### Create a Custom Source Type
