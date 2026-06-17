@@ -296,3 +296,79 @@ Our first function should perform an authentication action with the Catalyst Cen
 
 Typically, you would prompt the script's user for the username and password or read it from an environment variable in order to avoid storing those sensitive credentials on disk or exposing them to other system processes. Unfortunately, the design of Splunk Enterprise makes it rather difficult to do that; Splunk does provide a credential encryption system, but it requires significant effort to implement. To keep our scripted input project simple, we'll store the Catalyst Center API credentials inside our Python script, and we'll obfuscate (hide) them using Base64 encoding.
 
+### Script Functions
+Every good Python script should be broken into one or more functions, which are reusable blocks of code that perform a single task and return a single result (or set of results). This helps modularize your code and adheres to the “don’t repeat yourself” (DRY) principle.
+
+It is also important to remember that when you use Python functions, they will not be executed by the Python interpreter as it parses the script, line by line, from the top down. It will reach the function, parse it, and store it in memory, but it will not execute that function until you have "called" it later in your script.
+
+
+
+### Authentication Function
+Our first function should perform an authentication action with the Catalyst Center authentication API, and it should return the JWT, which is valid for 1 hour.
+
+Typically, you would prompt the script's user for the username and password or read it from an environment variable in order to avoid storing those sensitive credentials on disk or exposing them to other system processes. Unfortunately, the design of Splunk Enterprise makes it rather difficult to do that; Splunk does provide a credential encryption system, but it requires significant effort to implement. To keep our scripted input project simple, we'll store the Catalyst Center API credentials inside our Python script, and we'll obfuscate (hide) them using Base64 encoding.
+
+Note: It is highly recommended that you create a special user account in Catalyst Center specifically for this script, with read-only access that is limited to just the areas of Catalyst Center necessary for this script to work.
+
+<img width="1205" height="265" alt="Screenshot 2026-06-16 224502" src="https://github.com/user-attachments/assets/95e1e2d3-9858-4f19-9549-135035fab231" />
+
+### Get Device List Function
+The next function should make the API call to Catalyst Center to obtain all the details of devices in its inventory. We'll also add some logic to this function that will handle situations where the inventory is larger than 500 devices; 500 items is the maximum response size that the API endpoint is limited to.
+
+<img width="1206" height="513" alt="Screenshot 2026-06-16 224534" src="https://github.com/user-attachments/assets/edbb6b60-55c9-4c6f-a1d9-c356e527ba36" />
+
+Note: We are checking the length of the API response to see if it contains 500 or more inventoried devices. This can happen in large production systems, and the API is limited to a maximum of 500 results each time that you call it. So, we use a simple while loop to keep requesting inventory information, and each time, we add the length of the previous result to the offset query parameter. This is a simple pagination solution for REST APIs.
+
+### Generate Simple Dictionary Function
+Now that we have obtained all the inventory details from Catalyst Center, we'll need to go through them and extract only the information that we need for each device. The following function will loop over that inventory list and build a set of nested dictionaries, which will make it fast and easy to look up devices. For example:
+
+uuid_1
+
+hostname
+
+serialNumber
+
+managementIpAddress
+
+platformId (Cisco PID)
+
+uuid_2
+
+hostname
+
+serialNumber
+
+managementIpAddress
+
+platformId
+
+<img width="1211" height="296" alt="Screenshot 2026-06-16 224605" src="https://github.com/user-attachments/assets/ba763d3f-9ead-4ee1-9dd7-28b0ff456316" />
+
+### Write JSON File Function
+The next part is quite simple: We'll first check if the neighboring directory lookups exists (a directory that exists at the same level as the current directory where this Python script resides), and we'll create one if it doesn't. Then, we'll open a JSON text file and write the contents of our nested dictionary to it.
+
+The reason that we are storing this file in a neighboring directory named lookups is for the benefit of the Splunk Enterprise application directory structure. Splunk will expect any local lookup files to exist in that subdirectory (part of a custom application directory), so we'll adhere to that standard:
+
+splunk:~$ tree /opt/splunk/etc/apps/my_app/
+/opt/splunk/etc/apps/my_app/
+├── bin
+│   ├── create_device_lookup.py
+│   ├── get_compliance_alerts.py
+├── lookups
+│   ├── device_inventory.json
+├── default
+├── local
+├── metadata
+├── README
+
+<img width="1196" height="222" alt="Screenshot 2026-06-16 224736" src="https://github.com/user-attachments/assets/9d4ee515-1145-4dd3-a877-27c180d3c87e" />
+
+### Main Function and Automatic Execution Statement
+Finally, we'll create a main function that acts like a supervisor for all the other functions. It will execute them in a specific order and pass the necessary information between them. This function isn't really a requirement, but it is an accepted best practice when writing complex Python scripts, and it makes understanding and editing them easier for future developers.
+
+<img width="1206" height="271" alt="Screenshot 2026-06-16 224809" src="https://github.com/user-attachments/assets/72fc0579-3986-41a4-968c-a49b239513ee" />
+
+We will also add a simple but very useful if statement that serves one very important purpose: It causes the script to run automatically when it is executed directly from the Python interpreter. What exactly does that mean? Python scripts can be imported into other Python scripts very easily; it is one of the most important reasons for organizing your code into functions. When you do that, you can easily import one or more functions from a separate script, thereby saving yourself time. However, when you import one script into another, you don't want it taking off and running automatically on its own, so you need to add a little bit of logic that prevents this from happening except when you run that script directly.
+
+That magic line of code is if __name__ == '__main__':. (You can find documentation here.)
+
