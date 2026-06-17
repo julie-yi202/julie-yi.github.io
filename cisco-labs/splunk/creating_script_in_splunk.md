@@ -607,3 +607,7 @@ If all the settings on the next page look correct, click the Submit button at th
 
 <img width="1198" height="723" alt="Screenshot 2026-06-17 143826" src="https://github.com/user-attachments/assets/759d0214-5431-441d-be2a-af9ed37e6914" />
 
+After submitting the configuration settings (again, if everything works properly), you should see a new compliance checkpoints JSON file in the lookups subdirectory:
+
+<img width="1230" height="467" alt="Screenshot 2026-06-17 144436" src="https://github.com/user-attachments/assets/8589063a-3b5d-461f-afb7-496a3317dc47" />
+
