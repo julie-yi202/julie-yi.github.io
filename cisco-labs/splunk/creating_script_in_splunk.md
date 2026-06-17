@@ -560,3 +560,32 @@ If all the settings on the next page look correct, click the Submit button at th
 
 After submitting the configuration settings, if everything works properly, you should see a new inventory JSON file in the newly created lookups subdirectory:
 
+### Schedule the Compliance Status Check
+The next step is nearly identical to the previous step, where we configured the data input that creates our inventory lookup file. Here, we will be configuring the data input for checking the compliance status in Catalyst Center.
+
+To create a new data input, follow these steps:
+
+From the Splunk Enterprise web user interface, click the Settings menu near the upper-right corner of the page.
+
+Under the Data section of the menu, click Data inputs.
+
+Under the Type column, locate Scripts, then click the + Add new button to the right under the Actions column.
+
+You'll be provided with the same web form to fill out. Make sure to configure the following options:
+
+Script Path: Click the drop-down menu, and locate the custom app directory that we created previously: $SPLUNK_HOME/etc/apps/catc_compliance_status/bin.
+
+Script Name: This drop-down menu will automatically populate with any script files that are found in the Script Path directory. Choose the get_compliance_alerts.py script.
+
+Command: This field will automatically populate with the path and script name chosen above. However, you need to add a command-line argument after the script filename. You must specify the IP address or DNS FQDN of the Catalyst Center server. For example: $SPLUNK_HOME/etc/apps/catc_compliance_status/bin/get_compliance_alerts.py sandboxdnac2.cisco.com
+
+Note: You must ensure that you have edited both Python scripts and provided accurate API credentials in Base64 encoded format (for example, basic_auth_base64 = "ZGV2bmV0dXNlcjpDaXNjbzEyMyE="). Otherwise, the script will fail when it runs.
+
+Input Interval: This drop-down menu allows you to choose a recurring schedule, expressed in seconds, or a cron schedule, which allows you more flexible time and calendar scheduling. For our example, we'll choose In Seconds.
+
+Interval: If you chose In Seconds above, this field will remain a text box where you can enter time in seconds. For our example, we'll enter 900 in this field (for 15 minutes).
+
+When you're finished, click the Next button at the top of the page.
+
+<img width="1198" height="723" alt="Screenshot 2026-06-17 143826" src="https://github.com/user-attachments/assets/759d0214-5431-441d-be2a-af9ed37e6914" />
+
