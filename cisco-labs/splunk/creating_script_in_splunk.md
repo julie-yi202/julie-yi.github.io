@@ -455,3 +455,4 @@ In this case, I copied the two files into the /opt/splunk/etc/apps/catc_complian
 
 <img width="1198" height="544" alt="Screenshot 2026-06-17 000822" src="https://github.com/user-attachments/assets/202a5968-1558-46a3-8a20-a24874f40e74" />
 
+### Create a Custom Source Type
