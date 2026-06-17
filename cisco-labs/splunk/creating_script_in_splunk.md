@@ -370,5 +370,5 @@ Finally, we'll create a main function that acts like a supervisor for all the ot
 
 We will also add a simple but very useful if statement that serves one very important purpose: It causes the script to run automatically when it is executed directly from the Python interpreter. What exactly does that mean? Python scripts can be imported into other Python scripts very easily; it is one of the most important reasons for organizing your code into functions. When you do that, you can easily import one or more functions from a separate script, thereby saving yourself time. However, when you import one script into another, you don't want it taking off and running automatically on its own, so you need to add a little bit of logic that prevents this from happening except when you run that script directly.
 
-That magic line of code is if __name__ == '__main__':. (You can find documentation here.)
+That magic line of code is if  __ name __  ==  '__ main __':. (You can find documentation here.)
 
