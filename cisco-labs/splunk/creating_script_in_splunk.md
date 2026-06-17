@@ -456,6 +456,61 @@ In this case, I copied the two files into the /opt/splunk/bin/scripts directory 
 <img width="1051" height="340" alt="Screenshot 2026-06-17 133402" src="https://github.com/user-attachments/assets/5a0fd126-e681-4345-8079-4bff3b0b9555" />
 
 ### Create a Custom Source Type
+The next step is actually optional but highly recommended: creating a custom source type in Splunk. We mentioned source types early in this tutorial; they are classifications for data sources, which can either be well-known formats or user-defined.
+
+Source types describe the various formats of data that are ingested into Splunk Enterprise indexes. They tell Splunk how the incoming data is structured, providing it with instructions on how to parse the text-based data into meaningful fields, which allow Splunk users to search for specific information. Some common source types are syslog events, HTTP web server logs, email logs, and even generic structured data formats like CSV and JSON. For our sample scripted input, we're going to use a JSON source type because that is the data format that we expect from a REST API system, and it's incredibly easy for Splunk to parse.
+
+There are many predefined source types available in Splunk. However, if you use these default source types with all your data inputs, you could eventually run into difficulty separating out similarly formatted events that come from different sources. When creating a custom source type, Splunk recommends following this standard naming convention:
+
+vendor:product:technology:format
+For our example in this tutorial, we'll create a custom source type named cisco:catc:compliance:json, and we'll do that by simply cloning the predefined _json source type. To do that, follow these steps:
+
+From the Splunk Enterprise web user interface, click the Settings menu near the upper-right corner of the page.
+
+Under the Data section of the menu, click Source types.
+
+Locate _json in the table of available source types.
+
+To the right of _json, under the Actions column, click Clone.
+
+You'll be prompted to fill out a web form with details and configuration for this new source type. Make sure to edit the following fields:
+
+Name: cisco:catc:compliance:json
+
+Description: Enter something meaningful that describes what this source type represents.
+
+Destination app: Choose your custom app from the drop-down menu.
+
+Timestamp: Select the Advanced button.
+
+Time zone: Ideally, you should leave this field as Default System Timezone. The events that are produced by the Python script will contain timestamps that include the UTC time zone, so Splunk will understand how to convert them to its local system time.
+
+Timestamp fields: timestamp; this is the field name that contains the timestamp in the script's event output.
 
 <img width="1159" height="723" alt="Screenshot 2026-06-17 133933" src="https://github.com/user-attachments/assets/f590ba76-0d49-4537-ad03-c404a4a524c3" />
+
+### Create an Index
+Finally, we'll want to create a separate index database in which to store our events, and we'll associate that index with the custom application that we just created. To create an index, follow these steps:
+
+From the Splunk Enterprise web user interface, click the Settings menu near the upper-right corner of the page.
+
+Under the Data section of the menu, click Indexes.
+
+In the upper-right corner of the page, click the New Index button.
+
+You'll be presented with another web form to fill out, so make sure to check or edit the following fields:
+
+Index Name: Choose a unique name for this index; we recommend using the same name that you used for the custom application directory in order to make it easier to identify.
+
+Index Data Type: Choose Events.
+
+Home Path, Cold Path, Thawed Path, and Frozen Path: These fields are all optional and can be left to their default values unless you would like to change them.
+
+Max Size of Entire Index: This field can also be left to its default value unless you choose to change it.
+
+Max Size of Hot/Warm/Cold Bucket: This field is also optional unless you choose to change it.
+
+App: Choose the name of your custom app from the drop-down list.
+
+<img width="368" height="675" alt="Screenshot 2026-06-17 134439" src="https://github.com/user-attachments/assets/e078a63b-fe55-4f10-97b3-ac63843d8dd6" />
 
