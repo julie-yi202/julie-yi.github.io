@@ -626,3 +626,9 @@ Next, let's run our first search in Splunk to take a look at the compliance stat
 
 5. Click the green magnifying glass button to the right of the time range selector.
 
+## Troubleshooting a Scripted Input
+### Searching the Log File
+Ideally, if we were creating a more robust custom Splunk app, we would want to set up a dedicated log file to write events to. However, in order to keep this example simple, we've chosen instead to simply log events to the default Splunk Enterprise log file, which is located here:
+
+$SPLUNK_HOME/var/log/splunk/splunkd.log
+
