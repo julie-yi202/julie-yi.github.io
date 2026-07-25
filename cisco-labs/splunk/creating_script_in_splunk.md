@@ -560,7 +560,8 @@ If all the settings on the next page look correct, click the Submit button at th
 
 After submitting the configuration settings, if everything works properly, you should see a new inventory JSON file in the newly created lookups subdirectory:
 
-<img width="1189" height="388" alt="Screenshot 2026-06-17 143958" src="https://github.com/user-attachments/assets/01fb0350-8fd6-4ee2-b4eb-595392abbc53" />
+<img width="1204" height="541" alt="Screenshot 2026-07-25 165251" src="https://github.com/user-attachments/assets/7d94612f-c630-41c3-8020-d1d5d1862590" />
+
 
 ### Schedule the Compliance Status Check
 The next step is nearly identical to the previous step, where we configured the data input that creates our inventory lookup file. Here, we will be configuring the data input for checking the compliance status in Catalyst Center.
