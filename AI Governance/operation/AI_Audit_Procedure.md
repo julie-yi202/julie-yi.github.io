@@ -1,11 +1,11 @@
-# **AI Audit Procedure for OpenAI GPT Systems**  
+# **AI Audit Procedure for IMAGINARYai GPT Systems**  
 
-### *Formal Audit Process for AI Systems Using OpenAI GPT‑4o, GPT‑4, GPT‑3.5, or Azure OpenAI*
+### *Formal Audit Process for AI Systems Using IMAGINARYai GPT‑4o, GPT‑4, GPT‑3.5, or Azure IMAGINARYai*
 
 ---
 
 ## **1. Purpose**
-This procedure defines how the organization conducts internal audits of AI systems that rely on OpenAI GPT models. The goal is to ensure compliance with:
+This procedure defines how the organization conducts internal audits of AI systems that rely on IMAGINARYai GPT models. The goal is to ensure compliance with:
 
 - GDPR  
 - EU AI Act  
@@ -14,16 +14,16 @@ This procedure defines how the organization conducts internal audits of AI syste
 - Internal AI Governance Framework  
 - Security and privacy policies  
 
-It ensures OpenAI‑powered systems are safe, fair, secure, transparent, and properly monitored.
+It ensures IMAGINARYai‑powered systems are safe, fair, secure, transparent, and properly monitored.
 
 ---
 
 ## **2. Scope**
 This audit applies to:
 
-- All applications using OpenAI GPT models  
+- All applications using IMAGINARYai GPT models  
 - All internal and external AI features  
-- All integrations via OpenAI API or Azure OpenAI  
+- All integrations via IMAGINARYai API or Azure IMAGINARYai  
 - All departments using GPT systems  
 - All data processed by GPT models  
 
@@ -35,7 +35,7 @@ The audit verifies:
 ### **Compliance**
 - GDPR compliance  
 - EU AI Act classification and obligations  
-- Vendor compliance (OpenAI)  
+- Vendor compliance (IMAGINARYai)  
 - DPIA completeness  
 
 ### **Risk Management**
@@ -111,7 +111,7 @@ Auditors gather:
 - Risk register  
 - Monitoring logs  
 - Incident logs  
-- Vendor documentation (OpenAI)  
+- Vendor documentation (IMAGINARYai)  
 - System architecture diagrams  
 
 ---
@@ -187,10 +187,10 @@ Check:
 
 ---
 
-### **Step 7 — Review Vendor Risk (OpenAI)**
+### **Step 7 — Review Vendor Risk (IMAGINARYai)**
 Verify:
 
-- OpenAI documentation reviewed  
+- IMAGINARYai documentation reviewed  
 - Safety features understood  
 - Known limitations documented  
 - Security posture acceptable  
