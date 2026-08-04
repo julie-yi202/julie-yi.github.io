@@ -1,5 +1,5 @@
-AI Governance Framework & Portfolio
-Overview
+## AI Governance Framework & Portfolio
+### Overview
 This repository showcases a comprehensive, practical, and operational AI Governance framework designed to help organizations adopt, manage, and monitor AI systems responsibly. It blends GRC principles, technical controls, and regulatory alignment to demonstrate how AI can be deployed safely, ethically, and securely.
 
 The goal of this project is to provide:
@@ -14,7 +14,7 @@ Real-world examples that demonstrate how governance is applied
 
 This repository reflects my professional experience in Governance, Risk & Compliance (GRC), risk management, privacy, and technical security workflows, including DPIAs, control catalogs, and vulnerability scanning.
 
-Why AI Governance Matters
+### Why AI Governance Matters
 AI systems introduce unique risks — bias, hallucinations, privacy violations, model drift, adversarial attacks, and regulatory exposure. Organizations need structured governance to ensure AI systems are:
 
 Safe
@@ -31,7 +31,7 @@ Accountable
 
 This repository provides the artifacts needed to operationalize those principles.
 
-Repository Structure
+### Repository Structure
 1. Framework
 Foundational governance documents that define how AI is managed across its lifecycle.
 
@@ -130,7 +130,7 @@ Example_Risk_Register.md
 
 Example_DPIA_for_AI.md
 
-Key Principles of This Framework
+### Key Principles of This Framework
 1. Risk-Based
 AI systems are evaluated based on their risk level, impact, and regulatory classification.
 
@@ -171,7 +171,7 @@ OECD AI Principles
 6. Practical
 Templates and examples make governance actionable, not theoretical.
 
-Who This Repository Is For
+### Who This Repository Is For
 GRC professionals
 
 AI governance practitioners
@@ -186,7 +186,7 @@ MLOps engineers
 
 Organizations building or deploying AI systems
 
-About Me
+### About Me
 I work in Governance, Risk & Compliance (GRC) with experience in:
 
 Risk assessment and remediation tracking
@@ -203,7 +203,7 @@ Compliance frameworks and regulatory alignment
 
 This repository is part of my professional portfolio demonstrating my ability to bridge technical, regulatory, and governance domains in the context of AI.
 
-Future Enhancements
+### Future Enhancements
 Planned additions include:
 
 Automated risk scoring scripts
@@ -216,5 +216,5 @@ Example adversarial testing scenarios
 
 Policy-as-code samples
 
-Contact
+### Contact
 If you’d like to collaborate or discuss AI governance, feel free to reach out through GitHub.
