@@ -274,13 +274,4 @@ The system introduces moderate privacy and AI risks, all of which can be mitigat
 - D: Bias Testing Results  
 - E: Monitoring Plan  
 
----
 
-If you want, I can also generate:
-
-🔥 A **DPIA specifically aligned with the EU AI Act**  
-🔥 A **DPIA for a high‑risk AI system** (biometrics, HR screening, fraud detection)  
-🔥 A **model card for OpenAI GPT**  
-🔥 A **data flow diagram** you can include in your repo  
-
-Just tell me what you want next.
