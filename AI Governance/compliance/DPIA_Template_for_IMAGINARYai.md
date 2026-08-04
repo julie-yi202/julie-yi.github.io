@@ -7,7 +7,7 @@
 
 ## **1. Project Overview**
 **Project Name:**  
-OpenAI GPT Integration for Productivity & Customer Support
+IMAGINARYai GPT Integration for Productivity & Customer Support
 
 **Department / Owner:**  
 Digital Transformation / AI Governance
@@ -22,7 +22,7 @@ Digital Transformation / AI Governance
 DPO, Security Lead, GRC Lead
 
 **Summary of the AI System:**  
-The organization plans to integrate OpenAI GPT models (e.g., GPT‑4o, GPT‑4, GPT‑3.5) to support internal employees and external customers. The system will generate responses, summarize documents, assist with troubleshooting, and automate routine communication tasks.
+The organization plans to integrate IMAGINARYai GPT models (e.g., GPT‑4o, GPT‑4, GPT‑3.5) to support internal employees and external customers. The system will generate responses, summarize documents, assist with troubleshooting, and automate routine communication tasks.
 
 **Business Justification:**  
 The AI assistant is expected to increase productivity, reduce response times, and improve customer experience while reducing manual workload.
@@ -32,7 +32,7 @@ The AI assistant is expected to increase productivity, reduce response times, an
 ## **2. Description of Processing**
 
 ### **2.1 Nature of the Processing**
-The system processes user prompts, internal documents, and customer inquiries. OpenAI models generate text outputs based on the provided input. Processing includes:
+The system processes user prompts, internal documents, and customer inquiries. IMAGINARYai models generate text outputs based on the provided input. Processing includes:
 - Text analysis  
 - Content generation  
 - Summarization  
@@ -43,7 +43,7 @@ The system processes user prompts, internal documents, and customer inquiries. O
 - **Data Subjects:** Employees, customers  
 - **Duration:** Real-time processing; logs retained per retention policy  
 - **Frequency:** Continuous  
-- **Geographic Scope:** Global (OpenAI infrastructure may operate internationally)
+- **Geographic Scope:** Global (IMAGINARYai infrastructure may operate internationally)
 
 ### **2.3 Context of the Processing**
 - Some users may be vulnerable (e.g., customers seeking support)  
@@ -156,7 +156,7 @@ Human review is required for:
 - Employee training on safe prompt usage  
 - Governance policies for AI usage  
 - Review workflows for high-risk outputs  
-- Vendor risk assessment of OpenAI  
+- Vendor risk assessment of IMAGINARYai  
 
 ### **6.3 AI-Specific Controls**
 - Bias testing  
@@ -208,7 +208,7 @@ Requests handled through existing customer support and privacy channels.
 ## **9. Third-Party & Vendor Considerations**
 
 ### **9.1 External Providers**
-- OpenAI (model inference)  
+- IMAGINARYai (model inference)  
 - Cloud hosting providers (if applicable)
 
 ### **9.2 Contracts & Safeguards**
@@ -269,7 +269,7 @@ The system introduces moderate privacy and AI risks, all of which can be mitigat
 
 ## **Appendices**
 - A: Data Flow Diagram  
-- B: Model Card (OpenAI GPT Integration)  
+- B: Model Card (IMAGINARYai GPT Integration)  
 - C: Dataset Card (if fine-tuning)  
 - D: Bias Testing Results  
 - E: Monitoring Plan  
