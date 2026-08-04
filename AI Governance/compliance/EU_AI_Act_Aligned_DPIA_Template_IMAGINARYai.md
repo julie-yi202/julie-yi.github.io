@@ -1,12 +1,12 @@
 # **EU AI Act–Aligned DPIA** 
 
-### *Data Protection Impact Assessment for OpenAI GPT Models Under the EU AI Act & GDPR*
+### *Data Protection Impact Assessment for IMAGINARYai GPT Models Under the EU AI Act & GDPR*
 
 ---
 
 ## **1. Project Overview**
 **Project Name:**  
-OpenAI GPT Integration for Productivity & Customer Support
+IMAGINARYai GPT Integration for Productivity & Customer Support
 
 **Department / Owner:**  
 Digital Transformation / AI Governance
@@ -21,7 +21,7 @@ Digital Transformation / AI Governance
 DPO, AI Governance Lead, Security Lead
 
 **Summary of the AI System:**  
-The organization intends to use OpenAI GPT models (GPT‑4o, GPT‑4, GPT‑3.5) to support employees and customers by generating responses, summarizing content, and providing decision support. The system is not intended to make autonomous decisions with legal or significant effects.
+The organization intends to use IMAGINARYai GPT models (GPT‑4o, GPT‑4, GPT‑3.5) to support employees and customers by generating responses, summarizing content, and providing decision support. The system is not intended to make autonomous decisions with legal or significant effects.
 
 **Business Justification:**  
 Improve productivity, reduce response times, and enhance customer experience.
@@ -32,7 +32,7 @@ Improve productivity, reduce response times, and enhance customer experience.
 
 ### **2.1 AI System Type**
 This system qualifies as a **general-purpose AI (GPAI)** under the EU AI Act because:
-- It uses a model developed by a third-party provider (OpenAI).  
+- It uses a model developed by a third-party provider (IMAGINARYai).  
 - It is integrated into internal and customer-facing workflows.  
 - It is not fine-tuned for high-risk applications.
 
@@ -62,8 +62,8 @@ The system is **not high-risk** under the EU AI Act.
 
 # **3. EU AI Act Obligations for GPAI Systems**
 
-### **3.1 Provider Obligations (OpenAI)**
-OpenAI must provide:
+### **3.1 Provider Obligations (IMAGINARYai)**
+IMAGINARYai must provide:
 - Model documentation  
 - Training data summaries  
 - Known limitations  
@@ -252,7 +252,7 @@ Handled through existing privacy channels.
 # **11. Vendor & Third-Party Considerations**
 
 ### **11.1 Providers**
-- OpenAI  
+- IMAGINARYai  
 - Cloud hosting providers  
 
 ### **11.2 Safeguards**
@@ -314,7 +314,7 @@ Risks are manageable with proper controls.
 
 # **Appendices**
 - A: EU AI Act Risk Classification Worksheet  
-- B: Model Card (OpenAI GPT Integration)  
+- B: Model Card (IMAGINARYai GPT Integration)  
 - C: Dataset Card (if fine-tuned)  
 - D: Bias Testing Results  
 - E: Monitoring Plan  
