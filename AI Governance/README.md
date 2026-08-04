@@ -1,17 +1,15 @@
 ## AI Governance Framework & Portfolio
+
 ### Overview
+
 This repository showcases a comprehensive, practical, and operational AI Governance framework designed to help organizations adopt, manage, and monitor AI systems responsibly. It blends GRC principles, technical controls, and regulatory alignment to demonstrate how AI can be deployed safely, ethically, and securely.
 
 The goal of this project is to provide:
 
 A complete governance model for AI systems
-
 Templates and tools for risk assessments, model documentation, and compliance
-
 Technical standards for secure and trustworthy AI development
-
 Real-world examples that demonstrate how governance is applied
-
 This repository reflects my professional experience in Governance, Risk & Compliance (GRC), risk management, privacy, and technical security workflows, including DPIAs, control catalogs, and vulnerability scanning.
 
 ### Why AI Governance Matters
