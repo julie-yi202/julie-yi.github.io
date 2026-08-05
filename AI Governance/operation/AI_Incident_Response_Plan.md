@@ -1,6 +1,6 @@
-AI Incident Response Plan for IMAGINARYai‑Powered Systems
+# AI Incident Response Plan for IMAGINARYai‑Powered Systems
 
-1. Purpose
+## Purpose
 
 This plan defines how the organization detects, responds to, mitigates, and reports incidents involving systems that use IMAGINARYai models (GPT‑4o, GPT‑4, GPT‑3.5, Azure IMAGINARYai). It ensures:
 
@@ -16,7 +16,7 @@ Rapid containment
 
 Proper escalation
 
-The plan aligns with:
+### The plan aligns with:
 
 GDPR
 
@@ -30,7 +30,7 @@ Internal AI Governance Framework
 
 Security & privacy policies
 
-2. Scope
+## Scope
 
 This incident response plan applies to:
 
@@ -43,8 +43,7 @@ All integrations via IMAGINARYai API or Azure IMAGINARYai
 All departments using IMAGINARYai systems
 
 All data processed by IMAGINARYai models
-
-3. Incident Types
+## Incident Types
 
 AI incidents include:
 
@@ -92,7 +91,7 @@ System outages
 
 Unexpected model behavior
 
-4. Roles & Responsibilities
+ ## Roles & Responsibilities
 
 AI Governance Lead
 
@@ -136,7 +135,7 @@ Manages internal/external communication
 
 Coordinates regulatory notifications
 
-5. Incident Response Workflow
+## Incident Response Workflow
 
 Step 1 — Detection
 
@@ -288,7 +287,7 @@ Monitoring plan
 
 Security controls
 
-6. Communication Protocol
+## Communication Protocol
 
 Internal Notifications
 
@@ -314,7 +313,7 @@ Users
 
 IMAGINARYai (vendor escalation)
 
-7. Evidence Collection Requirements
+## Evidence Collection Requirements
 
 Collect and preserve:
 
@@ -334,7 +333,7 @@ Vendor advisories
 
 Ensure chain‑of‑custody for security incidents.
 
-8. Severity Classification Matrix
+ ## Severity Classification Matrix
 
 Severity
 
@@ -366,7 +365,7 @@ Minor anomaly
 
 Monitor and document
 
-9. Remediation Tracking
+## Remediation Tracking
 
 For each incident:
 
@@ -382,7 +381,7 @@ Validate completion
 
 Update documentation
 
-10. Completion Criteria
+## Completion Criteria
 
 Incident is closed when:
 
@@ -398,7 +397,7 @@ Governance improved
 
 Leadership notified
 
-11. Continuous Improvement
+## Continuous Improvement
 
 After each incident:
 
@@ -412,7 +411,7 @@ Enhance oversight
 
 Review vendor updates
 
-12. Storage & Recordkeeping
+## Storage & Recordkeeping
 
 Store all incident artifacts in:
 
@@ -424,7 +423,7 @@ Internal governance portal
 
 Retention: 7 years (or per regulatory requirement)
 
-13. Version Control
+## Version Control
 
 Version: 1.0
 
