@@ -1,85 +1,60 @@
-# AI Incident Response Plan for IMAGINARYai‑Powered Systems
+# AI Incident Response Plan for OpenAI-Based Systems
 
-## Purpose
+1. Purpose
 
-This plan defines how the organization detects, responds to, mitigates, and reports incidents involving systems that use IMAGINARYai models (GPT‑4o, GPT‑4, GPT‑3.5, Azure IMAGINARYai). It ensures:
+This plan defines how the organization detects, responds to, mitigates, and reports incidents involving AI systems powered by OpenAI models. It ensures compliance with GDPR, EU AI Act, ISO 42001, NIST AI RMF, and internal governance requirements.
 
-Safety
+2. Scope
 
-Security
+All applications using OpenAI GPT models
 
-Compliance
+All internal and external AI features
 
-Transparency
+All integrations via OpenAI API or Azure OpenAI
 
-Rapid containment
+All departments using OpenAI systems
 
-Proper escalation
+All data processed by OpenAI models
 
-### The plan aligns with:
+3. Incident Definition
 
-GDPR
+An AI incident includes:
 
-EU AI Act
+Security breaches
 
-ISO 42001
+Privacy violations
 
-NIST AI RMF
+Harmful or biased outputs
 
-Internal AI Governance Framework
+Model drift causing unsafe behavior
 
-Security & privacy policies
+Prompt injection or adversarial attacks
 
-## Scope
+Unauthorized access or misuse
 
-This incident response plan applies to:
+Vendor outages affecting safety or compliance
 
-All applications using IMAGINARYai models
-
-All internal/external AI features
-
-All integrations via IMAGINARYai API or Azure IMAGINARYai
-
-All departments using IMAGINARYai systems
-
-All data processed by IMAGINARYai models
-## Incident Types
-
-AI incidents include:
-
-Safety Incidents
-
-Harmful content generated
-
-Disallowed content bypassing filters
-
-Jailbreaks or prompt injection success
+4. Incident Categories
 
 Security Incidents
 
-API key leakage
+API key exposure
 
 Unauthorized access
 
-Model manipulation
-
-Data exfiltration via prompts
+Injection attacks
 
 Privacy Incidents
 
-Personal data exposure
+Personal data leakage
 
-Sensitive data processed without lawful basis
+GDPR violations
 
-DPIA violations
+Safety Incidents
 
-Compliance Incidents
+Harmful content generation
 
-EU AI Act transparency failures
-
-High‑risk system obligations unmet
-
-Vendor compliance gaps
+Biased or discriminatory outputs
 
 Operational Incidents
 
@@ -87,59 +62,45 @@ Model drift
 
 Output degradation
 
-System outages
+Vendor outages
 
-Unexpected model behavior
-
- ## Roles & Responsibilities
+5. Roles & Responsibilities
 
 AI Governance Lead
 
 Owns incident response
 
-Coordinates cross‑functional teams
-
-Approves final reports
+Coordinates cross-functional teams
 
 Security Lead
 
-Leads containment
+Leads technical containment
 
 Performs forensic analysis
-
-Validates remediation
 
 Privacy/DPO
 
 Assesses GDPR impact
 
-Determines notification requirements
-
-Ensures DPIA updates
+Manages regulatory reporting
 
 Technical Owner
 
-Provides logs, architecture, and system access
+Provides architecture details
 
-Implements fixes
+Executes remediation steps
 
-Risk Owner
+Product Owner
 
-Updates risk register
+Communicates with stakeholders
 
-Confirms residual risk acceptability
+Ensures user impact mitigation
 
-Communications Lead
-
-Manages internal/external communication
-
-Coordinates regulatory notifications
-
-## Incident Response Workflow
+6. Incident Response Workflow
 
 Step 1 — Detection
 
-Incidents may be detected via:
+Sources:
 
 Monitoring alerts
 
@@ -147,45 +108,33 @@ Drift detection systems
 
 User reports
 
-Security tools
+Security logs
 
-Red‑team findings
-
-Vendor notifications (IMAGINARYai)
+Vendor notifications
 
 Step 2 — Initial Triage
 
-Classify severity:
-
-Critical — immediate harm, major breach, regulatory impact
-
-High — significant risk, safety or privacy exposure
-
-Medium — contained issue, limited impact
-
-Low — minor anomaly
-
 Determine:
 
-Scope
+Severity
 
 Impact
 
-Urgency
+Category
+
+Required escalation
 
 Step 3 — Containment
 
-Actions may include:
+Actions:
 
-Disable affected AI feature
+Disable affected AI features
 
-Revoke API keys
+Rotate API keys
 
-Block malicious prompts
+Block malicious inputs
 
 Restrict access
-
-Activate safe‑mode filters
 
 Step 4 — Investigation
 
@@ -193,195 +142,159 @@ Collect:
 
 Logs
 
-Prompts/responses
+Prompts
 
-System events
+Outputs
 
-API usage
+System behavior traces
 
-Architecture details
+Vendor status updates
 
-Vendor advisories
+Analyze:
 
-Perform:
+Root cause
 
-Root cause analysis
+Attack vector
 
-Prompt injection analysis
+Data exposure
 
-Security forensics
-
-Bias or safety evaluation
+Compliance impact
 
 Step 5 — Mitigation
 
-Implement corrective actions:
+Implement:
 
-Patch vulnerabilities
+Model guardrails
 
-Strengthen filters
+Updated filters
 
-Update access controls
+Security patches
 
-Improve monitoring
+Policy changes
 
-Adjust prompts or guardrails
+Step 6 — Communication
 
-Retrain fine‑tuned models (if applicable)
+Notify:
 
-Step 6 — Recovery
+Internal leadership
 
-Restore normal operations:
+Impacted teams
 
-Re‑enable features
+Users (if required)
 
-Validate output quality
+Regulators (if required)
 
-Confirm safety controls
+Step 7 — Recovery
 
-Monitor for recurrence
+Restore:
 
-Step 7 — Reporting
+AI functionality
+
+Monitoring systems
+
+Access controls
+
+Validate:
+
+Output quality
+
+Safety controls
+
+Compliance alignment
+
+Step 8 — Documentation
 
 Produce:
 
 Incident report
 
-Timeline
+Root cause analysis
 
-Impact assessment
-
-Root cause summary
-
-Remediation actions
+Remediation summary
 
 Updated risk register
 
-If required:
-
-Notify DPA (GDPR)
-
-Notify regulators (EU AI Act)
-
-Notify affected users
-
-Step 8 — Post‑Incident Review
-
-Conduct lessons‑learned session:
-
-What failed
-
-What worked
-
-What must change
-
-Update:
-
-Governance framework
-
-DPIA
-
-Model card
-
-Monitoring plan
-
-Security controls
-
-## Communication Protocol
-
-Internal Notifications
-
-Notify:
-
-AI Governance Lead
-
-Security Lead
-
-DPO
-
-Technical Owner
-
-Leadership (for critical incidents)
-
-External Notifications
-
-If required:
-
-Regulators
-
-Users
-
-IMAGINARYai (vendor escalation)
-
-## Evidence Collection Requirements
-
-Collect and preserve:
-
-Prompts
-
-Model outputs
-
-Logs
-
-API usage records
-
-System configuration snapshots
-
-Screenshots
-
-Vendor advisories
-
-Ensure chain‑of‑custody for security incidents.
-
- ## Severity Classification Matrix
-
-Severity
-
-Description
-
-Required Actions
+7. Severity Levels
 
 Critical
 
-Major harm, breach, regulatory impact
+Data breach
 
-Immediate containment, leadership notification, regulator reporting
+Harmful outputs affecting users
+
+Regulatory impact
 
 High
 
-Significant risk or exposure
+Security compromise without data loss
 
-Containment within 24 hours, full investigation
+Major model malfunction
 
 Medium
 
-Limited impact
+Drift causing degraded performance
 
-Standard investigation, remediation
+Repeated harmful outputs
 
 Low
 
-Minor anomaly
+Minor anomalies
 
-Monitor and document
+Non-user-facing issues
 
-## Remediation Tracking
+8. Communication Protocol
 
-For each incident:
+Internal
 
-Assign owner
+Immediate alert to Governance Lead
 
-Define corrective action
+Security & Privacy teams engaged
 
-Set deadline
+External
 
-Track progress
+Regulator notification (GDPR: 72 hours)
 
-Validate completion
+Vendor communication (OpenAI)
 
-Update documentation
+User notification if required
 
-## Completion Criteria
+9. Evidence Collection
+
+Logs (API, system, security)
+
+Prompt/response samples
+
+Access records
+
+Monitoring data
+
+Vendor incident reports
+
+10. Post-Incident Review
+
+Conduct:
+
+Lessons learned session
+
+Control effectiveness review
+
+Policy updates
+
+Training updates
+
+11. Continuous Improvement
+
+Enhance:
+
+Monitoring
+
+Guardrails
+
+Oversight workflows
+
+Documentation
+
+12. Completion Criteria
 
 Incident is closed when:
 
@@ -391,44 +304,6 @@ Root cause identified
 
 Remediation validated
 
-Documentation updated
+Documentation finalized
 
-Governance improved
-
-Leadership notified
-
-## Continuous Improvement
-
-After each incident:
-
-Strengthen controls
-
-Improve monitoring
-
-Update training
-
-Enhance oversight
-
-Review vendor updates
-
-## Storage & Recordkeeping
-
-Store all incident artifacts in:
-
-/incident-response/ folder
-
-Compliance repository
-
-Internal governance portal
-
-Retention: 7 years (or per regulatory requirement)
-
-## Version Control
-
-Version: 1.0
-
-Owner: AI Governance Lead
-
-Last Updated: <Insert Date>
-
-Review Cycle: Annual or after major incidents
+Governance Lead approves closure
