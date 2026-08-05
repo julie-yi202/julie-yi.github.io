@@ -2,18 +2,14 @@
 
 1. Purpose
 
-This plan defines how the organization detects, responds to, mitigates, and reports incidents involving AI systems powered by OpenAI models. It ensures compliance with GDPR, EU AI Act, ISO 42001, NIST AI RMF, and internal governance requirements.
+   This plan defines how the organization detects, responds to, mitigates, and reports incidents involving AI systems powered by OpenAI models. It ensures    compliance with GDPR, EU AI Act, ISO 42001, NIST AI RMF, and internal governance requirements.
 
 2. Scope
 
 All applications using OpenAI GPT models
-
 All internal and external AI features
-
 All integrations via OpenAI API or Azure OpenAI
-
 All departments using OpenAI systems
-
 All data processed by OpenAI models
 
 3. Incident Definition
@@ -21,17 +17,11 @@ All data processed by OpenAI models
 An AI incident includes:
 
 Security breaches
-
 Privacy violations
-
 Harmful or biased outputs
-
 Model drift causing unsafe behavior
-
 Prompt injection or adversarial attacks
-
 Unauthorized access or misuse
-
 Vendor outages affecting safety or compliance
 
 4. Incident Categories
