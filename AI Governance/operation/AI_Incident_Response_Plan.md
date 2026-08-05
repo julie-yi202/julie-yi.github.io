@@ -29,29 +29,23 @@ Vendor outages affecting safety or compliance
 Security Incidents
 
 API key exposure
-
 Unauthorized access
-
 Injection attacks
 
 Privacy Incidents
 
 Personal data leakage
-
 GDPR violations
 
 Safety Incidents
 
 Harmful content generation
-
 Biased or discriminatory outputs
 
 Operational Incidents
 
 Model drift
-
 Output degradation
-
 Vendor outages
 
 5. Roles & Responsibilities
