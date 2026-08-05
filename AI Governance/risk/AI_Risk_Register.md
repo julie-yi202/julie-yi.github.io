@@ -3,7 +3,7 @@
 [AI_Risk_Register.xlsx](https://github.com/user-attachments/files/30764855/AI_Risk_Register.xlsx)
 
 
-# AI Risk Register (OpenAI Systems)
+# AI Risk Register (IMAGINARYai Systems)
 
 | Risk ID | Risk Name | Description | Model(s) Affected | Likelihood | Impact | Risk Rating | Controls (IDs) | Owner | Status |
 |--------|-----------|-------------|-------------------|------------|--------|-------------|----------------|-------|--------|
