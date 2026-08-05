@@ -6,81 +6,89 @@
 
 2. Scope
 
-All applications using OpenAI GPT models
-All internal and external AI features
-All integrations via OpenAI API or Azure OpenAI
-All departments using OpenAI systems
-All data processed by OpenAI models
+   All applications using OpenAI GPT models 
 
-3. Incident Definition
+   All internal and external AI features
+   
+   All integrations via OpenAI API or Azure OpenAI
+   
+   All departments using OpenAI systems
+   
+   All data processed by OpenAI models
 
-An AI incident includes:
+4. Incident Definition
 
-Security breaches
-Privacy violations
-Harmful or biased outputs
-Model drift causing unsafe behavior
-Prompt injection or adversarial attacks
-Unauthorized access or misuse
-Vendor outages affecting safety or compliance
+   An AI incident includes:
+
+   Security breaches
+   Privacy violations
+   Harmful or biased outputs
+   Model drift causing unsafe behavior
+   Prompt injection or adversarial attacks
+   Unauthorized access or misuse
+   Vendor outages affecting safety or compliance
 
 4. Incident Categories
 
 ## Security Incidents
 
-API key exposure
+   API key exposure
 
-Unauthorized access
+   Unauthorized access
 
-Injection attacks
+   Injection attacks
 
 ## Privacy Incidents
 
-Personal data leakage
-GDPR violations
+   Personal data leakage
+   
+   GDPR violations
 
 ## Safety Incidents
 
-Harmful content generation
-Biased or discriminatory outputs
+   Harmful content generation
+   
+   Biased or discriminatory outputs
 
 ## Operational Incidents
 
-Model drift
-Output degradation
-Vendor outages
+   Model drift
+   
+   Output degradation
+   
+   Vendor outages
 
 5. Roles & Responsibilities
 
 ### AI Governance Lead
 
-Owns incident response
+   Owns incident response
 
-Coordinates cross-functional teams
+   Coordinates cross-functional teams
 
 ### Security Lead
 
-Leads technical containment
+   Leads technical containment
 
-Performs forensic analysis
+   Performs forensic analysis
 
 ### Privacy/DPO
 
-Assesses GDPR impact
+   Assesses GDPR impact
 
-Manages regulatory reporting
+   Manages regulatory reporting
 
 ### Technical Owner
 
-Provides architecture details
+   Provides architecture details
 
-Executes remediation steps
+   Executes remediation steps
 
 ### Product Owner
 
-Communicates with stakeholders
+   Communicates with stakeholders
 
-Ensures user impact mitigation
+   Ensures user impact mitigation
 
 6. Incident Response Workflow
 
@@ -88,208 +96,208 @@ Ensures user impact mitigation
 
 #### Sources:
 
-Monitoring alerts
+   Monitoring alerts
 
-Drift detection systems
+   Drift detection systems
 
-User reports
+   User reports
 
-Security logs
+   Security logs
 
-Vendor notifications
+   Vendor notifications
 
 ### Step 2 — Initial Triage
 
 #### Determine:
 
-Severity
+   Severity
 
-Impact
+   Impact
 
-Category
+   Category
 
-Required escalation
+   Required escalation
 
 ### Step 3 — Containment
 
 #### Actions:
 
-Disable affected AI features
+   Disable affected AI features
 
-Rotate API keys
+   Rotate API keys
 
-Block malicious inputs
+   Block malicious inputs
 
-Restrict access
+   Restrict access
 
 ### Step 4 — Investigation
 
 #### Collect:
 
-Logs
+   Logs
 
-Prompts
+   Prompts
 
-Outputs
+   Outputs
 
-System behavior traces
+   System behavior traces
 
-Vendor status updates
+   Vendor status updates
 
 #### Analyze:
 
-Root cause
+   Root cause
 
-Attack vector
+   Attack vector
 
-Data exposure
+   Data exposure
 
-Compliance impact
+   Compliance impact
 
 ### Step 5 — Mitigation
 
 #### Implement:
 
-Model guardrails
+   Model guardrails
 
-Updated filters
+   Updated filters
 
-Security patches
+   Security patches
 
-Policy changes
+   Policy changes
 
 ### Step 6 — Communication
 
 #### Notify:
 
-Internal leadership
+   Internal leadership
 
-Impacted teams
+   Impacted teams
 
-Users (if required)
+   Users (if required)
 
-Regulators (if required)
+   Regulators (if required)
 
 ### ep 7 — Recovery
 
 #### Restore:
 
-AI functionality
+   AI functionality
 
-Monitoring systems
+   Monitoring systems
 
-Access controls
+   Access controls
 
 #### Validate:
 
-Output quality
+   Output quality
 
-Safety controls
+   Safety controls
 
-Compliance alignment
+   Compliance alignment
 
 ### Step 8 — Documentation
 
 #### Produce:
 
-Incident report
+   Incident report
 
-Root cause analysis
+   Root cause analysis
 
-Remediation summary
+   Remediation summary
 
-Updated risk register
+   Updated risk register
 
 ### 7. Severity Levels
 
 #### Critical
 
-Data breach
+   Data breach
 
-Harmful outputs affecting users
+   Harmful outputs affecting users
 
-Regulatory impact
+   Regulatory impact
 
 #### High
 
-Security compromise without data loss
+   Security compromise without data loss
 
-Major model malfunction
+   Major model malfunction
 
 #### Medium
 
-Drift causing degraded performance
+   Drift causing degraded performance
 
-Repeated harmful outputs
+   Repeated harmful outputs
 
 #### Low
 
-Minor anomalies
+   Minor anomalies
 
-Non-user-facing issues
+   Non-user-facing issues
 
 ### 8. Communication Protocol
 
 #### Internal
 
-Immediate alert to Governance Lead
+   Immediate alert to Governance Lead
 
-Security & Privacy teams engaged
+   Security & Privacy teams engaged
 
 #### External
 
-Regulator notification (GDPR: 72 hours)
+   Regulator notification (GDPR: 72 hours)
 
-Vendor communication (OpenAI)
+   Vendor communication (OpenAI)
 
-User notification if required
+   User notification if required
 
 ### 9. Evidence Collection
 
-Logs (API, system, security)
+   Logs (API, system, security)
 
-Prompt/response samples
+   Prompt/response samples
 
-Access records
+   Access records
 
-Monitoring data
+   Monitoring data
 
-Vendor incident reports
+   Vendor incident reports
 
 ### 10. Post-Incident Review
 
 #### Conduct:
 
-Lessons learned session
+   Lessons learned session
 
-Control effectiveness review
+   Control effectiveness review
 
-Policy updates
+   Policy updates
 
-Training updates
+   Training updates
 
 ### 11. Continuous Improvement
 
 #### Enhance:
 
-Monitoring
+   Monitoring
 
-Guardrails
+   Guardrails
 
-Oversight workflows
+   Oversight workflows
 
-Documentation
+   Documentation
 
 ### 12. Completion Criteria
 
 #### Incident is closed when:
 
-Containment complete
+   Containment complete
 
-Root cause identified
+   Root cause identified
 
-Remediation validated
+   Remediation validated
 
-Documentation finalized
+   Documentation finalized
 
-Governance Lead approves closure
+   Governance Lead approves closure
