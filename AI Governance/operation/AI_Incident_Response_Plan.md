@@ -26,23 +26,25 @@ Vendor outages affecting safety or compliance
 
 4. Incident Categories
 
-Security Incidents
+## Security Incidents
 
 API key exposure
+
 Unauthorized access
+
 Injection attacks
 
-Privacy Incidents
+## Privacy Incidents
 
 Personal data leakage
 GDPR violations
 
-Safety Incidents
+## Safety Incidents
 
 Harmful content generation
 Biased or discriminatory outputs
 
-Operational Incidents
+## Operational Incidents
 
 Model drift
 Output degradation
@@ -50,31 +52,31 @@ Vendor outages
 
 5. Roles & Responsibilities
 
-AI Governance Lead
+### AI Governance Lead
 
 Owns incident response
 
 Coordinates cross-functional teams
 
-Security Lead
+### Security Lead
 
 Leads technical containment
 
 Performs forensic analysis
 
-Privacy/DPO
+### Privacy/DPO
 
 Assesses GDPR impact
 
 Manages regulatory reporting
 
-Technical Owner
+### Technical Owner
 
 Provides architecture details
 
 Executes remediation steps
 
-Product Owner
+### Product Owner
 
 Communicates with stakeholders
 
@@ -82,9 +84,9 @@ Ensures user impact mitigation
 
 6. Incident Response Workflow
 
-Step 1 — Detection
+### Step 1 — Detection
 
-Sources:
+#### Sources:
 
 Monitoring alerts
 
@@ -96,9 +98,9 @@ Security logs
 
 Vendor notifications
 
-Step 2 — Initial Triage
+### Step 2 — Initial Triage
 
-Determine:
+#### Determine:
 
 Severity
 
@@ -108,9 +110,9 @@ Category
 
 Required escalation
 
-Step 3 — Containment
+### Step 3 — Containment
 
-Actions:
+#### Actions:
 
 Disable affected AI features
 
@@ -120,9 +122,9 @@ Block malicious inputs
 
 Restrict access
 
-Step 4 — Investigation
+### Step 4 — Investigation
 
-Collect:
+#### Collect:
 
 Logs
 
@@ -134,7 +136,7 @@ System behavior traces
 
 Vendor status updates
 
-Analyze:
+#### Analyze:
 
 Root cause
 
@@ -144,9 +146,9 @@ Data exposure
 
 Compliance impact
 
-Step 5 — Mitigation
+### Step 5 — Mitigation
 
-Implement:
+#### Implement:
 
 Model guardrails
 
@@ -156,9 +158,9 @@ Security patches
 
 Policy changes
 
-Step 6 — Communication
+### Step 6 — Communication
 
-Notify:
+#### Notify:
 
 Internal leadership
 
@@ -168,9 +170,9 @@ Users (if required)
 
 Regulators (if required)
 
-Step 7 — Recovery
+### ep 7 — Recovery
 
-Restore:
+#### Restore:
 
 AI functionality
 
@@ -178,7 +180,7 @@ Monitoring systems
 
 Access controls
 
-Validate:
+#### Validate:
 
 Output quality
 
@@ -186,9 +188,9 @@ Safety controls
 
 Compliance alignment
 
-Step 8 — Documentation
+### Step 8 — Documentation
 
-Produce:
+#### Produce:
 
 Incident report
 
@@ -198,9 +200,9 @@ Remediation summary
 
 Updated risk register
 
-7. Severity Levels
+### 7. Severity Levels
 
-Critical
+#### Critical
 
 Data breach
 
@@ -208,33 +210,33 @@ Harmful outputs affecting users
 
 Regulatory impact
 
-High
+#### High
 
 Security compromise without data loss
 
 Major model malfunction
 
-Medium
+#### Medium
 
 Drift causing degraded performance
 
 Repeated harmful outputs
 
-Low
+#### Low
 
 Minor anomalies
 
 Non-user-facing issues
 
-8. Communication Protocol
+### 8. Communication Protocol
 
-Internal
+#### Internal
 
 Immediate alert to Governance Lead
 
 Security & Privacy teams engaged
 
-External
+#### External
 
 Regulator notification (GDPR: 72 hours)
 
@@ -242,7 +244,7 @@ Vendor communication (OpenAI)
 
 User notification if required
 
-9. Evidence Collection
+### 9. Evidence Collection
 
 Logs (API, system, security)
 
@@ -254,9 +256,9 @@ Monitoring data
 
 Vendor incident reports
 
-10. Post-Incident Review
+### 10. Post-Incident Review
 
-Conduct:
+#### Conduct:
 
 Lessons learned session
 
@@ -266,9 +268,9 @@ Policy updates
 
 Training updates
 
-11. Continuous Improvement
+### 11. Continuous Improvement
 
-Enhance:
+#### Enhance:
 
 Monitoring
 
@@ -278,9 +280,9 @@ Oversight workflows
 
 Documentation
 
-12. Completion Criteria
+### 12. Completion Criteria
 
-Incident is closed when:
+#### Incident is closed when:
 
 Containment complete
 
