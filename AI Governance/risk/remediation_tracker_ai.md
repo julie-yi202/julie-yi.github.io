@@ -15,3 +15,8 @@
 | **AI-REM-13** | AI-RISK-13 | Conduct plugin security review and restrict permissions | AI-CTRL-51, AI-CTRL-22 | Security Team | 2026-09-25 | Open | Plugin audit results |
 | **AI-REM-14** | AI-RISK-14 | Add copyright detection and user guidance prompts | AI-CTRL-32, AI-CTRL-60 | Legal | 2026-09-30 | Open | Copyright filter logs |
 | **AI-REM-15** | AI-RISK-15 | Standardize prompt templates and implement deterministic modes | AI-CTRL-70, AI-CTRL-90 | AI Ops | 2026-09-18 | In Progress | Prompt library, consistency test results |
+
+
+Excel Version
+[Remediation_Tracker_ai.xlsx](https://github.com/user-attachments/files/30839131/Remediation_Tracker_ai.xlsx)
+
