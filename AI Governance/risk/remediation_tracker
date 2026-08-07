@@ -1,7 +1,5 @@
-# IMAGINARYai – AI Remediation Tracker
-
 | Remediation ID | Related Risk ID | Remediation Action | Control(s) Implemented | Owner | Target Date | Status | Evidence Required |
-|----------------|-----------------|--------------------|-------------------------|--------|-------------|--------|-------------------|
+| --- | --- | --- | --- | --- | --- | --- | --- |
 | **AI-REM-01** | AI-RISK-01 | Implement structured output validation and RAG grounding improvements | AI-CTRL-31, AI-CTRL-40 | AI Lead | 2026-09-15 | In Progress | Validation logs, test results |
 | **AI-REM-02** | AI-RISK-02 | Deploy prompt filtering, sandboxing, and guardrail middleware | AI-CTRL-21, AI-CTRL-20 | Security Team | 2026-08-30 | Open | Middleware config, security test results |
 | **AI-REM-03** | AI-RISK-03 | Enforce data masking and disable sensitive data logging | AI-CTRL-10, AI-CTRL-12 | Privacy Officer | 2026-09-01 | In Progress | Logging config, DPIA updates |
@@ -17,4 +15,3 @@
 | **AI-REM-13** | AI-RISK-13 | Conduct plugin security review and restrict permissions | AI-CTRL-51, AI-CTRL-22 | Security Team | 2026-09-25 | Open | Plugin audit results |
 | **AI-REM-14** | AI-RISK-14 | Add copyright detection and user guidance prompts | AI-CTRL-32, AI-CTRL-60 | Legal | 2026-09-30 | Open | Copyright filter logs |
 | **AI-REM-15** | AI-RISK-15 | Standardize prompt templates and implement deterministic modes | AI-CTRL-70, AI-CTRL-90 | AI Ops | 2026-09-18 | In Progress | Prompt library, consistency test results |
-
