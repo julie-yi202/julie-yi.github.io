@@ -1,7 +1,3 @@
-# AI Risk Register for IMAGINARYai
-
-[AI_Risk_Register.xlsx](https://github.com/user-attachments/files/30764855/AI_Risk_Register.xlsx)
-
 
 # AI Risk Register (IMAGINARYai Systems)
 
@@ -22,3 +18,10 @@
 | **AI-RISK-13** | Plugin / Integration Risk | Third-party plugins introduce vulnerabilities | GPT-4 Plugins | Medium | High | High | AI-CTRL-51, AI-CTRL-22 | Security Team | Open |
 | **AI-RISK-14** | IP / Copyright Issues | Model generates copyrighted or proprietary content | All LLMs | Medium | Medium | Medium | AI-CTRL-32, AI-CTRL-60 | Legal | Open |
 | **AI-RISK-15** | Inconsistent Behavior | Model behaves differently across contexts or prompts | All LLMs | Medium | Medium | Medium | AI-CTRL-70, AI-CTRL-90 | AI Ops | Open |
+
+
+
+# AI Risk Register for IMAGINARYai
+
+[AI_Risk_Register.xlsx](https://github.com/user-attachments/files/30764855/AI_Risk_Register.xlsx)
+
