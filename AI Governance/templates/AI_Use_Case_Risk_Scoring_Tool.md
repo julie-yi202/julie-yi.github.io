@@ -24,8 +24,6 @@
 
 
 
-[AI Use Case & Process Inventory.xlsx](https://github.com/user-attachments/files/30948210/AI.Use.Case.Process.Inventory.xlsx)
-
 
 | Use Case Category | Specific Use Case | Description | Risk Level (Initial) | Data Sensitivity | Owner | Status |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -91,4 +89,4 @@
 
 
 
-
+[AI Use Case & Process Inventory.xlsx](https://github.com/user-attachments/files/30948210/AI.Use.Case.Process.Inventory.xlsx)
