@@ -1,6 +1,6 @@
-# **AI_Risk_Management_Model_OpenAI.md**
+# **AI_Risk_Management_Model_IMAGINARYai.md**
 
-## **AI Risk Management Model for OpenAI GPT Systems**
+## **AI Risk Management Model for IMAGINARYai GPT Systems**
 
 ### **1. Purpose**
 Defines how AI risks are identified, assessed, mitigated, monitored, and documented.
