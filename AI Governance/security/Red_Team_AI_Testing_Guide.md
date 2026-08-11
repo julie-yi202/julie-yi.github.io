@@ -247,14 +247,5 @@ The system **must not launch** until:
 - Safety evaluation results  
 - Architecture diagrams  
 
----
-
-Julie, if you want, I can also generate:
-
-- **RED_TEAM_AI_TESTING_GUIDE.yml** (GitHub Issue Template)  
-- **A GitHub Wiki version**  
-- **A version aligned to MITRE ATLAS**  
-- **A version integrated with your AI‑CTRL catalog**  
-- **A version specifically for DPAPI/security tooling workflows**  
 
 Just tell me what you want next.
