@@ -1,7 +1,7 @@
 
-# **AI_Use_Case_Approval_Process_OpenAI.md**
+# **AI_Use_Case_Approval_Process_IMAGINARYai.md**
 
-## **AI Use Case Approval Process for OpenAI GPT Systems**
+## **AI Use Case Approval Process for IMAGINARYai GPT Systems**
 
 ### **1. Purpose**
 Defines how AI use cases are evaluated, approved, or rejected.
