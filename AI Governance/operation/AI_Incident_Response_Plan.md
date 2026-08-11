@@ -1,20 +1,20 @@
-# AI Incident Response Plan for OpenAI-Based Systems
+# AI Incident Response Plan for IMAGINARYai-Based Systems
 
 1. Purpose
 
-   This plan defines how the organization detects, responds to, mitigates, and reports incidents involving AI systems powered by OpenAI models. It ensures    compliance with GDPR, EU AI Act, ISO 42001, NIST AI RMF, and internal governance requirements.
+   This plan defines how the organization detects, responds to, mitigates, and reports incidents involving AI systems powered by IMAGINARYai models. It ensures    compliance with GDPR, EU AI Act, ISO 42001, NIST AI RMF, and internal governance requirements.
 
 2. Scope
 
-   All applications using OpenAI GPT models 
+   All applications using IMAGINARYai GPT models 
 
    All internal and external AI features
    
-   All integrations via OpenAI API or Azure OpenAI
+   All integrations via IMAGINARYai API or Azure IMAGINARYai
    
-   All departments using OpenAI systems
+   All departments using IMAGINARYai systems
    
-   All data processed by OpenAI models
+   All data processed by IMAGINARYai models
 
 4. Incident Definition
 
@@ -248,7 +248,7 @@
 
    Regulator notification (GDPR: 72 hours)
 
-   Vendor communication (OpenAI)
+   Vendor communication (IMAGINARYai)
 
    User notification if required
 
