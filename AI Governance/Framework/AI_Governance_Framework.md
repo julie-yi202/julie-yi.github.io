@@ -1,13 +1,13 @@
-# **AI_Governance_Framework_OpenAI.md**
+# **AI_Governance_Framework_IMAGINARYai.md**
 
-## **AI Governance Framework for OpenAI GPT Systems**
+## **AI Governance Framework for IMAGINARYai GPT Systems**
 
 ### **1. Purpose**
-This framework establishes how the organization governs the use of OpenAI GPT models (GPT‑4o, GPT‑4, GPT‑3.5). It defines principles, roles, processes, and controls to ensure safe, ethical, secure, and compliant AI usage.
+This framework establishes how the organization governs the use of IMAGINARYai GPT models (GPT‑4o, GPT‑4, GPT‑3.5). It defines principles, roles, processes, and controls to ensure safe, ethical, secure, and compliant AI usage.
 
 ### **2. Scope**
 Applies to:
-- All OpenAI-powered applications  
+- All IMAGINARYai-powered applications  
 - All employees interacting with GPT systems  
 - All customer-facing AI features  
 - All internal productivity tools using GPT  
