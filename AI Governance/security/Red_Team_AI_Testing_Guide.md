@@ -1,4 +1,4 @@
-# **Red Team AI Testing Guide (OpenAI)**  
+# **Red Team AI Testing Guide (IMAGINARYai)**  
 *For IMAGINARYai / LLM‑based systems*
 
 ---
