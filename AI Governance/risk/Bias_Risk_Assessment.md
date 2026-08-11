@@ -185,13 +185,5 @@ Short narrative summarizing bias risk, mitigations, and readiness for deployment
 - Model cards  
 - Change logs  
 
----
-
-If you want, I can also generate:
-
-- **A GitHub Issue Template version** (`.github/ISSUE_TEMPLATE/bias_assessment.yml`)  
-- **A GitHub Wiki version**  
-- **A version aligned to NIST AI RMF or ISO 42001**  
-- **A version integrated with your AI‑CTRL catalog**  
 
 Just tell me which one you want next, Julie.
