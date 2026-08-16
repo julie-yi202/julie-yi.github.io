@@ -5,7 +5,7 @@ This repository contains my detailed, educational walkthroughs of various **TryH
 
 - **Credential Harvesting**
 - **Exploiting Active Directory (AD)**
-- **Persisting Access in AD Environments**
+- **Persisting Active Directory (AD)**
 
 Each write‑up explains **how I approached, analyzed, and solved** the rooms — focusing on methodology, reasoning, and defensive understanding.  
 All content is strictly for **ethical cybersecurity learning**, aligned with responsible security practices.
