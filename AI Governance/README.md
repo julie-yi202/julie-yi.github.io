@@ -136,7 +136,43 @@ Aligned with:
 - GDPR  
 - ISO 42001  
 - NIST AI RMF  
-- OECD AI Principles  
+- OECD AI Principles
+
+Additional Compliance & Standards to Consider
+
+Beyond the core frameworks (EU AI Act, GDPR, ISO 42001, NIST AI RMF, OECD AI Principles), AI‑driven organizations should also align with the following global standards and guidelines:
+
+International Standards (ISO/IEC)
+
+- **ISO/IEC 23894 — AI Risk Management**  
+  Guidance for identifying, assessing, and mitigating risks across the AI lifecycle.
+
+- **ISO/IEC 5338 — AI Lifecycle Management**  
+  Defines processes for designing, developing, deploying, and maintaining AI systems.
+
+- **ISO/IEC 23053 — AI System Framework**  
+  Establishes a reference architecture for AI systems and components.
+
+- **ISO/IEC 27001 / 27002 — Information Security Controls**  
+  Foundational security standards that AI systems rely on for confidentiality, integrity, and availability.
+
+- **ISO/IEC 27701 — Privacy Information Management**  
+  Extends GDPR compliance with structured privacy controls for AI systems.
+
+- **ISO/IEC 29100 — Privacy Framework**  
+  Provides privacy principles and guidelines relevant to AI data processing.
+
+Ethical & Responsible AI Standards (IEEE)
+
+- **IEEE 7000 Series — Ethical AI Standards**  
+  A suite of standards covering:  
+  - Algorithmic bias  
+  - Transparency  
+  - Privacy  
+  - Human oversight  
+  - Ethical system design  
+
+---
 
 ### **6. Practical**
 Templates and examples make governance actionable, not theoretical.
