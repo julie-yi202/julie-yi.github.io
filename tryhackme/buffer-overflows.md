@@ -46,6 +46,9 @@ Testing random string in r2
 
 <img width="932" height="500" alt="Screenshot 2026-09-10 003008" src="https://github.com/user-attachments/assets/1621c973-178f-48b1-a6de-a6f5e300a1b2" />
 
+
+
+Checking registers..especially the rip value
 <img width="930" height="323" alt="Screenshot 2026-09-10 003026" src="https://github.com/user-attachments/assets/abc6892d-9765-4ab7-a247-6ce96e5d62ce" />
 
 
