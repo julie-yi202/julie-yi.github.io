@@ -20,7 +20,6 @@ Looking at the c code with r2 (radare2); Similar to Immunity Debugger but more l
 
 <img width="934" height="425" alt="Screenshot 2026-09-09 234903" src="https://github.com/user-attachments/assets/781a4074-3a50-4a55-a952-a6835f3ffa93" />
 
-<img width="935" height="146" alt="Screenshot 2026-09-09 234942" src="https://github.com/user-attachments/assets/977a78f8-1328-4c11-8422-93116cca6cf0" />
 
 <img width="936" height="211" alt="Screenshot 2026-09-09 235015" src="https://github.com/user-attachments/assets/de3aec2c-a6d0-4b6e-a76b-ca1abd9a5e92" />
 
