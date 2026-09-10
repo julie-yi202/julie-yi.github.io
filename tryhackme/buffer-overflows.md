@@ -8,6 +8,8 @@ Overflow-3 folder has three files. One of them is c code which is shown above.
 
 <img width="926" height="548" alt="Screenshot 2026-09-09 234812" src="https://github.com/user-attachments/assets/fe1191e0-1bf9-40c2-9310-2790dcc5bfab" />
 
+Looking at the c code with r2 (radare2); Similar to Immunity Debugger but more like CLI interactive than GUI interactive Immunity Debugger.
+
 <img width="921" height="421" alt="Screenshot 2026-09-09 234837" src="https://github.com/user-attachments/assets/b05fb802-a727-4043-968b-6f8f286c2525" />
 
 <img width="934" height="425" alt="Screenshot 2026-09-09 234903" src="https://github.com/user-attachments/assets/781a4074-3a50-4a55-a952-a6835f3ffa93" />
