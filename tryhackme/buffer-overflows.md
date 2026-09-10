@@ -52,5 +52,8 @@ Checking registers..especially the rip value
 <img width="930" height="323" alt="Screenshot 2026-09-10 003026" src="https://github.com/user-attachments/assets/abc6892d-9765-4ab7-a247-6ce96e5d62ce" />
 
 
+Checking memory at rsp
+
+<img width="935" height="330" alt="Screenshot 2026-09-10 004506" src="https://github.com/user-attachments/assets/17803a23-5fec-4850-91cd-d7569a3bc8bc" />
 
 
