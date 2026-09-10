@@ -42,7 +42,6 @@ Testing random string in r2
 
 <img width="936" height="374" alt="Screenshot 2026-09-10 001733" src="https://github.com/user-attachments/assets/d758366c-3073-40bb-8b73-bdbf9c6987f6" />
 
-<img width="935" height="362" alt="Screenshot 2026-09-10 001753" src="https://github.com/user-attachments/assets/f6db2284-42cc-4291-9e21-570ea147f288" />
 
 
 <img width="932" height="500" alt="Screenshot 2026-09-10 003008" src="https://github.com/user-attachments/assets/1621c973-178f-48b1-a6de-a6f5e300a1b2" />
