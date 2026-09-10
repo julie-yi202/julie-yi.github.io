@@ -34,5 +34,6 @@ Tested memory in r2
 
 <img width="929" height="462" alt="Screenshot 2026-09-09 235120" src="https://github.com/user-attachments/assets/5dd6e65c-2ab0-432d-b2ad-546058c655f3" />
 
-
+Testing random string in r2
+<img width="928" height="627" alt="Screenshot 2026-09-10 001400" src="https://github.com/user-attachments/assets/65a4bb6b-7e95-4ba9-b3e6-e0d4d03ede8d" />
 
