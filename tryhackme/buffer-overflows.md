@@ -26,6 +26,8 @@ Looking at the c code with r2 (radare2); Similar to Immunity Debugger but more l
 Tested the memory with shellcode and extra charaters
 <img width="936" height="211" alt="Screenshot 2026-09-09 235015" src="https://github.com/user-attachments/assets/de3aec2c-a6d0-4b6e-a76b-ca1abd9a5e92" />
 
+
+Tested memory in r2 
 <img width="930" height="435" alt="Screenshot 2026-09-09 235040" src="https://github.com/user-attachments/assets/437f8b2a-0a73-4f1e-9e22-fcbd63bcb166" />
 
 <img width="937" height="375" alt="Screenshot 2026-09-09 235103" src="https://github.com/user-attachments/assets/e36580ca-c1a0-481c-8f4d-67347aedcc90" />
