@@ -59,4 +59,5 @@ Checking memory at rsp
 
 <img width="935" height="330" alt="Screenshot 2026-09-10 004506" src="https://github.com/user-attachments/assets/17803a23-5fec-4850-91cd-d7569a3bc8bc" />
 
+<img width="927" height="67" alt="Screenshot 2026-09-10 005408" src="https://github.com/user-attachments/assets/1b6a5c81-e4fe-401a-a746-e2280464464c" />
 
