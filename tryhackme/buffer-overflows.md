@@ -64,3 +64,9 @@ Checking memory at rsp
 
 Shellcode to open basic shell
 <img width="1006" height="28" alt="Screenshot 2026-09-10 233100" src="https://github.com/user-attachments/assets/e610d681-a435-44a3-a40b-36d7e4d05fda" />
+
+Disassembled shellcode
+<img width="728" height="334" alt="Screenshot 2026-09-10 233646" src="https://github.com/user-attachments/assets/a8ce4601-97dc-49df-860a-91b74f278c09" />
+
+
+
