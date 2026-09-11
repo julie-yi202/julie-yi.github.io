@@ -83,6 +83,25 @@ The Bs popped from stack into rip. You can see 0x42424242 in rip
 
 We select address in the middle of the NOPS.
 0x7fffffffe278
+<img width="933" height="466" alt="Screenshot 2026-09-11 012241" src="https://github.com/user-attachments/assets/b5bed61b-1017-42a6-98f0-8b45b688318f" />
+
+<img width="944" height="335" alt="Screenshot 2026-09-11 012310" src="https://github.com/user-attachments/assets/e293208a-7b5d-48b2-b6b1-9cdef88b350a" />
+
+<img width="941" height="320" alt="Screenshot 2026-09-11 012342" src="https://github.com/user-attachments/assets/2cc8c608-fdd9-46fb-a4d1-310227ddc9d7" />
+
+Trying different shellcode
+<img width="936" height="454" alt="Screenshot 2026-09-11 013540" src="https://github.com/user-attachments/assets/4ed62099-b10a-40c2-9fb0-9e04c1003389" />
+
+<img width="936" height="674" alt="Screenshot 2026-09-11 013609" src="https://github.com/user-attachments/assets/f7332fb5-0273-4b8f-b970-de93e83719ae" />
+
+
+
+
+
+
+
+
+
 
 
 
