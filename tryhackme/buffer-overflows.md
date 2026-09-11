@@ -76,6 +76,11 @@ Running Command in r2
 You can see the shellcode was executed in the memory.
 <img width="937" height="304" alt="Screenshot 2026-09-11 003040" src="https://github.com/user-attachments/assets/d2efa403-2c7a-4bde-a255-f6e3c7deb80a" />
 
+The Bs popped from stack into rip. You can see 0x42424242 in rip 
+<img width="943" height="373" alt="Screenshot 2026-09-11 003524" src="https://github.com/user-attachments/assets/f5c5c4bb-1e07-49d3-a3c3-16d1b9edd95c" />
+
+
+
 We select address in the middle of the NOPS.
 0x7fffffffe78
 
