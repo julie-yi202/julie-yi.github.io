@@ -62,3 +62,5 @@ Checking memory at rsp
 
 <img width="927" height="67" alt="Screenshot 2026-09-10 005408" src="https://github.com/user-attachments/assets/1b6a5c81-e4fe-401a-a746-e2280464464c" />
 
+Shellcode to open basic shell
+<img width="1006" height="28" alt="Screenshot 2026-09-10 233100" src="https://github.com/user-attachments/assets/e610d681-a435-44a3-a40b-36d7e4d05fda" />
