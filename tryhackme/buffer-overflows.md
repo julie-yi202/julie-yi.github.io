@@ -76,6 +76,9 @@ Running Command in r2
 You can see the shellcode was executed in the memory.
 <img width="937" height="304" alt="Screenshot 2026-09-11 003040" src="https://github.com/user-attachments/assets/d2efa403-2c7a-4bde-a255-f6e3c7deb80a" />
 
+We select address in the middle of the NOPS.
+0x7fffffffe78
+
 
 
 
