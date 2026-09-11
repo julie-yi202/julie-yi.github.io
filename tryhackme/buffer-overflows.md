@@ -68,5 +68,12 @@ Shellcode to open basic shell
 Disassembled shellcode
 <img width="728" height="334" alt="Screenshot 2026-09-10 233646" src="https://github.com/user-attachments/assets/a8ce4601-97dc-49df-860a-91b74f278c09" />
 
+Running Command in r2
+<img width="931" height="381" alt="Screenshot 2026-09-11 002002" src="https://github.com/user-attachments/assets/5351ee38-4bb4-4bd5-b62b-9b643d0798e4" />
+
+<img width="929" height="453" alt="Screenshot 2026-09-11 002312" src="https://github.com/user-attachments/assets/7bd15a22-f531-4ce3-b370-9e577429a121" />
+
+
+
 
 
