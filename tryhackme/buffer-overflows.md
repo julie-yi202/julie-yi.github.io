@@ -92,6 +92,16 @@ We select address in the middle of the NOPS.
 Trying different shellcode
 <img width="936" height="454" alt="Screenshot 2026-09-11 013540" src="https://github.com/user-attachments/assets/4ed62099-b10a-40c2-9fb0-9e04c1003389" />
 
+Signal 11 is your indicator that:
+
+You hit an invalid address
+
+You overwrote something important
+
+You’re close to hijacking control flow
+
+It’s a normal part of exploit dev.
+
 <img width="936" height="674" alt="Screenshot 2026-09-11 013609" src="https://github.com/user-attachments/assets/f7332fb5-0273-4b8f-b970-de93e83719ae" />
 
 
