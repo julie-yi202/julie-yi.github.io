@@ -215,6 +215,8 @@ Set the break point at 0x7fffffffe2a4
 
 Going step thru the NOPs
 
+you can see the position of the shell code moved twice
+
 <img width="937" height="385" alt="Screenshot 2026-09-12 005716" src="https://github.com/user-attachments/assets/70d3b21a-5e43-4ed2-b959-6167581ba7d0" />
 
 
