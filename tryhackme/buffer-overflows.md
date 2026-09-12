@@ -119,6 +119,8 @@ AAAAAAAABBBBBBBCCCCCCCCBDDDDDDDD
 
 <img width="898" height="355" alt="Screenshot 2026-09-11 215504" src="https://github.com/user-attachments/assets/5adc8bfa-743b-449d-82ee-97b6bd1deddd" />
 
+<img width="932" height="632" alt="Screenshot 2026-09-11 221725" src="https://github.com/user-attachments/assets/99a43994-1deb-4085-bc13-b8fd3aff8926" />
+
 
 
 
