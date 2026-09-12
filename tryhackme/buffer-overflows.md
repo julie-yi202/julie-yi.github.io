@@ -112,6 +112,8 @@ All chars for bad char check
 <img width="883" height="640" alt="Screenshot 2026-09-11 214914" src="https://github.com/user-attachments/assets/a015376e-92bd-4320-97b1-ebb13f45f5af" />
 
 
+For debugging I used easy to see input to find address where buffer variable is stored
+AAAAAAAABBBBBBBCCCCCCCCBDDDDDDDD
 
 <img width="888" height="229" alt="Screenshot 2026-09-11 215435" src="https://github.com/user-attachments/assets/ee920715-b9ea-4d9a-aaa6-0fd668903d36" />
 
