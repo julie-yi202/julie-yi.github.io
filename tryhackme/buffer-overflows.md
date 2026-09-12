@@ -229,6 +229,20 @@ Got one more shellcode for suid
 <img width="937" height="212" alt="Screenshot 2026-09-12 173200" src="https://github.com/user-attachments/assets/e6a9dbeb-1e51-46ee-8afb-d0b46382299c" />
 
 And got the shell with user2 permission and flag
+### Alternative way
+
+<img width="928" height="316" alt="Screenshot 2026-09-12 175729" src="https://github.com/user-attachments/assets/7ba6186f-6ead-4c29-8c15-768207539fdd" />
+
+Used msfvenom to craft shell code for payload.
+
+<img width="942" height="498" alt="Screenshot 2026-09-12 175813" src="https://github.com/user-attachments/assets/6e700756-086d-44b2-bb28-53ba718a0b1f" />
+
+After inspecting the memory, set the break point db 0x7fffffffe240.
+
+<img width="923" height="424" alt="Screenshot 2026-09-12 180017" src="https://github.com/user-attachments/assets/30572122-0a90-4468-bb7b-ace80a1590be" />
+
+
+
 
 
 
