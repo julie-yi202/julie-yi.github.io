@@ -128,7 +128,7 @@ AAAAAAAABBBBBBBCCCCCCCCBDDDDDDDD
 
 <img width="936" height="615" alt="Screenshot 2026-09-11 223638" src="https://github.com/user-attachments/assets/3b8ba95b-732e-4341-b2f2-c5ebb0bf23e8" />
 
-Put the break point at 0x40552
+Put the break point at 0x400552
 
 <img width="930" height="422" alt="Screenshot 2026-09-11 225814" src="https://github.com/user-attachments/assets/59595047-cc51-414a-b0d7-532ad64ab018" />
 
