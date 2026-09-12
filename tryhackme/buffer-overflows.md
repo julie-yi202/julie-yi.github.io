@@ -220,7 +220,7 @@ you can see the position of the shell code moved twice
 <img width="937" height="385" alt="Screenshot 2026-09-12 005716" src="https://github.com/user-attachments/assets/70d3b21a-5e43-4ed2-b959-6167581ba7d0" />
 
 <img width="926" height="661" alt="Screenshot 2026-09-12 171033" src="https://github.com/user-attachments/assets/595fa073-b5dd-4f7e-bc7a-6ecf96b28ede" />
-After changing shellcode, removing bad chars, and changing return address, got the shell.
+After changing shellcode, removing bad chars, and changing return address, got the shell. But the user1 doesn't have permission to get the secret.txt file.
 
 
 
