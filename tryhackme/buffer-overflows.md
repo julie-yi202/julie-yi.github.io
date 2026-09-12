@@ -122,7 +122,9 @@ AAAAAAAABBBBBBBCCCCCCCCBDDDDDDDD
 <img width="932" height="632" alt="Screenshot 2026-09-11 221725" src="https://github.com/user-attachments/assets/99a43994-1deb-4085-bc13-b8fd3aff8926" />
 
 
+<img width="934" height="464" alt="Screenshot 2026-09-11 222632" src="https://github.com/user-attachments/assets/925c6c96-b01a-418c-8d11-28995ddbdc96" />
 
+<img width="927" height="358" alt="Screenshot 2026-09-11 222704" src="https://github.com/user-attachments/assets/bc645b6c-e5b3-474c-8bce-70c15827a172" />
 
 
 
