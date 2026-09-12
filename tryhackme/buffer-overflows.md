@@ -133,6 +133,8 @@ Put the break point at 0x400552
 <img width="930" height="422" alt="Screenshot 2026-09-11 225814" src="https://github.com/user-attachments/assets/59595047-cc51-414a-b0d7-532ad64ab018" />
 
 
+<img width="926" height="360" alt="Screenshot 2026-09-11 231526" src="https://github.com/user-attachments/assets/d1c6f57e-c159-4bca-a598-d38d9934a443" />
+
 
 
 
