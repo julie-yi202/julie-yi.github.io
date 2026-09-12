@@ -107,6 +107,20 @@ It’s a normal part of exploit dev.
 All chars for bad char check
 <img width="880" height="641" alt="Screenshot 2026-09-11 213852" src="https://github.com/user-attachments/assets/3d57b8f4-c5e7-4299-8288-8f42df9feea6" />
 
+<img width="859" height="399" alt="Screenshot 2026-09-11 214849" src="https://github.com/user-attachments/assets/7c68e7d5-481c-404a-99f2-ab90a3d83d00" />
+
+<img width="883" height="640" alt="Screenshot 2026-09-11 214914" src="https://github.com/user-attachments/assets/a015376e-92bd-4320-97b1-ebb13f45f5af" />
+
+
+
+<img width="888" height="229" alt="Screenshot 2026-09-11 215435" src="https://github.com/user-attachments/assets/ee920715-b9ea-4d9a-aaa6-0fd668903d36" />
+
+<img width="898" height="355" alt="Screenshot 2026-09-11 215504" src="https://github.com/user-attachments/assets/5adc8bfa-743b-449d-82ee-97b6bd1deddd" />
+
+
+
+
+
 
 
 
