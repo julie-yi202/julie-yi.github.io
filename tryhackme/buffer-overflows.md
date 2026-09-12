@@ -250,7 +250,7 @@ And execute the code 'dc'
 
 <img width="927" height="352" alt="Screenshot 2026-09-12 184948" src="https://github.com/user-attachments/assets/9267e817-ff17-47a1-8c61-d8c810592a96" />
 
-Check the registers
+Check the registers 'dr'
 
 
 
