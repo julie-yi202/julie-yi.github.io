@@ -238,6 +238,18 @@ And got the shell with user2 permission and flag
 
 <img width="932" height="268" alt="Screenshot 2026-09-12 184227" src="https://github.com/user-attachments/assets/699f89c2-889d-414c-a386-de34b4079960" />
 
+<img width="912" height="322" alt="Screenshot 2026-09-12 184553" src="https://github.com/user-attachments/assets/61ddd9a5-717e-4338-b181-5dfc35ab2ce6" />
+
+<img width="936" height="630" alt="Screenshot 2026-09-12 184609" src="https://github.com/user-attachments/assets/37dd7847-c595-4802-93d8-6f581f89698c" />
+
+Let's set the break point to the return address 'db 0x4005ab'
+And execute the code 'dc'
+
+<img width="927" height="352" alt="Screenshot 2026-09-12 184948" src="https://github.com/user-attachments/assets/9267e817-ff17-47a1-8c61-d8c810592a96" />
+
+Check the registers
+
+
 
 
 
