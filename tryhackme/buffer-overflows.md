@@ -121,14 +121,23 @@ AAAAAAAABBBBBBBCCCCCCCCBDDDDDDDD
 
 
 ###Trying to find bad characters
+
 common bad characters
+
 \x00    null byte      strcpy, strcat, scanf, sprintf: terminates most string ops
+
 \x0a    newline        fgets, line-based protocols (HTTP, SMTP, telnet)
+
 \x0d    carriage ret   HTTP parsers, some terminal protocols
+
 \x20    space          whitespace-delimited parsers
+
 \x26    &              URL-encoded fields
+
 \x3d    =              key=value parsers
+
 \xff    DEL            some terminal emulators
+
 <img width="932" height="632" alt="Screenshot 2026-09-11 221725" src="https://github.com/user-attachments/assets/99a43994-1deb-4085-bc13-b8fd3aff8926" />
 
 
