@@ -191,7 +191,7 @@ The address is on top of rsp to be read by ret instruction
 
 <img width="941" height="388" alt="Screenshot 2026-09-12 003322" src="https://github.com/user-attachments/assets/bc1c4d91-28c1-4f11-a303-f8867873b188" />
 
-The ds command hops the memory.
+The ds command hops to the right address.
 
 <img width="934" height="359" alt="Screenshot 2026-09-12 003354" src="https://github.com/user-attachments/assets/f7b378ad-759e-4678-9bae-03fdf5dff612" />
 
