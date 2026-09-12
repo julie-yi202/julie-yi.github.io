@@ -170,6 +170,9 @@ Set the Break Point and continue
 There is 0000 0000 after 1f, removing \x20
 <img width="928" height="491" alt="Screenshot 2026-09-11 235308" src="https://github.com/user-attachments/assets/953f9f12-b7da-4e42-8c3e-1d2befba03e8" />
 
+<img width="938" height="369" alt="Screenshot 2026-09-11 235551" src="https://github.com/user-attachments/assets/e5aefff9-e553-41be-8d6c-e9f443fb83a4" />
+
+
 
 
 
