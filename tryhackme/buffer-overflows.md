@@ -222,6 +222,15 @@ you can see the position of the shell code moved twice
 <img width="926" height="661" alt="Screenshot 2026-09-12 171033" src="https://github.com/user-attachments/assets/595fa073-b5dd-4f7e-bc7a-6ecf96b28ede" />
 After changing shellcode, removing bad chars, and changing return address, got the shell. But the user1 doesn't have permission to get the secret.txt file.
 
+<img width="928" height="121" alt="Screenshot 2026-09-12 173131" src="https://github.com/user-attachments/assets/4abd65e1-efd9-4af7-8315-c86753afacac" />
+
+Got one more shellcode for suid
+
+<img width="937" height="212" alt="Screenshot 2026-09-12 173200" src="https://github.com/user-attachments/assets/e6a9dbeb-1e51-46ee-8afb-d0b46382299c" />
+
+And got the shell with user2 permission and flag
+
+
 
 
 
