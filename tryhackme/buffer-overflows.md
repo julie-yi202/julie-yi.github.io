@@ -120,7 +120,7 @@ AAAAAAAABBBBBBBCCCCCCCCBDDDDDDDD
 <img width="898" height="355" alt="Screenshot 2026-09-11 215504" src="https://github.com/user-attachments/assets/5adc8bfa-743b-449d-82ee-97b6bd1deddd" />
 
 
-Trying to find bad characters
+###Trying to find bad characters
 common bad characters
 \x00    null byte      strcpy, strcat, scanf, sprintf: terminates most string ops
 \x0a    newline        fgets, line-based protocols (HTTP, SMTP, telnet)
