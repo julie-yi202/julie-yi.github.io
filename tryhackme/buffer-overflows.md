@@ -234,6 +234,9 @@ And got the shell with user2 permission and flag
 
 <img width="924" height="370" alt="Screenshot 2026-09-12 181834" src="https://github.com/user-attachments/assets/e88de067-7d4d-4681-a5f3-d306dba3e365" />
 
+<img width="921" height="629" alt="Screenshot 2026-09-12 184201" src="https://github.com/user-attachments/assets/7a30371c-b986-4e8f-9ec7-21ab848ca96f" />
+
+<img width="932" height="268" alt="Screenshot 2026-09-12 184227" src="https://github.com/user-attachments/assets/699f89c2-889d-414c-a386-de34b4079960" />
 
 
 
