@@ -188,9 +188,21 @@ Set the break point to 0x400563
 
 <img width="935" height="646" alt="Screenshot 2026-09-12 002920" src="https://github.com/user-attachments/assets/380ca257-86a1-4e16-b4ac-f66691b77f34" />
 
+<img width="941" height="388" alt="Screenshot 2026-09-12 003322" src="https://github.com/user-attachments/assets/bc1c4d91-28c1-4f11-a303-f8867873b188" />
 
+<img width="934" height="359" alt="Screenshot 2026-09-12 003354" src="https://github.com/user-attachments/assets/f7b378ad-759e-4678-9bae-03fdf5dff612" />
 
+When you’re walking toward the crash:
 
+ds helps you see exactly when RIP gets overwritten.  
+
+You can step instruction-by-instruction until the function returns and jumps to your corrupted saved RIP.
+
+You can watch the stack pointer move as the vulnerable function copies your payload.
+
+You can confirm shellcode placement by stepping until the crash and then inspecting memory (pxr @ rsp).
+
+You can verify control flow hijack: once the function hits ret, ds will step into the jump to your overwritten RIP (usually 0x4141414141414141 during offset discovery).
 
 
 
