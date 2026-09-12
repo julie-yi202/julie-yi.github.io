@@ -167,6 +167,10 @@ Removed \x0a from the All chars
 Set the Break Point and continue
 <img width="924" height="459" alt="Screenshot 2026-09-11 232807" src="https://github.com/user-attachments/assets/79d2bd33-7e72-4882-b23c-8a10edb91831" />
 
+There is 0000 0000 after 1f, removing \x20
+<img width="928" height="491" alt="Screenshot 2026-09-11 235308" src="https://github.com/user-attachments/assets/953f9f12-b7da-4e42-8c3e-1d2befba03e8" />
+
+
 
 
 
