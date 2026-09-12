@@ -155,6 +155,23 @@ Put the break point at 0x400552
 <img width="926" height="360" alt="Screenshot 2026-09-11 231526" src="https://github.com/user-attachments/assets/d1c6f57e-c159-4bca-a598-d38d9934a443" />
 
 
+Removed \x09 from the All chars
+<img width="936" height="468" alt="Screenshot 2026-09-11 232625" src="https://github.com/user-attachments/assets/c19b5ac2-891a-4398-ba56-3f2587a7705f" />
+
+Set the Break Point
+<img width="933" height="391" alt="Screenshot 2026-09-11 232658" src="https://github.com/user-attachments/assets/814bce55-ee7e-42d8-8949-1f4e85671bc0" />
+
+Removed \x0a from the All chars 
+<img width="933" height="469" alt="Screenshot 2026-09-11 232735" src="https://github.com/user-attachments/assets/a280d8c3-68bb-4d1a-ac17-0caabb030fe9" />
+
+Set the Break Point and continue
+<img width="924" height="459" alt="Screenshot 2026-09-11 232807" src="https://github.com/user-attachments/assets/79d2bd33-7e72-4882-b23c-8a10edb91831" />
+
+
+
+
+
+
 
 
 
