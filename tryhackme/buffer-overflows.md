@@ -176,6 +176,15 @@ All chars are in order.
 
 Bad chars: \x00\x09\x0a\x20
 
+Using new shell code
+
+<img width="942" height="419" alt="Screenshot 2026-09-12 002225" src="https://github.com/user-attachments/assets/f9ed1544-b8ee-4e6a-a8b8-40e83cce6ea3" />
+
+<img width="942" height="358" alt="Screenshot 2026-09-12 002245" src="https://github.com/user-attachments/assets/aad565c7-f2f8-42ea-9f30-49fc90543c0a" />
+
+
+
+
 
 
 
