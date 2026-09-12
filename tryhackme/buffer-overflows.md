@@ -213,6 +213,10 @@ Set the break point at 0x7fffffffe2a4
 
 <img width="933" height="403" alt="Screenshot 2026-09-12 005417" src="https://github.com/user-attachments/assets/99dd17a0-fc44-40aa-823b-ff02cf73329f" />
 
+Going step thru the NOPs
+
+<img width="937" height="385" alt="Screenshot 2026-09-12 005716" src="https://github.com/user-attachments/assets/70d3b21a-5e43-4ed2-b959-6167581ba7d0" />
+
 
 
 
