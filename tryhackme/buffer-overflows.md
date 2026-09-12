@@ -104,6 +104,10 @@ It’s a normal part of exploit dev.
 
 <img width="936" height="674" alt="Screenshot 2026-09-11 013609" src="https://github.com/user-attachments/assets/f7332fb5-0273-4b8f-b970-de93e83719ae" />
 
+All chars for bad char check
+<img width="880" height="641" alt="Screenshot 2026-09-11 213852" src="https://github.com/user-attachments/assets/3d57b8f4-c5e7-4299-8288-8f42df9feea6" />
+
+
 
 
 
