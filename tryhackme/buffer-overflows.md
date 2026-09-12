@@ -185,6 +185,7 @@ Using new shell code
 <img width="953" height="378" alt="Screenshot 2026-09-12 002414" src="https://github.com/user-attachments/assets/c59d7b13-2a7a-4556-af24-907b32a8ac53" />
 
 Set the break point to 0x400563
+The address is on top of rsp to be read by ret instruction
 
 <img width="935" height="646" alt="Screenshot 2026-09-12 002920" src="https://github.com/user-attachments/assets/380ca257-86a1-4e16-b4ac-f66691b77f34" />
 
