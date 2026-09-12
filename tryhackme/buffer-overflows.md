@@ -207,6 +207,9 @@ You can confirm shellcode placement by stepping until the crash and then inspect
 
 You can verify control flow hijack: once the function hits ret, ds will step into the jump to your overwritten RIP (usually 0x4141414141414141 during offset discovery).
 
+<img width="945" height="369" alt="Screenshot 2026-09-12 004741" src="https://github.com/user-attachments/assets/1a9c1716-d9fe-4bb4-8502-050db1a7ee1a" />
+
+
 
 
 
