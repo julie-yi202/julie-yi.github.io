@@ -245,6 +245,9 @@ And got the shell with user2 permission and flag
 Let's set the break point to the return address 'db 0x4005ab'
 And execute the code 'dc'
 
+<img width="932" height="170" alt="Screenshot 2026-09-12 184655" src="https://github.com/user-attachments/assets/59e03a91-f374-4adb-8dc1-e378ff96d277" />
+
+
 <img width="927" height="352" alt="Screenshot 2026-09-12 184948" src="https://github.com/user-attachments/assets/9267e817-ff17-47a1-8c61-d8c810592a96" />
 
 Check the registers
