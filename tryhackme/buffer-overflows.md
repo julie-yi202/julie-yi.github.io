@@ -254,9 +254,11 @@ Check the registers 'dr'
 
 <img width="922" height="424" alt="Screenshot 2026-09-12 185400" src="https://github.com/user-attachments/assets/8ac255d9-039c-4bc4-9170-a916b3b19946" />
 
+Didn't get the return address. The 'ret' address is not popped from the stack and put it in 'rip'
+
 <img width="936" height="372" alt="Screenshot 2026-09-12 190258" src="https://github.com/user-attachments/assets/5eaa9df7-ab52-481d-bbb3-0875abbf900d" />
 
-Used the rsp address backward to find out the offset
+Used the 'rsp' address backward to find out the offset
 
 <img width="935" height="68" alt="Screenshot 2026-09-12 191105" src="https://github.com/user-attachments/assets/e7cbf9d7-888d-412e-992f-a12fe6df26f2" />
 
