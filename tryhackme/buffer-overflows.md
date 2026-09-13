@@ -252,6 +252,10 @@ And execute the code 'dc'
 
 Check the registers 'dr'
 
+ds = debug step  
+
+It executes exactly one CPU instruction and then pauses execution again.
+
 <img width="922" height="424" alt="Screenshot 2026-09-12 185400" src="https://github.com/user-attachments/assets/8ac255d9-039c-4bc4-9170-a916b3b19946" />
 
 Didn't get the return address. The 'ret' address is not popped from the stack and put it in 'rip'
