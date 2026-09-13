@@ -230,7 +230,7 @@ Got one more shellcode for suid
 
 <img width="937" height="212" alt="Screenshot 2026-09-12 173200" src="https://github.com/user-attachments/assets/e6a9dbeb-1e51-46ee-8afb-d0b46382299c" />
 
-And got the shell with user2 permission and flag
+And got the shell with user2 permission and secret.txt
 
 #Task 9
 
@@ -301,7 +301,7 @@ You can see the BBBBBBBB in rsp clearly.
 
 I started return address with 7fffffffe240 and tried 7fffffffe270.
 
-Got the shell at 7fffffffe270.
+Got the shell at 7fffffffe270 and secret.txt.
 
 <img width="931" height="339" alt="Screenshot 2026-09-12 234412" src="https://github.com/user-attachments/assets/24e270c1-a203-4d5e-b0a7-183c3b7859f8" />
 
