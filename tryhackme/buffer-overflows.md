@@ -254,6 +254,9 @@ Check the registers 'dr'
 
 <img width="922" height="424" alt="Screenshot 2026-09-12 185400" src="https://github.com/user-attachments/assets/8ac255d9-039c-4bc4-9170-a916b3b19946" />
 
+<img width="936" height="372" alt="Screenshot 2026-09-12 190258" src="https://github.com/user-attachments/assets/5eaa9df7-ab52-481d-bbb3-0875abbf900d" />
+
+
 
 <img width="933" height="112" alt="image" src="https://github.com/user-attachments/assets/3a846a05-4bae-49b9-864e-2650fb53cf2d" />
 
