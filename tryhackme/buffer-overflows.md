@@ -258,7 +258,10 @@ Check the registers 'dr'
 
 Used the rsp address backward to find out the offset
 
-<img width="933" height="112" alt="image" src="https://github.com/user-attachments/assets/3a846a05-4bae-49b9-864e-2650fb53cf2d" />
+<img width="935" height="68" alt="Screenshot 2026-09-12 191105" src="https://github.com/user-attachments/assets/e7cbf9d7-888d-412e-992f-a12fe6df26f2" />
+
+
+
 
 
 
