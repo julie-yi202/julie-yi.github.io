@@ -297,6 +297,9 @@ Set the break point to the ret address and execute.
 
 You can see the BBBBBBBB in rsp clearly.
 
+<img width="924" height="342" alt="Screenshot 2026-09-12 200436" src="https://github.com/user-attachments/assets/3d4f9e42-d2c6-4c74-83cf-8fcf4b35d9af" />
+
+
 
 
 
