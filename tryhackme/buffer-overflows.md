@@ -299,6 +299,14 @@ You can see the BBBBBBBB in rsp clearly.
 
 <img width="924" height="342" alt="Screenshot 2026-09-12 200436" src="https://github.com/user-attachments/assets/3d4f9e42-d2c6-4c74-83cf-8fcf4b35d9af" />
 
+I started return address with 7fffffffe240 and tried 7fffffffe270.
+
+Got the shell at 7fffffffe270.
+
+<img width="931" height="339" alt="Screenshot 2026-09-12 234412" src="https://github.com/user-attachments/assets/24e270c1-a203-4d5e-b0a7-183c3b7859f8" />
+
+
+
 
 
 
