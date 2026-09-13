@@ -275,7 +275,7 @@ The compiled file-'buffer-overflow-2' is suid binary with buffer overflow vulner
 
 
 Replace address with Bs to confirm the position and also check for the right address
-Also replace the user3 permission id to 1003 and correspondent payload
+Also replace the user3 permission has id to 1003 and correspondent payload
 
 <img width="926" height="70" alt="Screenshot 2026-09-12 195006" src="https://github.com/user-attachments/assets/64472b7f-3184-46e0-832c-655ae587b56a" />
 
