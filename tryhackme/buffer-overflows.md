@@ -269,6 +269,11 @@ Used the 'rsp' address backward to find out the offset
 <img width="935" height="68" alt="Screenshot 2026-09-12 191105" src="https://github.com/user-attachments/assets/e7cbf9d7-888d-412e-992f-a12fe6df26f2" />
 
 
+<img width="933" height="152" alt="image" src="https://github.com/user-attachments/assets/b26fe45c-f5c7-41b1-9489-6da2b21403cd" />
+
+The compiled file-'buffer-overflow-2' is suid binary with buffer overflow vulnerability.
+
+
 
 
 
