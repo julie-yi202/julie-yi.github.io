@@ -305,6 +305,9 @@ Got the shell at 7fffffffe270.
 
 <img width="931" height="339" alt="Screenshot 2026-09-12 234412" src="https://github.com/user-attachments/assets/24e270c1-a203-4d5e-b0a7-183c3b7859f8" />
 
+<img width="935" height="186" alt="Screenshot 2026-09-12 234637" src="https://github.com/user-attachments/assets/2281c650-46cf-44c6-b2e0-431076a246c4" />
+
+
 
 
 
