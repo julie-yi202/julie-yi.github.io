@@ -281,6 +281,23 @@ Also replace the user3 permission has id to 1003 and correspondent payload
 
 <img width="1008" height="97" alt="Screenshot 2026-09-12 195117" src="https://github.com/user-attachments/assets/fe134928-1f0d-4c34-ad3a-49df4af2c637" />
 
+ Run the r2 with the shellcode above
+ 
+<img width="930" height="599" alt="Screenshot 2026-09-12 200252" src="https://github.com/user-attachments/assets/1e24c3de-1889-4e62-a4f2-b9ad6c219d9a" />
+
+<img width="933" height="327" alt="Screenshot 2026-09-12 200330" src="https://github.com/user-attachments/assets/418221ee-36ea-4606-887f-19330bb3506f" />
+
+<img width="937" height="597" alt="Screenshot 2026-09-12 200353" src="https://github.com/user-attachments/assets/f47adbfc-e7f0-42e8-8923-46b169b98325" />
+
+Set the break point to the ret address and execute.
+
+<img width="934" height="404" alt="Screenshot 2026-09-12 200417" src="https://github.com/user-attachments/assets/8bd33481-179b-4417-81ed-b4652f6041c0" />
+
+You can see the BBBBBBBB in rsp clearly.
+
+
+
+
 
 
 
