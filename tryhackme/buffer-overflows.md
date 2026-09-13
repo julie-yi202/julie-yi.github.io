@@ -279,6 +279,9 @@ Also replace the user3 permission id to 1003 and correspondent payload
 
 <img width="926" height="70" alt="Screenshot 2026-09-12 195006" src="https://github.com/user-attachments/assets/64472b7f-3184-46e0-832c-655ae587b56a" />
 
+<img width="1008" height="97" alt="Screenshot 2026-09-12 195117" src="https://github.com/user-attachments/assets/fe134928-1f0d-4c34-ad3a-49df4af2c637" />
+
+
 
 
 
