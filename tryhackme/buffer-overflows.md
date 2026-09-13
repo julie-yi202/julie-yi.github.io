@@ -256,7 +256,7 @@ Check the registers 'dr'
 
 <img width="936" height="372" alt="Screenshot 2026-09-12 190258" src="https://github.com/user-attachments/assets/5eaa9df7-ab52-481d-bbb3-0875abbf900d" />
 
-
+Used the rsp address backward to find out the offset
 
 <img width="933" height="112" alt="image" src="https://github.com/user-attachments/assets/3a846a05-4bae-49b9-864e-2650fb53cf2d" />
 
